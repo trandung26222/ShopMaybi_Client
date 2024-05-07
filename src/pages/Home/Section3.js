@@ -5,6 +5,7 @@ import { useRef } from "react";
 import { IconButton } from "@mui/material";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
+import { useSelector } from "react-redux";
 
 function Section3(props) {
   const menuItems = [
@@ -70,22 +71,23 @@ function Section3(props) {
   const containerRef = useRef(null);
   const scrollLeft = () => {
     if (containerRef.current) {
-      containerRef.current.scrollLeft -= 150; // Điều chỉnh giá trị này để thay đổi lượng scroll
+      containerRef.current.scrollLeft -= 600; // Điều chỉnh giá trị này để thay đổi lượng scroll
     }
   };
 
   const scrollRight = () => {
     if (containerRef.current) {
-      containerRef.current.scrollLeft += 150; // Điều chỉnh giá trị này để thay đổi lượng scroll
+      containerRef.current.scrollLeft += 600; // Điều chỉnh giá trị này để thay đổi lượng scroll
     }
   };
+
   return (
-    <section className="flex flex-col items-center mb-3 relative ">
+    <section className="flex flex-col items-center mb-12 relative ">
       <h2 className="text-[var(--text-color)] text-[2em] mb-[40px]">
         MAYBI DANH MỤC SẢN PHẨM
       </h2>
 
-      <span className="absolute left-[-60px] top-[45%]">
+      <span className="absolute left-[-60px] top-[45%] hidden btn-chuyentrang">
         <IconButton onClick={scrollLeft}>
           <ChevronLeftIcon
             className="text-black"
@@ -93,7 +95,7 @@ function Section3(props) {
           ></ChevronLeftIcon>
         </IconButton>
       </span>
-      <span className="absolute right-[-60px] top-[45%]">
+      <span className="absolute right-[-60px] top-[45%] hidden btn-chuyentrang">
         <IconButton onClick={scrollRight}>
           <ChevronRightIcon
             className="text-black"
@@ -102,20 +104,13 @@ function Section3(props) {
         </IconButton>
       </span>
 
-      <Box
+      <div
         ref={containerRef}
-        sx={{
-          width: "100%",
-          flexWrap: "nowrap",
-          display: "flex",
-          overflow: "hidden",
-          justifyContent: "space-between",
-        }}
-        className={"scroll-setting"}
+        className="menuSection3 scroll-setting w-full flex-nowrap flex overflow-auto justify-between"
       >
         {menuItems.map((menuItem, index) => {
           return (
-            <div key={index} className="m-3 min-w-[150px]">
+            <div key={index} className="m-3 min-w-[180px]  ss_item">
               <a href={menuItem.link}>
                 <div className="ss_img">
                   <img
@@ -126,15 +121,19 @@ function Section3(props) {
                     alt="season_coll_6_img.png"
                   />
                 </div>
-                <div className="ss_info ">
-                  <div className="ss_name">{menuItem.ssname}</div>
-                  <span className="ss_number">{menuItem.ssnumber}</span>
+                <div className="mt-[9px] flex flex-col items-center ">
+                  <div className="text-center text-[18px] font-[500]">
+                    {menuItem.ssname}
+                  </div>
+                  <span className="text-[14px] font-[500] text-[#888]">
+                    {menuItem.ssnumber}
+                  </span>
                 </div>
               </a>
             </div>
           );
         })}
-      </Box>
+      </div>
     </section>
   );
 }

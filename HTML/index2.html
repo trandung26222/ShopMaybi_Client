@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div className="policies-item">
+      <div className="policies-image">
+        <img
+          src="//theme.hstatic.net/1000341902/1001140246/14/policies_icon_1_thumb.png?v=754"
+          width="40"
+          height="40"
+          alt=""
+        />
+      </div>
+      <div className="policies-info">
+        <h3 className="policies-title">Vận chuyển nhanh chóng</h3>
+        <div className="policies-desc">Nhận hàng trong vòng 3 ngày</div>
+      </div>
+    </div>
+  </body>
+  <script>
+    // Lấy phần tử cha policies-item
+    var policiesItem = document.querySelector(".policies-item");
+
+    // Lấy giá trị của thuộc tính src trong thẻ img
+    var imgSrc = policiesItem.querySelector("img").getAttribute("src");
+
+    // Lấy nội dung văn bản của thẻ h3
+    var h3Text = policiesItem.querySelector(".policies-title").textContent;
+
+    // Lấy nội dung văn bản của thẻ div có lớp policies-desc
+    var divText = policiesItem.querySelector(".policies-desc").textContent;
+
+    // In kết quả
+    console.log("Src của img:", imgSrc);
+    console.log("Text của h3:", h3Text);
+    console.log("Text của div policies-desc:", divText);
+  </script>
+</html>

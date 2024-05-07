@@ -72,7 +72,7 @@ function Header(props) {
     );
   };
   return (
-    <header className="bg-white  z-[1000] sticky top-0 w-full h-[var(--height-header)]  flex items-center px-[var(--padding-header)] justify-between ">
+    <header className="bg-white  z-[1000] sticky top-0 w-full h-[var(--height-header)]  flex items-center px-[var(--padding-header)] justify-between shadow-md">
       <img
         className="mr-14 cursor-pointer"
         src="//theme.hstatic.net/1000341902/1001140246/14/logo_medium.png?v=754"

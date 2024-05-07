@@ -17,6 +17,7 @@ function Home(props) {
       <Container>
         <Section2 />
         <Section3 />
+        <Section4 />
       </Container>
     </div>
   );
