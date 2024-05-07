@@ -10,7 +10,7 @@ export const ProductData = [
     gia: "224,100đ",
     color: ["xám", "hồng"],
     freeship: false,
-    giamgia: 15,
+    giamgia: 40,
   },
   {
     srcimg: [
@@ -18,7 +18,7 @@ export const ProductData = [
       "https://product.hstatic.net/1000341902/product/dsc01952_699f1674d5b145a28e1fbf6c5d91ffbd_large.jpg",
     ],
     title: "Áo dài suông lụa tơ",
-    gia: "299,400₫",
+    gia: "299,400đ",
     color: ["xanh mint", "xanh da trời"],
     freeship: true,
     giamgia: 30,
@@ -44,7 +44,7 @@ export const ProductData = [
     gia: "197,400đ",
     color: ["đỏ", "nâu"],
     freeship: true,
-    giamgia: 15,
+    giamgia: 45,
   },
   {
     srcimg: [

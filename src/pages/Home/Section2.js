@@ -27,8 +27,8 @@ function Section2(props) {
 
   return (
     <section className="flex justify-between w-full py-[33px] mb-3 px-3">
-      {items.map((item) => (
-        <div className="flex justify-between gap-2 items-center">
+      {items.map((item, index) => (
+        <div key={index} className="flex justify-between gap-2 items-center">
           <div className="">
             <img src={item.src} alt="" width="40" height="40" />
           </div>
