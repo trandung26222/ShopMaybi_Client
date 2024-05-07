@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 
 function Footer(props) {
-  return <div>Footer</div>;
+  return <footer className="block z-[1000]">Footer</footer>;
 }
 
 Footer.propTypes = {};

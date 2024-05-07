@@ -5,7 +5,7 @@ import Footer from "./Footer";
 
 function DefaultLayout({ children }) {
   return (
-    <div>
+    <div className="relative w-[100vw] h-[100vh] overflow-y-auto scroll-setting ">
       <Header></Header>
       {children}
       <Footer></Footer>

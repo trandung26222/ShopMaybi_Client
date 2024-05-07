@@ -72,7 +72,7 @@ function Header(props) {
     );
   };
   return (
-    <div className="w-full h-[4.25rem] border flex items-center px-[9.375rem] justify-between ">
+    <header className="bg-white  z-[1000] sticky top-0 w-full h-[var(--height-header)]  flex items-center px-[var(--padding-header)] justify-between ">
       <img
         className="mr-14 cursor-pointer"
         src="//theme.hstatic.net/1000341902/1001140246/14/logo_medium.png?v=754"
@@ -85,7 +85,10 @@ function Header(props) {
         {menuItems.map((item, index) => {
           if (MenuItemindex.includes(index)) {
             return (
-              <div className="flex flex-col items-center relative border ">
+              <div
+                key={index}
+                className=" parent flex flex-col items-center relative  cursor-pointer"
+              >
                 <NavLink key={index} to="/messages" className="navlink-header">
                   {item.iconSrc && (
                     <>
@@ -99,7 +102,7 @@ function Header(props) {
                   )}
                   <p className="p-header-collection">{item.text}</p>
                 </NavLink>
-                <span className="w-full h-[1.6px] bg-slate-500 relative my-[0.5rem] "></span>
+                <span className="child-span w-full h-[1.6px] bg-slate-500 relative my-[0.3rem] invisible tran-width "></span>
               </div>
             );
           }
@@ -108,26 +111,26 @@ function Header(props) {
       </nav>
 
       <div className="flex gap-2 ml-8 mr-8 items-center">
-        <IconButton size="small">
+        <div size="small">
           <button
             className={`w-[39px] h-[39px] ${
               MenuItemindex[0] === 0 ? "cursor-not-allowed" : ""
             }`}
             onClick={handlepre}
           >
-            <ChevronLeftIcon className="hover:text-gray-400 "></ChevronLeftIcon>
+            <ChevronLeftIcon className="hover:text-gray-800 text-black"></ChevronLeftIcon>
           </button>
-        </IconButton>
-        <IconButton size="small">
+        </div>
+        <div size="small">
           <button
             onClick={handlenext}
             className={`w-[39px] h-[39px] ${
               MenuItemindex[0] === 4 ? "cursor-not-allowed" : ""
             }`}
           >
-            <ChevronRightIcon className="hover:text-gray-400 "></ChevronRightIcon>
+            <ChevronRightIcon className="hover:text-gray-800 text-black"></ChevronRightIcon>
           </button>
-        </IconButton>
+        </div>
       </div>
 
       <div className="flex items-center gap-4 ">
@@ -138,9 +141,9 @@ function Header(props) {
 
         <Tooltip
           title={
-            <div className="flex flex-col w-[80px] h-[65px] text-[0.9rem] p-0 ">
-              <button className="flex-1 ">Đăng nhập</button>
-              <button className="flex-1 ">Đăng ký</button>
+            <div className="flex flex-col w-[80px] h-[65px] text-[0.9rem] p-0 gap-2 justify-center items-start px-1">
+              <button className="">Đăng nhập</button>
+              <button className="">Đăng ký</button>
             </div>
           }
           arrow
@@ -170,7 +173,7 @@ function Header(props) {
           <p className="p-action-header">Giỏ hàng</p>
         </button>
       </div>
-    </div>
+    </header>
   );
 }
 
