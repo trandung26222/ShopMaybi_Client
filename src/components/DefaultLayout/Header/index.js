@@ -7,7 +7,6 @@ import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import { useState } from "react";
 import Tooltip from "@mui/material/Tooltip";
-import IconButton from "@mui/material/IconButton";
 
 const menuItems = [
   {
@@ -63,14 +62,7 @@ function Header(props) {
     });
     setMenuItemindex(tmp);
   };
-  const renderTippy = () => {
-    return (
-      <div className="bg-black text-white ">
-        <button>Đăng nhập</button>
-        <button>Đăng kí</button>
-      </div>
-    );
-  };
+
   return (
     <header className="bg-white  z-[1000] sticky top-0 w-full h-[var(--height-header)]  flex items-center px-[var(--padding-header)] justify-between shadow-md">
       <img
@@ -87,7 +79,7 @@ function Header(props) {
             return (
               <div
                 key={index}
-                className=" parent flex flex-col items-center relative  cursor-pointer"
+                className=" parent flex flex-col items-center relative cursor-pointer"
               >
                 <NavLink key={index} to="/messages" className="navlink-header">
                   {item.iconSrc && (
@@ -100,9 +92,9 @@ function Header(props) {
                       />
                     </>
                   )}
-                  <p className="p-header-collection">{item.text}</p>
+                  <p className="text-gray-600">{item.text}</p>
                 </NavLink>
-                <span className="child-span w-full h-[1.6px] bg-slate-500 relative my-[0.3rem] invisible tran-width "></span>
+                <span className="child-span w-full  h-[1.6px] bg-slate-500 relative my-[0.3rem] invisible transition-opacity ease-in-out duration-1000 opacity-0"></span>
               </div>
             );
           }
@@ -142,7 +134,14 @@ function Header(props) {
         <Tooltip
           title={
             <div className="flex flex-col w-[80px] h-[65px] text-[0.9rem] p-0 gap-2 justify-center items-start px-1">
-              <button className="">Đăng nhập</button>
+              <button
+                className=""
+                onClick={() => {
+                  console.log("hello");
+                }}
+              >
+                Đăng nhập
+              </button>
               <button className="">Đăng ký</button>
             </div>
           }

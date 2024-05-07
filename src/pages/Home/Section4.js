@@ -2,7 +2,6 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import { Grid } from "@mui/material";
-import Item from "./Item";
 import ItemProduct from "./ItemProduct";
 import { ProductData } from "./ProductData";
 

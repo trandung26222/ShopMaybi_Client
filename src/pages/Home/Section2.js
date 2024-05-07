@@ -26,7 +26,7 @@ function Section2(props) {
   ];
 
   return (
-    <section className="flex justify-between w-full py-[33px] mb-3 px-3">
+    <section className="flex justify-between w-full py-[33px] mb-3  pt-[60px]">
       {items.map((item, index) => (
         <div key={index} className="flex justify-between gap-2 items-center">
           <div className="">

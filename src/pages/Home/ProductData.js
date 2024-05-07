@@ -1,5 +1,3 @@
-import { TrendingUpSharp } from "@mui/icons-material";
-
 export const ProductData = [
   {
     srcimg: [
@@ -8,9 +6,10 @@ export const ProductData = [
     ],
     title: "Áo khoác chống nắng chống UV làm mát",
     gia: "224,100đ",
-    color: ["xám", "hồng"],
+    color: ["Xám", "Hồng"],
     freeship: false,
     giamgia: 40,
+    newin: true,
   },
   {
     srcimg: [
@@ -19,9 +18,10 @@ export const ProductData = [
     ],
     title: "Áo dài suông lụa tơ",
     gia: "299,400đ",
-    color: ["xanh mint", "xanh da trời"],
+    color: ["Xanh mint", "Xanh da trời"],
     freeship: true,
     giamgia: 30,
+    newin: false,
   },
   {
     srcimg: [
@@ -30,9 +30,10 @@ export const ProductData = [
     ],
     title: "Áo dài suông lụa sóng phối tay voan họa tiết",
     gia: "299,400đ",
-    color: ["kem phối", "hồng"],
+    color: ["Kem phối", "Hồng"],
     freeship: false,
     giamgia: 10,
+    newin: false,
   },
   {
     srcimg: [
@@ -42,9 +43,10 @@ export const ProductData = [
 
     title: "Áo gài nút ngắn tuyết nhung",
     gia: "197,400đ",
-    color: ["đỏ", "nâu"],
+    color: ["Đỏ", "Nâu"],
     freeship: true,
     giamgia: 45,
+    newin: true,
   },
   {
     srcimg: [
@@ -53,14 +55,26 @@ export const ProductData = [
     ],
     title: "Quần short tapta phối lưng xếp ly",
     gia: "1,000,000đ",
-    color: ["đen"],
+    color: ["Đen"],
     freeship: true,
     giamgia: 10,
+    newin: true,
+  },
+  {
+    srcimg: [
+      "https://product.hstatic.net/1000341902/product/2310wa42_12-_xanh__4__f7e79cd3edf44b86a74fad057d6ba238_large.jpg",
+      "https://product.hstatic.net/1000341902/product/2310wa42_12_-xanh_duong__4__071c67b9db5b4e669f55f5ac1acf5713_large.jpg",
+    ],
+    title: "Áo dài suông lụa tơ",
+    gia: "299,400đ",
+    color: ["Đen"],
+    freeship: true,
+    giamgia: 40,
+    newin: true,
   },
 ];
 
 /*
-
 {
     srcimg: "",
     title: "",

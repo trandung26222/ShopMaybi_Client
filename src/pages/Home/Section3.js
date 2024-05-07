@@ -1,11 +1,8 @@
 import React from "react";
-import PropTypes from "prop-types";
-import { Box } from "@mui/material";
 import { useRef } from "react";
 import { IconButton } from "@mui/material";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
-import { useSelector } from "react-redux";
 
 function Section3(props) {
   const menuItems = [
@@ -106,7 +103,7 @@ function Section3(props) {
 
       <div
         ref={containerRef}
-        className="menuSection3 scroll-setting w-full flex-nowrap flex overflow-auto justify-between"
+        className="menuSection3 w-full flex-nowrap flex overflow-auto justify-between"
       >
         {menuItems.map((menuItem, index) => {
           return (
@@ -137,7 +134,5 @@ function Section3(props) {
     </section>
   );
 }
-
-Section3.propTypes = {};
 
 export default Section3;
