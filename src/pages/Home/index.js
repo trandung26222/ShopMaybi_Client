@@ -4,10 +4,11 @@ import Section2 from "./Section2";
 import Section3 from "./Section3";
 import Section4 from "./Section4";
 import Container from "@mui/material/Container";
+import OurFeedBack from "./OurFeedBack";
 
 function Home(props) {
   return (
-    <div className=" w-full h-[3000px] ">
+    <div className=" w-full h-fit ">
       <section>
         <img
           src="https://theme.hstatic.net/1000341902/1001140246/14/slider_3.jpg?v=754"
@@ -19,6 +20,7 @@ function Home(props) {
         <Section3 />
         <Section4 />
       </Container>
+      <OurFeedBack />
     </div>
   );
 }

@@ -14,6 +14,11 @@ function App() {
       "--vw",
       `${e.target.innerWidth}px`
     );
+    document.documentElement.style.setProperty(
+      "--padding-header",
+      `${0.1 * e.target.innerWidth}px`
+    );
+    //--padding-header
   };
   useEffect(() => {
     window.addEventListener("resize", setWidth);
