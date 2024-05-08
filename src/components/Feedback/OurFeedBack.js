@@ -1,11 +1,11 @@
 import React, { useState, useRef } from "react";
 import Container from "@mui/material/Container";
-import ItemOurFeedback from "../../components/ItemOurFeedback";
-import { DataOurFeedback } from "../../components/ItemOurFeedback/DataOurFeedback";
+import { DataOurFeedback } from "./DataOurFeedback";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
-import { Icon, IconButton } from "@mui/material";
+import { IconButton } from "@mui/material";
 import { styled } from "@mui/material/styles";
+import ItemOurFeedback from "./ItemOurFeedback";
 
 const IconButtonCustom = styled(IconButton)(({ theme }) => ({
   backgroundColor: "rgba(0,0,0,0.03)",

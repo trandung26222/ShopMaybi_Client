@@ -11,49 +11,11 @@ import { useSelector, useDispatch } from "react-redux";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 import { toggleSidebar } from "../../../redux/slices/SidebarSlice";
-
-const menuItems = [
-  {
-    iconSrc:
-      "//theme.hstatic.net/1000341902/1001140246/14/menu_icon_1.png?v=754",
-    alt: "MỚI VỀ",
-    text: "MỚI VỀ",
-  },
-  {
-    iconSrc:
-      "//theme.hstatic.net/1000341902/1001140246/14/menu_icon_2.png?v=754",
-    alt: "MOTHER'S DAY",
-    text: "MOTHER'S DAY",
-  },
-  {
-    iconSrc:
-      "//theme.hstatic.net/1000341902/1001140246/14/menu_icon_3.png?v=754",
-    alt: "LAST CHANCE",
-    text: "LAST CHANCE",
-  },
-  {
-    iconSrc:
-      "//theme.hstatic.net/1000341902/1001140246/14/menu_icon_4.png?v=754",
-    alt: "BÁN CHẠY",
-    text: "BÁN CHẠY",
-  },
-  {
-    iconSrc:
-      "//theme.hstatic.net/1000341902/1001140246/14/menu_icon_5.png?v=754",
-    alt: "SẢN PHẨM",
-    text: "SẢN PHẨM",
-  },
-  {
-    text: "THỜI TRANG CÔNG SỞ",
-  },
-  {
-    text: "BLOG",
-  },
-];
+import { menuCollectionItem } from "./menuCollectionItem";
 
 function Header(props) {
   const [MenuItemindex, setMenuItemindex] = useState([0, 1, 2, 3]);
-  const lengthmenuitem = menuItems.length;
+  const lengthmenuitem = menuCollectionItem.length;
   var currentWidth = useSelector((state) => state.responsive.currentWidth);
   const handlepre = () => {
     setMenuItemindex([0, 1, 2, 3]);
@@ -92,11 +54,10 @@ function Header(props) {
         width="134"
         height="61"
       ></img>
-
       {currentWidth >= 1106 && (
         <>
           <nav className="flex items-start gap-6 w-full">
-            {menuItems.map((item, index) => {
+            {menuCollectionItem.map((item, index) => {
               if (MenuItemindex.includes(index)) {
                 return (
                   <div

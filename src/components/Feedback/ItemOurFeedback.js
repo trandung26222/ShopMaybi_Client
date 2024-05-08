@@ -13,7 +13,7 @@ function ItemOurFeedback({ props }) {
 
   return (
     <div className="w-[367px] h-full bg-white rounded-lg px-[23px] py-[20px] flex flex-col justify-start border relative">
-      <h2 className="text-[20px] tracking-wide">{props.username}</h2>
+      <h2 className="text-[20px] tracking-wide relative">{props.username}</h2>
       <div className="flex gap-[3px] mt-4 mb-4">
         {Array(sosao)
           .fill()
@@ -35,7 +35,7 @@ function ItemOurFeedback({ props }) {
         className="w-[100px] absolute right-[23px] top-[20px]"
         alt=""
       />
-      <span className="   w-[calc(367px - 46px)] h-[1px] bg-[rgba(0,0,0,0.3)]"></span>
+      <span className="w-[321px] h-[1px] bg-[rgba(0,0,0,0.3)] absolute bottom-14"></span>
     </div>
   );
 }

@@ -2,11 +2,11 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import { Grid } from "@mui/material";
-import ItemProduct from "./ItemProduct";
-import { ProductData } from "./ProductData";
+import { ProductData } from "../../components/Data/ProductData";
 import Button from "@mui/material/Button";
 import { styled } from "@mui/material/styles";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
+import ItemProduct from "../../components/ItemProduct/ItemProduct";
 
 const ColorButton = styled(Button)(({ theme }) => ({
   backgroundColor: "#FFFFFF",

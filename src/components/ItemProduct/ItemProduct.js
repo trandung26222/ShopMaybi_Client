@@ -28,7 +28,7 @@ function ItemProduct({ props }) {
           NEW-IN
         </span>
       )}
-      <Link className="bg-white w-full h-[324px] shadow-slate-200 shadow overflow-hidden ">
+      <Link className="bg-white w-[217px] h-[324px] shadow-slate-200 shadow overflow-hidden ">
         <img
           className=" w-full h-full transition-transform duration-[500ms] transform scale-100 hover:scale-95 "
           src={
@@ -36,7 +36,6 @@ function ItemProduct({ props }) {
               ? props.srcimg[indexColorHover]
               : props.srcimg[indexColorClick]
           }
-          // src={props.srcimg[0]}
           alt=""
           onMouseEnter={() => {
             setIsHover(true);

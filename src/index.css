@@ -12,21 +12,6 @@
   --link-color: #2f80ed;
 }
 
-.sidebar-active::before {
-  content: "";
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5); /* Màu nền với độ mờ 50% */
-  z-index: 998; /* Đảm bảo nằm trên tất cả các phần tử khác */
-}
-.sidebar {
-  z-index: 999; /* Đảm bảo thanh bên (sidebar) nằm trên lớp phủ */
-  position: fixed;
-}
-
 @layer components {
   .btn-action-header {
     @apply flex flex-col items-center;
@@ -68,7 +53,4 @@
   .menuSection3 {
     overflow: hidden;
   }
-}
-.tooltip-content {
-  padding: 0;
 }

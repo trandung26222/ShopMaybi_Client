@@ -7,8 +7,21 @@ import {
   faMobileScreenButton,
 } from "@fortawesome/free-solid-svg-icons";
 import { faEnvelope } from "@fortawesome/free-regular-svg-icons";
+import { useSelector } from "react-redux";
 
 function Footer(props) {
+  const footerLinks = document.querySelectorAll("footer a");
+  var currentWidth = useSelector((state) => state.responsive.currentWidth);
+  footerLinks.forEach((link) => {
+    link.addEventListener("mouseenter", (e) => {
+      e.target.style.color = "blue"; // Thay đổi màu sắc khi hover vào
+    });
+
+    link.addEventListener("mouseleave", (e) => {
+      e.target.style.color = ""; // Đặt lại màu sắc ban đầu khi rời chuột
+    });
+  });
+
   return (
     <footer className="block z-[1000] w-full h-fit pb-[40px] bg-[#F4ECDE] font-[Mulish] text-[15px]">
       <Container className=" px-[15px] py-[80px]">
@@ -46,16 +59,26 @@ function Footer(props) {
             </div>
           </Grid>
           <Grid item md={3} xs={12}>
-            <div className="flex flex-col gap-3 px-8 ">
-              <span className="text-[16px] font-[700]">THÔNG TIN LIÊN HỆ</span>
-              <span className="text-[15px]">Thông tin liên hệ</span>
-              <span className="text-[15px]">Tuyển dụng</span>
-              <span className="text-[15px]">Về Maybi</span>
+            <div
+              className={`flex flex-col gap-3 px-8 ${
+                currentWidth < 900 && "px-0"
+              } `}
+            >
+              <span className="text-[17px] font-[800]">THÔNG TIN LIÊN HỆ</span>
+              <a href="/" className="text-[15px]">
+                Thông tin liên hệ
+              </a>
+              <a href="/" className="text-[15px]">
+                Tuyển dụng
+              </a>
+              <a href="/" className="text-[15px]">
+                Về Maybi
+              </a>
             </div>
           </Grid>
           <Grid item md={3} xs={12}>
             <div className="flex flex-col gap-3  ">
-              <span className="text-[16px] font-[700]">CHÍNH SÁCH</span>
+              <span className="text-[17px] font-[800]">CHÍNH SÁCH</span>
               <a href="/">Chính sách đổi trả</a>
               <a href="/">Ưu đãi khách hàng thân thiết</a>
               <a href="/">Giao hàng - Thanh toán</a>
@@ -65,9 +88,7 @@ function Footer(props) {
           </Grid>
           <Grid item md={3} xs={12}>
             <div className="flex flex-col ">
-              <span className="text-[16px] font-[700] mb-3">
-                ĐĂNG KÝ THÀNH VIÊN ĐỂ NHẬN ƯU ĐÃI
-              </span>
+              <span className="text-[17px] font-[800] mb-3">MẠNG XÃ HỘI</span>
               <span className="relative">
                 {/* <input
                   type="text"
@@ -106,8 +127,8 @@ function Footer(props) {
                   >
                     <img
                       src="//theme.hstatic.net/1000341902/1001140246/14/youtube.png?v=755"
-                      width="36"
-                      height="36"
+                      width="32"
+                      height="32"
                       alt="youtube"
                     />
                   </a>
