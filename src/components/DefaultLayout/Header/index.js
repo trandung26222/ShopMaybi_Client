@@ -7,10 +7,10 @@ import { useSelector, useDispatch } from "react-redux";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 import { toggleSidebar } from "../../../redux/slices/SidebarSlice";
-import { menuCollectionItem } from "./menuCollectionItem";
-
-import LeftActionHeader from "./LeftActionHeader";
-import TooltipLeftActionHeader from "./TooltipLeftActionHeader";
+import { menuCollectionItem } from "./Data/menuCollectionItem";
+import { Link } from "react-router-dom";
+import LeftActionHeader from "./LeftMenu";
+import TooltipLeftActionHeader from "./Responsive/TooltipLeftActionHeader";
 
 function Header(props) {
   const [MenuItemindex, setMenuItemindex] = useState([0, 1, 2, 3]);
@@ -44,13 +44,15 @@ function Header(props) {
         </button>
       )}
 
-      <img
-        className={`mr-14 cursor-pointer`}
-        src="//theme.hstatic.net/1000341902/1001140246/14/logo_medium.png?v=754"
-        alt="logo MAYBI - Thời trang nữ thiết kế - Chất lượng vượt trội - Giá cả hợp lý"
-        width="134"
-        height="61"
-      ></img>
+      <>
+        <img
+          className={`${
+            currentWidth > breakpoint && "mr-14"
+          }  h-[61px] w-[134px]`}
+          src="//theme.hstatic.net/1000341902/1001140246/14/logo_medium.png?v=754"
+          alt="logo MAYBI - Thời trang nữ thiết kế - Chất lượng vượt trội - Giá cả hợp lý"
+        ></img>
+      </>
 
       {currentWidth >= breakpoint && (
         <>

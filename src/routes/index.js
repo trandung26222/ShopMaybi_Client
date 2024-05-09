@@ -11,7 +11,7 @@ const publicRoutes = [
   { path: "/collections", component: Collection },
   { path: "/cart", component: Cart },
   { path: "/account/login", component: Login },
-  { path: "/account/register", component: Signup },
+  { path: "/account/signup", component: Signup },
   { path: "/checkout", component: Checkout },
   { path: "/product/:id", component: Product },
 ];

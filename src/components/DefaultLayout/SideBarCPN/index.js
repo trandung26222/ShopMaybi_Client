@@ -1,6 +1,6 @@
 import React from "react";
 import { useEffect, useState } from "react";
-import { menuCollectionItem } from "../Header/menuCollectionItem";
+import { menuCollectionItem } from "../Header/Data/menuCollectionItem";
 import { NavLink } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUserCircle } from "@fortawesome/free-solid-svg-icons";

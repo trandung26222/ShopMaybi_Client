@@ -73,7 +73,7 @@ function Section3(props) {
   const itemRefs = useRef([]);
 
   const [scrollPosition, setScrollPosition] = useState(0);
-  const [widthItem, setwidthItem] = useState();
+  const [widthItem, setwidthItem] = useState(150 + 25);
 
   var handleScroll = (scrollAmount) => {
     var newscrollPosition = scrollPosition + scrollAmount;
@@ -81,6 +81,7 @@ function Section3(props) {
     if (newscrollPosition > 1000) return;
     setScrollPosition(newscrollPosition);
     containerRef.current.scrollLeft = newscrollPosition;
+    console.log("scrollPosition");
   };
 
   useEffect(() => {
@@ -92,13 +93,13 @@ function Section3(props) {
   useEffect(() => {
     itemRefs.current.forEach((item) => {
       if (item.current) {
-        if (currentWidth * 0.22 > 150) {
+        if (currentWidth * 0.18 >= 150) {
           item.current.style.width = 150 + "px";
           setwidthItem(150 + 25);
           return;
         }
-        item.current.style.width = currentWidth * 0.22 + "px";
-        setwidthItem(currentWidth * 0.22 + 25);
+        item.current.style.width = currentWidth * 0.18 + "px";
+        setwidthItem(currentWidth * 0.18 + 25);
       }
     });
   }, [currentWidth]);
