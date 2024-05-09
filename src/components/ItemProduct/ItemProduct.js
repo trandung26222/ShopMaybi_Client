@@ -21,16 +21,16 @@ function ItemProduct({ props }) {
     .replace(".", ",");
 
   return (
-    <div className="w-full  h-[auto] flex flex-col relative">
+    <div className="w-full  h-[auto] flex flex-col relative items-center">
       {/* product img */}
       {props.newin && (
-        <span className="absolute z-10 text-[13px] font-[500] left-3 bg-[#bf660e] px-2 py-1 rounded-md text-white">
+        <span className="z-[1] absolute left-[40%] text-[13px] font-[500]  bg-[#bf660e] px-2 py-1 rounded-md text-white">
           NEW-IN
         </span>
       )}
       <Link className="bg-white w-[217px] h-[324px] shadow-slate-200 shadow overflow-hidden ">
         <img
-          className=" w-full h-full transition-transform duration-[500ms] transform scale-100 hover:scale-95 "
+          className="w-full h-full transition-transform duration-[500ms] transform scale-100 hover:scale-95 "
           src={
             isHover
               ? props.srcimg[indexColorHover]

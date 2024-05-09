@@ -6,10 +6,13 @@
 
 :root {
   --vw: 100vw;
-  --padding-header: 9.375rem;
-  --height-header: 4.25rem;
+  --padding-header: 150px;
+  --height-header: 68px;
   --text-color: #000000;
   --link-color: #2f80ed;
+}
+html {
+  width: var(--vw);
 }
 
 @layer components {
@@ -25,17 +28,17 @@
   opacity: 1;
 }
 
-.scroll-setting {
-  &::-webkit-scrollbar {
-    width: 10px;
-  }
-  &::-webkit-scrollbar-thumb {
-    background-color: rgba(0, 0, 0, 0.1);
-    border-radius: 7px;
-  }
-  &::-webkit-scrollbar-track {
-    background-color: #ffffff;
-  }
+.scroll-setting::-webkit-scrollbar {
+  width: 10px;
+}
+
+.scroll-setting::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 7px;
+}
+
+.scroll-setting::-webkit-scrollbar-track {
+  background-color: #ffffff;
 }
 
 .ss_item img {

@@ -38,7 +38,7 @@ function Section4() {
         justifyContent={"flex-start"}
       >
         {ProductData.map((item, index) => (
-          <Grid item key={index} lg={2.4} md={4} sm={5} xs={12}>
+          <Grid item key={index} lg={2.4} md={4} sm={6} xs={12}>
             <ItemProduct props={item}></ItemProduct>
           </Grid>
         ))}

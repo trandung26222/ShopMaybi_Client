@@ -1,6 +1,5 @@
 import React from "react";
-import PropTypes from "prop-types";
-
+import Grid from "@mui/material/Unstable_Grid2/Grid2";
 function Section2(props) {
   var items = [
     {
@@ -16,7 +15,7 @@ function Section2(props) {
     {
       src: "//theme.hstatic.net/1000341902/1001140246/14/policies_icon_3_thumb.png?v=754",
       h3: "Bảo đảm chất lượng",
-      text: "Hỗ trợ đổi hàng trong vòng 07 ngày",
+      text: "Hỗ trợ đổi hàng trong 07 ngày",
     },
     {
       src: "//theme.hstatic.net/1000341902/1001140246/14/policies_icon_4_thumb.png?v=754",
@@ -26,18 +25,22 @@ function Section2(props) {
   ];
 
   return (
-    <section className="flex justify-between w-full py-[33px] mb-3  pt-[60px]">
-      {items.map((item, index) => (
-        <div key={index} className="flex justify-between gap-2 items-center">
-          <div className="">
-            <img src={item.src} alt="" width="40" height="40" />
-          </div>
-          <div className="policies-info">
-            <h3 className="font-[700] text-[16px]">{item.h3}</h3>
-            <div className="font-[400] text-[14px]">{item.text}</div>
-          </div>
-        </div>
-      ))}
+    <section className="  w-full py-[60px] ">
+      <Grid container spacing={2}>
+        {items.map((item, index) => (
+          <Grid xs={6} md={6} xl={3} key={index}>
+            <div key={index} className="flex  gap-2 items-center  py-5">
+              <div>
+                <img src={item.src} alt="" width="40" height="40" />
+              </div>
+              <div>
+                <h3 className="font-[700]  text-[16px]">{item.h3}</h3>
+                <div className="font-[400] text-[14px]">{item.text}</div>
+              </div>
+            </div>
+          </Grid>
+        ))}
+      </Grid>
     </section>
   );
 }

@@ -18,6 +18,7 @@ function App() {
       "--padding-header",
       `${0.1 * e.target.innerWidth}px`
     );
+
     //--padding-header
   };
   useEffect(() => {

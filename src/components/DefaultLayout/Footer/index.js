@@ -60,8 +60,8 @@ function Footer(props) {
           </Grid>
           <Grid item md={3} xs={12}>
             <div
-              className={`flex flex-col gap-3 px-8 ${
-                currentWidth < 900 && "px-0"
+              className={`flex flex-col gap-3 ${
+                currentWidth < 900 ? "px-0" : "px-8"
               } `}
             >
               <span className="text-[17px] font-[800]">THÔNG TIN LIÊN HỆ</span>

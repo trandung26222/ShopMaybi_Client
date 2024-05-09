@@ -38,7 +38,7 @@ function OurFeedBack(props) {
           <h2 className="text-center text-[32px] mb-[50px]">Our Feedback</h2>
 
           <div ref={containerRef} className="overflow-x-hidden w-full h-full">
-            <div className={` w-[4300px] h-full flex gap-[23px]`}>
+            <div className={` w-fit h-full flex gap-[23px]`}>
               {DataOurFeedback.map((item, index) => {
                 return (
                   <ItemOurFeedback key={index} props={item}></ItemOurFeedback>
