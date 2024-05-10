@@ -14,12 +14,12 @@ function App() {
       "--vw",
       `${e.target.innerWidth}px`
     );
-    document.documentElement.style.setProperty(
-      "--padding-header",
-      `${0.1 * e.target.innerWidth}px`
-    );
+    const setProperty = () => {
+      const vh = window.innerHeight * 0.01;
+      document.documentElement.style.setProperty("--vh", `${vh}px`);
+    };
 
-    //--padding-header
+    setProperty();
   };
   useEffect(() => {
     window.addEventListener("resize", setWidth);
@@ -30,7 +30,7 @@ function App() {
   }, []);
 
   return (
-    <div className="App">
+    <div className="App xl:text-[10px] lg:text-[9px] md:text-[8px]  xs:text-[7px]">
       <Routes>
         {publicRoutes.map((route) => {
           let Layout = DefaultLayout;

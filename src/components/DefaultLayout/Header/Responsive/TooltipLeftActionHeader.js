@@ -48,17 +48,19 @@ function TooltipLeftActionHeader(props) {
     </div>
   );
   return (
-    <Tippy
-      interactive
-      placement="bottom"
-      render={renderTippy}
-      offset={[0, 0]}
-      delay={[500, 0]}
-    >
-      <span className="text-[24px] cursor-pointer">
-        <FontAwesomeIcon icon={faEllipsisVertical} />
-      </span>
-    </Tippy>
+    <span className="xl:hidden xs:block">
+      <Tippy
+        interactive
+        placement="bottom"
+        render={renderTippy}
+        offset={[0, 0]}
+        delay={[500, 0]}
+      >
+        <span className="text-[24px] cursor-pointer">
+          <FontAwesomeIcon icon={faEllipsisVertical} />
+        </span>
+      </Tippy>
+    </span>
   );
 }
 

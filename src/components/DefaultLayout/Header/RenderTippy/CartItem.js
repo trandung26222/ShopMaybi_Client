@@ -4,9 +4,14 @@ function CartItem({ item }) {
   return (
     <div className="cacitem w-full h-[90px] pl-3 py-[8px] flex flex-col items-center relative">
       <div className="noidung w-full h-full flex flex-nowrap gap-2">
-        <img src={item.img} alt="" />
+        <a className="h-full hover:scale-95" href="/">
+          <img src={item.img} className="object-contain h-full" alt="" />
+        </a>
+        {/* object-contain */}
         <div className="noidungright flex flex-col justify-evenly tracking-normal">
-          <p className="text-[14px]">{item.name}</p>
+          <a href="/" className="text-[14px] ">
+            {item.name}
+          </a>
           <p className="text-[13px] font-[500] text-gray-400">
             {item.describe}
           </p>

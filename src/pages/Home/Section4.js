@@ -27,18 +27,18 @@ const ColorButton = styled(Button)(({ theme }) => ({
 function Section4() {
   return (
     <section>
-      <h2 className="text-[var(--text-color)] text-3xl m-0 line mb-10">
+      <h2 className="text-[var(--text-color)] text-[2.7em] m-0 line mb-10 ">
         <Link>NEW ARRIVAL - MAYBI's back</Link>
       </h2>
 
       <Grid
         container
         rowSpacing={2}
-        columnSpacing={2}
-        justifyContent={"flex-start"}
+        columnSpacing={{ xs: 2, lg: 2 }}
+        justifyContent={"flex-center"}
       >
         {ProductData.map((item, index) => (
-          <Grid item key={index} lg={2.4} md={4} sm={6} xs={12}>
+          <Grid item key={index} lg={2.4} md={4} sm={5} xs={12}>
             <ItemProduct props={item}></ItemProduct>
           </Grid>
         ))}

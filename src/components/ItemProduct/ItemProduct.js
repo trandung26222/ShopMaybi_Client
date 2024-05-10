@@ -21,10 +21,10 @@ function ItemProduct({ props }) {
     .replace(".", ",");
 
   return (
-    <div className="w-full  h-[auto] flex flex-col relative items-center">
+    <div className="w-full  h-[auto] flex flex-col relative items-start">
       {/* product img */}
       {props.newin && (
-        <span className="z-[1] absolute left-[40%] text-[13px] font-[500]  bg-[#bf660e] px-2 py-1 rounded-md text-white">
+        <span className="z-[1] absolute left-0 text-[1.3em] font-[500]  bg-[#bf660e] px-2 py-1 rounded-md text-white">
           NEW-IN
         </span>
       )}
@@ -47,21 +47,21 @@ function ItemProduct({ props }) {
         />
       </Link>
       {/* product info */}
-      <div className="product-info flex flex-col mt-[15px] items-start pl-[3px]">
-        <p className="cursor-auto text-[12px] inline-block text-[#9e7a7a] font-[600] tracking-[1.8px] mb-2 leading-3">
+      <div className="product-info flex flex-col mt-[15px] items-start pl-[3px] w-[217px]">
+        <p className="cursor-auto text-[1.2em] inline-block text-[#9e7a7a] font-[600] tracking-[1.8px] mb-2 leading-3">
           MAYBI
         </p>
-        <Link className="hover:text-[var(--link-color)] font-bold text-[15px] transition-color duration-400 ease-in-out">
+        <Link className="hover:text-[var(--link-color)] font-bold text-[1.5em] transition-color duration-400 ease-in-out">
           {props.title}
         </Link>
-        <p className="cursor-auto block text-[#DF0000] font-bold mb-1">
+        <p className="cursor-auto block text-[#DF0000] text-[1.3em] font-bold my-1">
           {props.gia}
         </p>
         <div className="flex gap-2 items-center mb-2">
-          <p className="text-[#666666] line-through inline-block text-[13px] font-[400] ">
+          <p className="text-[#666666] line-through inline-block text-[1.3em] font-[400] ">
             {formattedPrice}
           </p>
-          <p className=" text-[13px] text-white font-[400] bg-[#d84144] p-[1px] px-[8px] rounded-[10px] text-center tracking-wider">
+          <p className=" text-[1.3em] text-white font-[400] bg-[#d84144] p-[1px] px-[8px] rounded-[10px] text-center tracking-wider">
             -{props.giamgia}%
           </p>
         </div>

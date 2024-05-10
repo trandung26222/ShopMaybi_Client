@@ -26,11 +26,11 @@ var items = [
 function LeftActionHeader(props) {
   var classNamebtnaction = `flex flex-col text-black items-center 
   cursor-pointer gap-[5px] px-1 py-1 rounded transition-opacity 
-  duration-[300ms] ease-in-out hover:opacity-[0.5]`;
+  duration-[300ms] ease-in-out hover:opacity-[0.5] text-[16px]`;
   var classNamePaction = "whitespace-nowrap text-[14px] font-[400]";
 
   return (
-    <div className="flex items-center gap-4 ">
+    <div className=" items-center gap-4 xl:flex  xs:hidden ">
       <button className={classNamebtnaction}>
         {items[0].icon}
         <p className={classNamePaction}>{items[0].p}</p>

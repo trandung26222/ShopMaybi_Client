@@ -3,8 +3,7 @@ import { useRef, useState } from "react";
 import { IconButton } from "@mui/material";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
-import { useSelector } from "react-redux";
-import { createRef } from "react";
+import Item from "./Item";
 
 function Section3(props) {
   const menuItems = [
@@ -67,53 +66,37 @@ function Section3(props) {
       ssnumber: "1112 sản phẩm",
     },
   ];
-  const containerRef = useRef(null);
-
-  var currentWidth = useSelector((s) => s.responsive.currentWidth);
-  const itemRefs = useRef([]);
-
+  const overflowRef = useRef(null);
+  const flexRef = useRef(null);
+  const [widthOverFlow, setwidthOverFlow] = useState();
+  const [widthFlex, setwidthFlex] = useState();
   const [scrollPosition, setScrollPosition] = useState(0);
-  const [widthItem, setwidthItem] = useState(150 + 25);
+
+  useEffect(() => {
+    const w = overflowRef.current.clientWidth;
+    setwidthOverFlow((pre) => w);
+    const w1 = flexRef.current.clientWidth;
+    setwidthFlex((pre) => w1);
+  }, []);
 
   var handleScroll = (scrollAmount) => {
     var newscrollPosition = scrollPosition + scrollAmount;
     if (newscrollPosition < 0) return;
-    if (newscrollPosition > 1000) return;
-    setScrollPosition(newscrollPosition);
-    containerRef.current.scrollLeft = newscrollPosition;
-    console.log("scrollPosition");
+    if (newscrollPosition > widthFlex) return;
+    setScrollPosition((pre) => newscrollPosition);
+    overflowRef.current.scrollLeft = newscrollPosition;
   };
 
-  useEffect(() => {
-    itemRefs.current = Array(menuItems.length)
-      .fill()
-      .map((_, i) => itemRefs.current[i] || createRef());
-  }, []);
-
-  useEffect(() => {
-    itemRefs.current.forEach((item) => {
-      if (item.current) {
-        if (currentWidth * 0.18 >= 150) {
-          item.current.style.width = 150 + "px";
-          setwidthItem(150 + 25);
-          return;
-        }
-        item.current.style.width = currentWidth * 0.18 + "px";
-        setwidthItem(currentWidth * 0.18 + 25);
-      }
-    });
-  }, [currentWidth]);
-
   return (
-    <section className="flex flex-col items-center mb-12 relative ">
-      <h2 className="text-[var(--text-color)] text-[2em] mb-[40px]">
+    <section className="flex flex-col items-center  mb-12 relative ">
+      <h2 className="text-[var(--text-color)] text-[2.7em] mb-[40px]">
         MAYBI DANH MỤC SẢN PHẨM
       </h2>
 
-      <span className="absolute left-[-60px] top-[45%] hidden btn-chuyentrang">
+      <span className="absolute left-[-60px] top-[45%] hidden xl:block ">
         <IconButton
           onClick={() => {
-            handleScroll(-widthItem);
+            handleScroll(-widthOverFlow);
           }}
         >
           <ChevronLeftIcon
@@ -122,10 +105,10 @@ function Section3(props) {
           ></ChevronLeftIcon>
         </IconButton>
       </span>
-      <span className="absolute right-[-60px] top-[45%] hidden btn-chuyentrang">
+      <span className="absolute right-[-60px] top-[45%] hidden xl:block">
         <IconButton
           onClick={() => {
-            handleScroll(widthItem);
+            handleScroll(widthOverFlow);
           }}
         >
           <ChevronRightIcon
@@ -136,38 +119,15 @@ function Section3(props) {
       </span>
 
       <div
-        ref={containerRef}
-        className={`w-full overflow-x-scroll scroll-setting menuSection3`}
+        ref={overflowRef}
+        className={`w-full scroll-setting xl:overflow-hidden xs:overflow-auto`}
       >
-        <div className="menuSection3 w-fit flex-nowrap flex gap-[25px]">
+        <div
+          ref={flexRef}
+          className=" xs:w-[1000px] sm:w-[1100px] md:w-[1200px] lg:w-[1375px] flex "
+        >
           {menuItems.map((menuItem, index) => {
-            return (
-              <div
-                ref={itemRefs.current[index]}
-                key={index}
-                className={`my-3 w-[150px] ss_item`}
-              >
-                <a href={menuItem.link} className="w-full">
-                  <div className="ss_img">
-                    <img
-                      className=" m-auto object-contain  w-auto "
-                      src={menuItem.imgsrc}
-                      width="150"
-                      height="150"
-                      alt="season_coll_6_img.png"
-                    />
-                  </div>
-                  <div className="mt-[9px] flex flex-col items-center w-full">
-                    <div className="text-center text-[1rem] font-[500] overflow-hidden text-ellipsis ">
-                      {menuItem.ssname}
-                    </div>
-                    <span className="text-[0.875rem] font-[500] text-[#888]">
-                      {menuItem.ssnumber}
-                    </span>
-                  </div>
-                </a>
-              </div>
-            );
+            return <Item key={index} menuItem={menuItem}></Item>;
           })}
         </div>
       </div>
@@ -176,5 +136,3 @@ function Section3(props) {
 }
 
 export default Section3;
-
-// overflow-hidden text-ellipsis

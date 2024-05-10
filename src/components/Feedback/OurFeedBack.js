@@ -6,6 +6,7 @@ import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import { IconButton } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import ItemOurFeedback from "./ItemOurFeedback";
+import { useEffect } from "react";
 
 const IconButtonCustom = styled(IconButton)(({ theme }) => ({
   backgroundColor: "rgba(0,0,0,0.03)",
@@ -17,31 +18,52 @@ const IconButtonCustom = styled(IconButton)(({ theme }) => ({
 function OurFeedBack(props) {
   const [scrollPosition, setScrollPosition] = useState(0);
   const containerRef = useRef();
-  var gap = 23;
-  var widthitem = 367;
-  var tongwidth = 367 * 8 + 7 * 23;
-  var nextwidth = gap + widthitem;
+  const ItemRef = useRef();
+  const TongWidthRef = useRef();
+  const [widthItem, setWidthItem] = useState(0);
+  const [TongWidth, setTongWidth] = useState(0);
 
   const handleSCR = (scrollAmount) => {
     var newscrollPosition = scrollPosition + scrollAmount;
-    if (newscrollPosition < 0) return;
-    if (newscrollPosition > tongwidth) return;
-    setScrollPosition(newscrollPosition);
+    if (newscrollPosition <= 0) return;
+    if (newscrollPosition >= TongWidth) return;
+    setScrollPosition((pre) => {
+      return newscrollPosition;
+    });
     containerRef.current.scrollLeft = newscrollPosition;
   };
-  // w- 386  h - 317
+
+  useEffect(() => {
+    const element = ItemRef.current;
+    if (element) {
+      const width = element.clientWidth;
+      setWidthItem(width);
+    }
+    const element1 = TongWidthRef.current;
+    if (element1) {
+      const width1 = element1.clientWidth;
+      setTongWidth(width1);
+    }
+  }, []);
 
   return (
-    <section className="w-full h-[600px] bg-[#F5F5F5] py-[80px] mb-[40px]">
+    <section className=" w-full lg:h-[550px] xs:h-[400px] lg:py-[80px] xs:py-[53px]  mb-[40px] bg-[#F5F5F5]  ">
       <Container className="relative h-full ">
         <div className="flex flex-col w-full h-full">
-          <h2 className="text-center text-[32px] mb-[50px]">Our Feedback</h2>
+          <h2 className="text-center text-[2.7em] mb-[50px]">Our Feedback</h2>
 
           <div ref={containerRef} className="overflow-x-hidden w-full h-full">
-            <div className={` w-fit h-full flex gap-[23px]`}>
+            <div
+              ref={TongWidthRef}
+              className={` xs:w-[2700px] md:w-[2800px] lg:w-[3097px] h-full flex justify-between`}
+            >
               {DataOurFeedback.map((item, index) => {
                 return (
-                  <ItemOurFeedback key={index} props={item}></ItemOurFeedback>
+                  <ItemOurFeedback
+                    ref={ItemRef}
+                    key={index}
+                    props={item}
+                  ></ItemOurFeedback>
                 );
               })}
             </div>
@@ -49,7 +71,7 @@ function OurFeedBack(props) {
           <span className="absolute top-[60%] left-0">
             <IconButtonCustom
               onClick={() => {
-                handleSCR(-nextwidth);
+                handleSCR(-widthItem);
               }}
             >
               <ChevronLeftIcon></ChevronLeftIcon>
@@ -58,7 +80,7 @@ function OurFeedBack(props) {
           <span className="absolute top-[60%] right-0">
             <IconButtonCustom
               onClick={() => {
-                handleSCR(nextwidth);
+                handleSCR(widthItem);
               }}
               className=""
             >

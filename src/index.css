@@ -13,16 +13,12 @@
 html {
   width: var(--vw);
   font-family: "Mulish";
+  font-size: 100%;
 }
 
 @layer components {
-  .btn-action-header {
-    @apply flex flex-col items-center;
-  }
-  .p-action-header {
-    @apply text-[0.813rem] font-medium whitespace-nowrap;
-  }
 }
+
 .parent:hover > .child-span {
   visibility: visible;
   opacity: 1;
@@ -39,14 +35,6 @@ html {
 
 .scroll-setting::-webkit-scrollbar-track {
   background-color: #ffffff;
-}
-
-.ss_item img {
-  transition: transform 0.5s ease;
-}
-
-.ss_item:hover img {
-  transform: scale(1.1);
 }
 
 @media (min-width: 1286px) {

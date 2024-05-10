@@ -29,13 +29,16 @@ function Section2(props) {
       <Grid container spacing={2}>
         {items.map((item, index) => (
           <Grid xs={6} md={6} xl={3} key={index}>
-            <div key={index} className="flex  gap-2 items-center  py-5">
+            <div
+              key={index}
+              className="flex  gap-3 xs:items-start min-[650px]:items-center py-5"
+            >
               <div>
                 <img src={item.src} alt="" width="40" height="40" />
               </div>
               <div>
-                <h3 className="font-[700]  text-[16px]">{item.h3}</h3>
-                <div className="font-[400] text-[14px]">{item.text}</div>
+                <h3 className="font-[700]  text-[1.5em]">{item.h3}</h3>
+                <div className="font-[400] text-[1.3em]">{item.text}</div>
               </div>
             </div>
           </Grid>
