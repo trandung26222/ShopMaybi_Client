@@ -1,13 +1,15 @@
 import { configureStore } from "@reduxjs/toolkit";
-import counterSlice from "./slices/counterSlice";
 import ResponsiveSlice from "./slices/ResponsiveSlice";
 import SidebarSlice from "./slices/SidebarSlice";
+// import ProductCartSlice from "./slices/ProductCartSlice";
+import ElementDomSlice from "./slices/ElementDomSlice";
 
 export const store = configureStore({
   reducer: {
-    counter: counterSlice,
     responsive: ResponsiveSlice,
     Sidebar: SidebarSlice,
+    // ProductCartSlice: ProductCartSlice,
+    ElementDomSlice: ElementDomSlice,
   },
 });
 // store đại diện cho redux

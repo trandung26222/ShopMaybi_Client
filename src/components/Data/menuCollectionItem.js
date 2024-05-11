@@ -4,6 +4,7 @@ export const menuCollectionItem = [
       "//theme.hstatic.net/1000341902/1001140246/14/menu_icon_1.png?v=754",
     alt: "MỚI VỀ",
     text: "MỚI VỀ",
+    link: "",
   },
   {
     iconSrc:

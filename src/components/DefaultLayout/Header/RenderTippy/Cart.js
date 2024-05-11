@@ -1,9 +1,10 @@
 import React from "react";
 import CartItem from "./CartItem";
-import { CartItemData } from "../../../Data/CartItemData";
 import { Link } from "react-router-dom";
 
 function Cart() {
+  var CartItemData = JSON.parse(localStorage.getItem("CartItemData"));
+  var tonggia = parseInt(localStorage.getItem("tonggia"));
   return (
     <div className="w-[398px] h-[392px] bg-white rounded-md shadow-xl border py-3 flex flex-col">
       {/* Danh sach */}
@@ -16,7 +17,12 @@ function Cart() {
       {/* Bottom */}
       <div className="w-full h-[32px]  flex items-center justify-center tracking-wide gap-2">
         <p className="text-[14px]">Tổng tiền tạm tính: </p>
-        <span className="text-[15px] text-red-500 font-[500]"> 761,400đ</span>
+        <span className="text-[15px] text-red-500 font-[500]">
+          {tonggia.toLocaleString("vi-VN", {
+            style: "currency",
+            currency: "VND",
+          })}
+        </span>
       </div>
       <div className=" w-full h-[45px] left-[auto] flex text-white justify-center text-[17px] tracking-wide">
         <Link

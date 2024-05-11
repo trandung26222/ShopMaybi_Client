@@ -16,7 +16,12 @@ function CartItem({ item }) {
             {item.describe}
           </p>
           <div className=" text-[14px]  items-center flex gap-2">
-            <p className="text-red-500 font-[500]">{item.price}</p>
+            <p className="text-red-500 font-[500]">
+              {parseInt(item.price).toLocaleString("vi-VN", {
+                style: "currency",
+                currency: "VND",
+              })}
+            </p>
             <p className="text-black">{`x ${item.quantity}`}</p>
           </div>
         </div>

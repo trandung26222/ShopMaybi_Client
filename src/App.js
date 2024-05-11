@@ -1,4 +1,4 @@
-import { useDispatch } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { setCurrentWidth } from "./redux/slices/ResponsiveSlice";
 import { Routes, Route } from "react-router-dom";
 import { publicRoutes } from "./routes";
@@ -8,6 +8,8 @@ import DefaultLayout from "./components/DefaultLayout";
 
 function App() {
   const dispatch = useDispatch();
+  var currrentW = useSelector((s) => s.responsive.currentWidth);
+
   const setWidth = (e) => {
     dispatch(setCurrentWidth(e.target.innerWidth));
     document.documentElement.style.setProperty(
@@ -22,6 +24,14 @@ function App() {
     setProperty();
   };
   useEffect(() => {
+    const setProperty = () => {
+      document.documentElement.style.setProperty(
+        "--padding-header",
+        `${currrentW * 0.1}px`
+      );
+    };
+    setProperty();
+
     window.addEventListener("resize", setWidth);
 
     return () => {
