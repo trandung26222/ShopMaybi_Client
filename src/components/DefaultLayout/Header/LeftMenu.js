@@ -42,7 +42,7 @@ function LeftActionHeader(props) {
           placement="bottom"
           render={LoginSignUp}
           offset={[0, 0]}
-          delay={[500, 0]}
+          delay={[200, 0]}
         >
           <button className={classNamebtnaction}>
             {items[1].icon}
@@ -57,7 +57,7 @@ function LeftActionHeader(props) {
           placement="bottom"
           render={Cart}
           offset={[0, 0]}
-          delay={[500, 0]}
+          delay={[200, 0]}
           trigger="click"
         >
           <button className={classNamebtnaction}>
