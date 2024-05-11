@@ -1,6 +1,7 @@
 import React from "react";
 import CartItem from "./CartItem";
-import { CartItemData } from "../Data/CartItemData";
+import { CartItemData } from "../../../Data/CartItemData";
+import { Link } from "react-router-dom";
 
 function Cart() {
   return (
@@ -18,9 +19,12 @@ function Cart() {
         <span className="text-[15px] text-red-500 font-[500]"> 761,400đ</span>
       </div>
       <div className=" w-full h-[45px] left-[auto] flex text-white justify-center text-[17px] tracking-wide">
-        <button className="w-[70%] h-full bg-black rounded-md">
+        <Link
+          to={"/cart"}
+          className="w-[70%] h-full bg-black rounded-md text-center content-center"
+        >
           Tiến hành thanh toán
-        </button>
+        </Link>
       </div>
     </div>
   );

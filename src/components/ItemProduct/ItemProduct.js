@@ -28,7 +28,10 @@ function ItemProduct({ props }) {
           NEW-IN
         </span>
       )}
-      <Link className="bg-white w-[217px] h-[324px] shadow-slate-200 shadow overflow-hidden ">
+      <Link
+        to={`/product/${props.id}`}
+        className="bg-white w-[217px] h-[324px] shadow-slate-200 shadow overflow-hidden "
+      >
         <img
           className="w-full h-full transition-transform duration-[500ms] transform scale-100 hover:scale-95 "
           src={
@@ -51,7 +54,10 @@ function ItemProduct({ props }) {
         <p className="cursor-auto text-[1.2em] inline-block text-[#9e7a7a] font-[600] tracking-[1.8px] mb-2 leading-3">
           MAYBI
         </p>
-        <Link className="hover:text-[var(--link-color)] font-bold text-[1.5em] transition-color duration-400 ease-in-out">
+        <Link
+          to={`/product/${props.id}`}
+          className="hover:text-[var(--link-color)] font-bold text-[1.5em] transition-color duration-400 ease-in-out"
+        >
           {props.title}
         </Link>
         <p className="cursor-auto block text-[#DF0000] text-[1.3em] font-bold my-1">

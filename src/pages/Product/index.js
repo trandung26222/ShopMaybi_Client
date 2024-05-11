@@ -1,10 +1,16 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from "react";
+import { useLocation } from "react-router-dom";
 
 function Product(props) {
-    return <div>Product</div>;
-}
+  const location = useLocation();
+  const currentURL = location.pathname;
 
-Product.propTypes = {};
+  return (
+    <div>
+      <p>Current URL: {currentURL}</p>
+      <div>Product</div>
+    </div>
+  );
+}
 
 export default Product;

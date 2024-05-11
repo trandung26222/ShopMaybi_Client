@@ -11,7 +11,7 @@ function LoginSignup() {
         Đăng nhập
       </Link>
       <Link
-        to={"account/signup"}
+        to={"/account/signup"}
         className="bg-white flex items-start px-2 w-full py-[8px] rounded-md hover:bg-[rgba(0,0,0,0.1)]"
       >
         Đăng ký

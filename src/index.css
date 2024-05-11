@@ -17,6 +17,9 @@ html {
 }
 
 @layer components {
+  .cssMoney {
+    @apply text-[red] font-[700] text-[1.4em];
+  }
 }
 
 .parent:hover > .child-span {

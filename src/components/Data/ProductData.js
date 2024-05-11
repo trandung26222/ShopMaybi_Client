@@ -10,6 +10,7 @@ export const ProductData = [
     freeship: false,
     giamgia: 40,
     newin: true,
+    id: 0,
   },
   {
     srcimg: [
@@ -22,6 +23,7 @@ export const ProductData = [
     freeship: true,
     giamgia: 30,
     newin: false,
+    id: 1,
   },
   {
     srcimg: [
@@ -29,11 +31,12 @@ export const ProductData = [
       "https://product.hstatic.net/1000341902/product/dsc02292_b558e3d9efd94a92bf1d7c0d9a288de8_large.jpg",
     ],
     title: "Áo dài suông lụa sóng phối tay voan họa tiết",
-    gia: "299,400đ",
+    gia: "300,800đ",
     color: ["Kem phối", "Hồng"],
     freeship: false,
     giamgia: 10,
     newin: false,
+    id: 2,
   },
   {
     srcimg: [
@@ -47,6 +50,7 @@ export const ProductData = [
     freeship: true,
     giamgia: 45,
     newin: true,
+    id: 3,
   },
   {
     srcimg: [
@@ -59,6 +63,7 @@ export const ProductData = [
     freeship: true,
     giamgia: 10,
     newin: true,
+    id: 4,
   },
   {
     srcimg: [
@@ -66,11 +71,12 @@ export const ProductData = [
       "https://product.hstatic.net/1000341902/product/2310wa42_12_-xanh_duong__4__071c67b9db5b4e669f55f5ac1acf5713_large.jpg",
     ],
     title: "Áo dài suông lụa tơ",
-    gia: "299,400đ",
+    gia: "342,000đ",
     color: ["Đen"],
     freeship: true,
     giamgia: 40,
     newin: true,
+    id: 5,
   },
 ];
 
