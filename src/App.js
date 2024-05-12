@@ -5,6 +5,7 @@ import { publicRoutes } from "./routes";
 import { Fragment } from "react";
 import { useEffect } from "react";
 import DefaultLayout from "./components/DefaultLayout";
+import { DataCollection } from "./components/Data/DataCollection";
 
 function App() {
   const dispatch = useDispatch();
@@ -51,11 +52,26 @@ function App() {
               key={route.path}
               path={route.path}
               element={
-                <Layout>
-                  <Page />
-                </Layout>
+                !route.ChildRoute && (
+                  <Layout>
+                    <Page />
+                  </Layout>
+                )
               }
-            />
+            >
+              {route.ChildRoute &&
+                route.ChildRoute.map((item, index) => (
+                  <Route
+                    key={item}
+                    path={item}
+                    element={
+                      <Layout>
+                        <Page props={DataCollection[index]} />
+                      </Layout>
+                    }
+                  />
+                ))}
+            </Route>
           );
         })}
       </Routes>

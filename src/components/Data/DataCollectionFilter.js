@@ -1,0 +1,30 @@
+export const mucgia = [
+  "Giá dưới 100,000₫",
+  "100,000₫ - 200,000₫",
+  "200,000₫ - 300,000₫",
+  "300,000₫ - 400,000₫",
+  "Giá trên 500,000₫",
+];
+
+export const loai = [
+  "Áo Gilet",
+  "Chân váy",
+  "Đầm kiểu",
+  "Áo kiểu",
+  "Đầm 2 dây",
+  "Quần shorts",
+  "Quần dài",
+  "Áo Blazer",
+  "Áo thun",
+  "Áo sơ mi",
+  "Hoa Cài",
+  "Váy quần",
+  "Đầm sơ mi",
+  "Áo croptop",
+  "Đầm yếm",
+  "Đầm mini",
+  "Áo dài",
+  "Áo khoác chống nắng",
+  "Áo thun kiểu",
+  "Đầm midi",
+];

@@ -1,5 +1,6 @@
 export const DataCollection = [
   {
+    id: 0,
     iconSrc:
       "//theme.hstatic.net/1000341902/1001140246/14/menu_icon_1.png?v=754",
     alt: "MỚI VỀ",
@@ -8,6 +9,7 @@ export const DataCollection = [
     nametypography: "NEW ARRIVAL - MAYBI's back",
   },
   {
+    id: 1,
     iconSrc:
       "//theme.hstatic.net/1000341902/1001140246/14/menu_icon_2.png?v=754",
     alt: "MOTHER'S DAY",
@@ -16,6 +18,7 @@ export const DataCollection = [
     nametypography: "MOTHER'S DAY",
   },
   {
+    id: 2,
     iconSrc:
       "//theme.hstatic.net/1000341902/1001140246/14/menu_icon_3.png?v=754",
     alt: "LAST CHANCE",
@@ -24,6 +27,7 @@ export const DataCollection = [
     nametypography: "LAST CHANCE DEAL KHỦNG - CHỈ TỪ 29K!!!",
   },
   {
+    id: 3,
     iconSrc:
       "//theme.hstatic.net/1000341902/1001140246/14/menu_icon_4.png?v=754",
     alt: "BÁN CHẠY",
@@ -32,6 +36,7 @@ export const DataCollection = [
     nametypography: "BEST SELLER",
   },
   {
+    id: 4,
     iconSrc:
       "//theme.hstatic.net/1000341902/1001140246/14/menu_icon_5.png?v=754",
     alt: "SẢN PHẨM",
@@ -40,23 +45,25 @@ export const DataCollection = [
     nametypography: "SẢN PHẨM",
   },
   {
+    id: 5,
     text: "THỜI TRANG CÔNG SỞ",
     link: "/collections/thoi-trang-cong-so",
     nametypography: "THỜI TRANG CÔNG SỞ",
   },
   {
+    id: 6,
     text: "BLOG",
-    link: "/",
+    link: "/collections/blog",
     nametypography: "BLOG",
   },
 ];
 
-export const linkcollections = [];
+export const RouteChildOfCollection = [];
 
 DataCollection.forEach((item) => {
   const parts = item.link.split("/");
 
   const lastPart = parts[parts.length - 1];
 
-  linkcollections.push(item.link);
+  RouteChildOfCollection.push(lastPart);
 });

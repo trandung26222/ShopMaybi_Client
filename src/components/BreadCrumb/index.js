@@ -14,9 +14,10 @@ function BreadCrumb({ links, typography }) {
               underline="hover"
               href="/"
               sx={{
+                fontFamily: "Mulish",
                 fontSize: "14px",
                 color: "#2F80ED",
-                letterSpacing: "0.02em",
+                // letterSpacing: "0.02em",
               }}
             >
               {link}
@@ -24,7 +25,12 @@ function BreadCrumb({ links, typography }) {
           );
         })}
 
-        <Typography color="gray" letterSpacing={"0.02em"} fontSize={"14px"}>
+        <Typography
+          color="gray"
+          // letterSpacing={"0.02em"}
+          fontSize={"14px"}
+          fontFamily={"Mulish"}
+        >
           {typography}
         </Typography>
       </Breadcrumbs>

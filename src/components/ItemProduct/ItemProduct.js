@@ -21,19 +21,19 @@ function ItemProduct({ props }) {
     .replace(".", ",");
 
   return (
-    <div className="w-full  h-[auto] flex flex-col relative items-start">
-      {/* product img */}
+    <div className="ITEMPRODUCT w-full  h-[auto] flex flex-col relative items-end">
       {props.newin && (
         <span className="z-[1] absolute left-0 text-[1.3em] font-[500]  bg-[#bf660e] px-2 py-1 rounded-md text-white">
           NEW-IN
         </span>
       )}
+      {/* product img */}
       <Link
         to={`/product/${props.id}`}
-        className="bg-white w-[217px] h-[324px] shadow-slate-200 shadow overflow-hidden "
+        className="w-full bg-white h-fit shadow-slate-200 shadow overflow-hidden "
       >
         <img
-          className="w-full h-full transition-transform duration-[500ms] transform scale-100 hover:scale-95 "
+          className="h-full object-contain transition-transform duration-[500ms] transform scale-100 hover:scale-95 "
           src={
             isHover
               ? props.srcimg[indexColorHover]
@@ -50,7 +50,7 @@ function ItemProduct({ props }) {
         />
       </Link>
       {/* product info */}
-      <div className="product-info flex flex-col mt-[15px] items-start pl-[3px] w-[217px]">
+      <div className="product-info flex flex-col mt-[15px] items-start pl-[3px] w-full">
         <p className="cursor-auto text-[1.2em] inline-block text-[#9e7a7a] font-[600] tracking-[1.8px] mb-2 leading-3">
           MAYBI
         </p>
