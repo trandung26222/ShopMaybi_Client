@@ -34,12 +34,12 @@ function Section4() {
       <Grid
         container
         rowSpacing={2}
-        columnSpacing={{ xs: 2, lg: 2 }}
+        columnSpacing={2}
         justifyContent={"flex-center"}
       >
-        {DataProduct.map((item, index) => (
-          <Grid item key={index} lg={2.4} md={4} sm={5} xs={12}>
-            <ItemProduct props={item}></ItemProduct>
+        {DataProduct.map((i, index) => (
+          <Grid item key={index} lg={2} md={3} sm={3} xs={4}>
+            <ItemProduct props={i}></ItemProduct>
           </Grid>
         ))}
       </Grid>
