@@ -38,7 +38,7 @@ function Section4() {
         justifyContent={"flex-center"}
       >
         {DataProduct.map((i, index) => (
-          <Grid item key={index} lg={2} md={3} sm={3} xs={4}>
+          <Grid item key={index} lg={2.4} md={3} sm={3} xs={4}>
             <ItemProduct props={i}></ItemProduct>
           </Grid>
         ))}

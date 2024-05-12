@@ -88,8 +88,8 @@ function Section3(props) {
   };
 
   return (
-    <section className="flex flex-col items-center  mb-12 relative ">
-      <h2 className="text-[var(--text-color)] text-[2.7em] mb-[40px]">
+    <section className="flex flex-col items-center  mb-8 relative ">
+      <h2 className="text-[var(--text-color)] text-[2.7em] mb-[20px]">
         MAYBI DANH MỤC SẢN PHẨM
       </h2>
 

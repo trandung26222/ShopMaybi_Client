@@ -12,10 +12,10 @@ export const DataCollection = [
     id: 1,
     iconSrc:
       "//theme.hstatic.net/1000341902/1001140246/14/menu_icon_2.png?v=754",
-    alt: "MOTHER'S DAY",
-    text: "MOTHER'S DAY",
-    link: "/collections/mother-s-day",
-    nametypography: "MOTHER'S DAY",
+    alt: "HOT DEALS",
+    text: "HOT DEALS",
+    link: "/collections/hotdeals",
+    nametypography: "HOT DEALS",
   },
   {
     id: 2,
