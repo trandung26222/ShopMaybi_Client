@@ -16,12 +16,6 @@ function App() {
       "--vw",
       `${e.target.innerWidth}px`
     );
-    const setProperty = () => {
-      const vh = window.innerHeight * 0.01;
-      document.documentElement.style.setProperty("--vh", `${vh}px`);
-    };
-
-    setProperty();
   };
   useEffect(() => {
     const setProperty = () => {

@@ -9,16 +9,16 @@ function CartItem({ islast, item }) {
   };
 
   const handleRemoveItemCart = (id) => {
-    var CartItemData = JSON.parse(localStorage.getItem("CartItemData"));
-    CartItemData = CartItemData.filter((c) => c.id !== id);
-    localStorage.setItem("CartItemData", JSON.stringify(CartItemData));
+    var DataCart = JSON.parse(localStorage.getItem("DataCart"));
+    DataCart = DataCart.filter((c) => c.id !== id);
+    localStorage.setItem("DataCart", JSON.stringify(DataCart));
 
-    var tonggia = CartItemData.reduce((accumulator, currentItem) => {
+    var tonggia = DataCart.reduce((accumulator, currentItem) => {
       return accumulator + currentItem.price * currentItem.quantity;
     }, 0);
     localStorage.setItem("tonggia", tonggia);
 
-    var soluongsanpham = CartItemData.reduce((accumulator, currentItem) => {
+    var soluongsanpham = DataCart.reduce((accumulator, currentItem) => {
       return accumulator + currentItem.quantity;
     }, 0);
     localStorage.setItem("soluongsanpham", soluongsanpham);

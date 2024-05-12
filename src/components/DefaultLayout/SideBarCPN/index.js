@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUserCircle } from "@fortawesome/free-solid-svg-icons";
-import { menuCollectionItem } from "../../Data/menuCollectionItem";
+import { DataCollection } from "../../Data/DataCollection";
 
 function SideBar(props) {
   const [isRendered, setIsRendered] = useState(false);
@@ -29,11 +29,11 @@ function SideBar(props) {
         </div>
       </div>
       <div className="flex flex-col pt-4">
-        {menuCollectionItem.map((item, index) => {
+        {DataCollection.map((item, index) => {
           return (
             <NavLink
               key={index}
-              to="/messages"
+              to={item.link}
               className={`text-[16px] flex items-center font-semibold relative py-4 rounded-xl`}
               onMouseEnter={(e) => {
                 e.target.classList.add("bg-[rgba(0,0,0,0.2)]");

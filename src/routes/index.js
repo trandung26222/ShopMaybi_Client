@@ -6,6 +6,7 @@ import Signup from "../pages/Signup";
 import Checkout from "../pages/Checkout";
 import Product from "../pages/Product";
 import NotFound from "../pages/NotFound";
+import { linkcollections } from "../components/Data/DataCollection";
 
 const publicRoutes = [
   { path: "/", component: Home },
@@ -18,7 +19,9 @@ const publicRoutes = [
   {
     path: "/collections/:name",
     component: Collection,
-    isValidName: /^(newarrival|lastchange)$/,
+    isValidName: function (name) {
+      return linkcollections.includes(name);
+    },
   },
 
   { path: "*", component: NotFound },

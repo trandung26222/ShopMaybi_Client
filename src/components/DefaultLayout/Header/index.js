@@ -10,12 +10,11 @@ import { toggleSidebar } from "../../../redux/slices/SidebarSlice";
 import { Link } from "react-router-dom";
 import LeftActionHeader from "./LeftMenu";
 import TooltipLeftActionHeader from "./Responsive/TooltipLeftActionHeader";
-import { menuCollectionItem } from "../../Data/menuCollectionItem";
+import { DataCollection } from "../../Data/DataCollection";
 
 function Header(props) {
   const [MenuItemindex, setMenuItemindex] = useState([0, 1, 2, 3]);
-  const lengthmenuitem = menuCollectionItem.length;
-  var currentWidth = useSelector((state) => state.responsive.currentWidth);
+  const lengthmenuitem = DataCollection.length;
   const handlepre = () => {
     setMenuItemindex([0, 1, 2, 3]);
   };
@@ -33,7 +32,7 @@ function Header(props) {
   return (
     <header
       className="bg-white  z-[2] sticky top-0 w-full h-[var(--height-header)]  flex items-center
-     px-[var(--padding-header)] justify-between shadow-xl xl:text-[16px] xs:text-[13px]  "
+     px-[var(--padding-header)] justify-between shadow-lg xl:text-[16px] xs:text-[13px]  "
     >
       <button
         className="cursor-pointer text-[24px] xl:hidden"
@@ -54,7 +53,7 @@ function Header(props) {
 
       <div className="xs:hidden xl:flex   h-full items-center w-full">
         <nav className="flex gap-6 w-full">
-          {menuCollectionItem.map((item, index) => {
+          {DataCollection.map((item, index) => {
             if (MenuItemindex.includes(index)) {
               return (
                 <div
@@ -63,7 +62,7 @@ function Header(props) {
                 >
                   <NavLink
                     key={index}
-                    to="/messages"
+                    to={item.link}
                     className={`text-[1em] items-center gap-1 font-semibold hidden xl:flex `}
                   >
                     {item.iconSrc && (

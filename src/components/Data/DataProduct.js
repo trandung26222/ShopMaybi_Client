@@ -1,4 +1,4 @@
-export const ProductData = [
+export const DataProduct = [
   {
     srcimg: [
       "https://product.hstatic.net/1000341902/product/2404wo23_grey__12__18c1d3d090fd40bcbf0abd9a7e4804be_large.jpg",

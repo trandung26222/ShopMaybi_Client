@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import { Grid } from "@mui/material";
-import { ProductData } from "../../components/Data/ProductData";
+import { DataProduct } from "../../components/Data/DataProduct";
 import Button from "@mui/material/Button";
 import { styled } from "@mui/material/styles";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
@@ -37,7 +37,7 @@ function Section4() {
         columnSpacing={{ xs: 2, lg: 2 }}
         justifyContent={"flex-center"}
       >
-        {ProductData.map((item, index) => (
+        {DataProduct.map((item, index) => (
           <Grid item key={index} lg={2.4} md={4} sm={5} xs={12}>
             <ItemProduct props={item}></ItemProduct>
           </Grid>

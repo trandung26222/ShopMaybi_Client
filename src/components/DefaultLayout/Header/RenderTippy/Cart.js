@@ -3,13 +3,13 @@ import CartItem from "./CartItem";
 import { Link } from "react-router-dom";
 
 function Cart() {
-  var CartItemData = JSON.parse(localStorage.getItem("CartItemData"));
+  var DataCart = JSON.parse(localStorage.getItem("DataCart"));
   var tonggia = parseInt(localStorage.getItem("tonggia"));
   return (
     <div className="w-[398px] h-[392px] bg-white rounded-md shadow-xl border py-3 flex flex-col">
       {/* Danh sach */}
       <div className="danhsach flex-1 w-full overflow-auto scroll-setting">
-        {CartItemData.map((item, index) => {
+        {DataCart.map((item, index) => {
           return <CartItem key={index} item={item} />;
         })}
       </div>

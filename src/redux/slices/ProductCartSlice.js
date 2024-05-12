@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { CartItemData } from "../../components/Data/CartItemData";
+import { DataCart } from "../../components/Data/DataCart";
 
 const calculateTotalPrice = (cartItems) => {
   var tmp = cartItems.reduce((accumulator, currentItem) => {
@@ -18,11 +18,11 @@ const calculateTotalQuantity = (cartItems) => {
 };
 
 const initState = {
-  CartItemData: [...CartItemData],
-  tonggia: calculateTotalPrice(CartItemData),
-  soluongsanpham: calculateTotalQuantity(CartItemData),
+  DataCart: [...DataCart],
+  tonggia: calculateTotalPrice(DataCart),
+  soluongsanpham: calculateTotalQuantity(DataCart),
 };
-localStorage.setItem("CartItemData", JSON.stringify(CartItemData));
+localStorage.setItem("DataCart", JSON.stringify(DataCart));
 
 export const ProductCartSlice = createSlice({
   name: "ProductCartSlice",

@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initState = {
   TippyCart: true,
+  BackToTopButton: false,
 };
 
 export const TippyCartSlice = createSlice({
@@ -11,8 +12,12 @@ export const TippyCartSlice = createSlice({
     toggleTippyCart: (state) => {
       state.TippyCart = !state.TippyCart;
     },
+    toggleBackToTopButton: (state, action) => {
+      state.BackToTopButton = action.payload;
+    },
   },
 });
 
-export const { toggleTippyCart } = TippyCartSlice.actions;
+export const { toggleTippyCart, toggleBackToTopButton } =
+  TippyCartSlice.actions;
 export default TippyCartSlice.reducer;

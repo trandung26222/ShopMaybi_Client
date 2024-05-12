@@ -5,7 +5,6 @@ import { LinearProgress } from "@mui/material";
 import { linearProgressClasses } from "@mui/material";
 import CardGiftcardIcon from "@mui/icons-material/CardGiftcard";
 import Grid from "@mui/material/Grid";
-import { useSelector } from "react-redux";
 import CartItem from "./CartItem";
 
 const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
@@ -24,7 +23,7 @@ const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
 
 function Cart() {
   var MoneyGift = 499000;
-  var CartItemData = JSON.parse(localStorage.getItem("CartItemData"));
+  var DataCart = JSON.parse(localStorage.getItem("DataCart"));
   var tonggia = parseInt(localStorage.getItem("tonggia"));
   var soluongsanpham = parseInt(localStorage.getItem("soluongsanpham"));
 
@@ -90,12 +89,12 @@ function Cart() {
         <Grid container spacing={2}>
           <Grid item xl={9} xs={12}>
             <div className={`w-full`}>
-              {CartItemData &&
-                CartItemData.map((c) => {
+              {DataCart &&
+                DataCart.map((c) => {
                   return (
                     <CartItem
                       key={c.id}
-                      islast={c.id === CartItemData.length - 1 ? true : false}
+                      islast={c.id === DataCart.length - 1 ? true : false}
                       item={c}
                     />
                   );

@@ -11,3 +11,8 @@ npm i @fortawesome/react-fontawesome@latest @fortawesome/fontawesome-svg-core@la
 
 npm install --save chart.js react-chartjs-2
 npm install @faker-js/faker --save-dev
+
+npm install --save styled-components
+npm install --save react-icons
+npm i styled-components
+npm uninstall styled-components

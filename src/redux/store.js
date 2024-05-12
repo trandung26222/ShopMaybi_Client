@@ -12,4 +12,3 @@ export const store = configureStore({
     ElementDomSlice: ElementDomSlice,
   },
 });
-// store đại diện cho redux

@@ -1,4 +1,4 @@
-export const CartItemData = [
+export const DataCart = [
   {
     img: "http://product.hstatic.net/1000341902/product/2404wo23_grey__12__18c1d3d090fd40bcbf0abd9a7e4804be_compact.jpg",
     name: "Áo khoác chống nắng chống UV làm mát",

@@ -14,18 +14,22 @@ export var databtn = [
   {
     icon: faMagnifyingGlass,
     p: "Tìm kiếm",
+    link: "/",
   },
   {
     icon: faUser,
     p: "Đăng nhập",
+    link: "/account/login",
   },
   {
     icon: faUser,
     p: "Đăng ký",
+    link: "/account/signup",
   },
   {
     icon: faCartShopping,
     p: "Giỏ hàng",
+    link: "/cart",
   },
 ];
 
@@ -36,6 +40,7 @@ function TooltipLeftActionHeader(props) {
         {databtn.map((item, index) => {
           return (
             <Link
+              to={item.link}
               key={index}
               className="flex text-[16px] items-center py-[9px] rounded-md text-black bg-white hover:bg-[rgba(0,0,0,0.1)]  w-full pl-5 relative gap-2"
             >
