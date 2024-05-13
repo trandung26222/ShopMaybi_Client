@@ -16,3 +16,9 @@ npm install --save styled-components
 npm install --save react-icons
 npm i styled-components
 npm uninstall styled-components
+npm install firebase
+npm install -g firebase-tools
+firebase login
+firebase init
+firebase deploy
+npm install firebaseui --save

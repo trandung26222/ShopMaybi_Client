@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import { Grid } from "@mui/material";
 import { DataProduct } from "../../components/Data/DataProduct";

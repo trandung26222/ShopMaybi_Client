@@ -1,17 +1,17 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-    currentWidth: window.innerWidth,
+  currentWidth: window.innerWidth,
 };
 
 export const ResponsiveSlice = createSlice({
-    name: 'ResponsiveSlice',
-    initialState,
-    reducers: {
-        setCurrentWidth: (state, action) => {
-            state.currentWidth = action.payload;
-        },
+  name: "ResponsiveSlice",
+  initialState,
+  reducers: {
+    setCurrentWidth: (state, action) => {
+      state.currentWidth = action.payload;
     },
+  },
 });
 
 export const { setCurrentWidth } = ResponsiveSlice.actions;

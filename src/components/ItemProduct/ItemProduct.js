@@ -7,18 +7,11 @@ import { MappingColors } from "./MappingColor";
 
 function ItemProduct({ props }) {
   const [isHover, setIsHover] = useState(false);
-  var lengthColor = props.color.length;
+  var lengthImg = props.srcimg.length;
   const [indexColorClick, setindexColorClick] = useState(0);
   const [indexColorHover, setindexColorHover] = useState(null);
-  const numericString = props.gia.replace(/,|₫/g, "");
-  const price = parseInt(numericString);
-  const giagoc = parseInt(price / (1 - props.giamgia / 100));
-  const formattedPrice = giagoc
-    .toLocaleString("vi-VN", {
-      style: "currency",
-      currency: "VND",
-    })
-    .replace(".", ",");
+
+  const giagoc = parseInt((props.gia * 100) / (100 - props.giamgia));
 
   return (
     <div className="ITEMPRODUCT w-full  h-[auto] flex flex-col relative items-end">
@@ -42,7 +35,7 @@ function ItemProduct({ props }) {
           alt=""
           onMouseEnter={() => {
             setIsHover(true);
-            setindexColorHover((pre) => (pre + 1) % lengthColor);
+            setindexColorHover((pre) => (pre + 1) % lengthImg);
           }}
           onMouseLeave={() => {
             setIsHover(false);
@@ -60,12 +53,18 @@ function ItemProduct({ props }) {
         >
           {props.title}
         </Link>
-        <p className="cursor-auto block text-[#DF0000] text-[1.3em] font-bold my-1">
-          {props.gia}
+        <p className="cursor-auto block cssMoney text-[1.3em]  my-1">
+          {props.gia.toLocaleString("vi-VN", {
+            style: "currency",
+            currency: "VND",
+          })}
         </p>
         <div className="flex gap-2 items-center mb-2">
           <p className="text-[#666666] line-through inline-block text-[1.3em] font-[400] ">
-            {formattedPrice}
+            {giagoc.toLocaleString("vi-VN", {
+              style: "currency",
+              currency: "VND",
+            })}
           </p>
           <p className=" text-[1.3em] text-white font-[400] bg-[#d84144] p-[1px] px-[8px] rounded-[10px] text-center tracking-wider">
             -{props.giamgia}%

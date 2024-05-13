@@ -6,8 +6,14 @@ import { Fragment } from "react";
 import { useEffect } from "react";
 import DefaultLayout from "./components/DefaultLayout";
 import { DataCollection } from "./components/Data/DataCollection";
+import { getDatabase, ref, child, get, set } from "firebase/database";
+import { database } from "./firebase";
+import { DataCart } from "./components/Data/DataCart";
+import { DataProduct } from "./components/Data/DataProduct";
 
 function App() {
+  const dbRef = ref(getDatabase());
+
   const dispatch = useDispatch();
   var currrentW = useSelector((s) => s.responsive.currentWidth);
 
@@ -33,6 +39,27 @@ function App() {
       window.removeEventListener("resize", setWidth);
     };
   }, []);
+
+  // get(child(dbRef, `user/`))
+  //   .then((snapshot) => {
+  //     if (snapshot.exists()) {
+  //       console.log(snapshot.val());
+  //     } else {
+  //       console.log("No data available");
+  //     }
+  //   })
+  //   .catch((error) => {
+  //     console.error(error);
+  //   });
+
+  // useEffect(() => {
+  //   DataCart.forEach((item) => {
+  //     set(child(dbRef, `DataCart/${item.id}`), item);
+  //   });
+  //   DataProduct.forEach((item) => {
+  //     set(child(dbRef, `DataProduct/${item.id}`), item);
+  //   });
+  // }, []);
 
   return (
     <div className="App xl:text-[10px] lg:text-[9px] md:text-[8px]  xs:text-[7px]">

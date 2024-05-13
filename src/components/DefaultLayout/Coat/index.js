@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { toggleSidebar } from "../../../redux/slices/SidebarSlice";
+import { toggleSidebar } from "../../../redux/slices/ElementDomSlice";
 
 function Coat(props) {
   var dp = useDispatch();

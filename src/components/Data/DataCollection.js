@@ -7,6 +7,8 @@ export const DataCollection = [
     text: "MỚI VỀ",
     link: "/collections/new-arrival-maybi-is-back",
     nametypography: "NEW ARRIVAL - MAYBI's back",
+    imgbackground:
+      "https://file.hstatic.net/1000341902/collection/homepage_2000x679-100_b263dd31246e43a7834da5e13f3326ad.jpg",
   },
   {
     id: 1,
@@ -16,6 +18,8 @@ export const DataCollection = [
     text: "HOT DEALS",
     link: "/collections/hotdeals",
     nametypography: "HOT DEALS",
+    imgbackground:
+      "https://file.hstatic.net/1000341902/collection/homepage_2000x679_copy-100_7c5cd6c1c6dd4a85922f3e9978b6096f.jpg",
   },
   {
     id: 2,

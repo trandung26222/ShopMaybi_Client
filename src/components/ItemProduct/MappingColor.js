@@ -7,4 +7,5 @@ export const MappingColors = {
   Đỏ: "red",
   Nâu: "brown",
   Đen: "black",
+  Kem: "#ECDAC1",
 };

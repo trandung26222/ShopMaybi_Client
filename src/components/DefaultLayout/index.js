@@ -8,7 +8,7 @@ import { useRef } from "react";
 import BackToTopButton from "../BackToTopButton/BackToTopButton";
 
 function DefaultLayout({ children }) {
-  var Sidebar = useSelector((state) => state.Sidebar.Sidebar);
+  var Sidebar = useSelector((state) => state.ElementDomSlice.Sidebar);
   var conRef = useRef();
   return (
     <div

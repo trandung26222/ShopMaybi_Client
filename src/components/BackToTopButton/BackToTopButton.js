@@ -31,7 +31,7 @@ function BackToTopButton({ getContainerRef }) {
 
   return (
     <button
-      className={`fixed right-8 bottom-6  w-[35px] h-[35px] bg-purple-400 z-1000 rounded
+      className={`fixed right-8 bottom-6  w-[35px] h-[35px] bg-purple-600 z-1000 rounded
         hover:opacity-[0.8]  transition-opacity duration-100 ease-in-out    
       ${visible ? "block" : "hidden"}`}
       onClick={handleClick}
