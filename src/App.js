@@ -3,20 +3,17 @@ import { setCurrentWidth } from "./redux/slices/ResponsiveSlice";
 import { setCurrentUser } from "./redux/slices/CurrentUserSlice";
 import { Routes, Route, Navigate } from "react-router-dom";
 import { publicRoutes } from "./routes";
-import { Fragment, useState } from "react";
+import { Fragment } from "react";
 import { useEffect } from "react";
 import DefaultLayout from "./components/DefaultLayout";
 import { DataCollection } from "./components/Data/DataCollection";
-import { getDatabase, ref } from "firebase/database";
-import { DataCart } from "./components/Data/DataCart";
-import { DataProduct } from "./components/Data/DataProduct";
+
 import { auth } from "./firebase";
 
 function App() {
-  // const dbRef = ref(getDatabase());
-
   const dispatch = useDispatch();
   var currrentW = useSelector((s) => s.responsive.currentWidth);
+  var CurrentUser = useSelector((s) => s.CurrentUserSlice.CurrentUser);
 
   const setWidth = (e) => {
     dispatch(setCurrentWidth(e.target.innerWidth));
@@ -41,30 +38,19 @@ function App() {
     };
   }, []);
 
-  // useEffect(() => {
-  //   DataCart.forEach((item) => {
-  //     set(child(dbRef, `DataCart/${item.id}`), item);
-  //   });
-  //   DataProduct.forEach((item) => {
-  //     set(child(dbRef, `DataProduct/${item.id}`), item);
-  //   });
-  // }, []);
-
-  var [user, setUser] = useState(null);
   useEffect(() => {
     auth.onAuthStateChanged((user) => {
-      setUser(user);
+      if (user) {
+        dispatch(setCurrentUser(true));
+      } else {
+        dispatch(setCurrentUser(false));
+      }
     });
   });
 
   return (
     <div className="App xl:text-[10px] lg:text-[9px] md:text-[8px]  xs:text-[7px]">
       <Routes>
-        {/* <Route
-          path="/"
-          element={user ? <Navigate to="/afterlogin" /> : <Login />}
-        ></Route> */}
-
         {publicRoutes.map((route) => {
           let Layout = DefaultLayout;
           if (route.layout === null) {
@@ -101,6 +87,10 @@ function App() {
                 ))}
             </Route>
           );
+
+          {
+            /* END */
+          }
         })}
       </Routes>
     </div>

@@ -1,9 +1,8 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import { auth } from "../../../../firebase";
-import { useState } from "react";
 
-// import { useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 
 function LoginSignup() {
   var classnameItem =
@@ -11,7 +10,8 @@ function LoginSignup() {
   var classnameContain =
     "w-[95px] h-fit bg-white rounded-md shadow-lg border flex flex-col justify-between items-start text-[14px] px-0";
 
-  // const CurrentUser = useSelector((s) => s.CurrentUserSlice.CurrentUser);
+  const CurrentUser = useSelector((s) => s.CurrentUserSlice.CurrentUser);
+  console.log("CurrentUser", CurrentUser);
 
   // =============================================================================
 
@@ -27,22 +27,23 @@ function LoginSignup() {
   // =============================================================================
   return (
     <div className={classnameContain}>
-      {console.log("render tippy ---")}
-      <Link
-        to={"/account/login"}
-        className={`${classnameItem} ${user && "hidden"}`}
-      >
-        Đăng nhập
-      </Link>
-      <Link to={"/account/signup"} className={`${classnameItem}`}>
-        Đăng ký
-      </Link>
-      <button
-        onClick={handleLogout}
-        className={`${classnameItem}  ${user && "block"}`}
-      >
-        Đăng xuất
-      </button>
+      {CurrentUser === false ? (
+        <>
+          <Link to={"/account/login"} className={`${classnameItem} `}>
+            Đăng nhập
+          </Link>
+          <Link to={"/account/signup"} className={`${classnameItem} `}>
+            Đăng ký
+          </Link>
+        </>
+      ) : (
+        <>
+          <button className={classnameItem}>Tài khoản</button>
+          <button onClick={handleLogout} className={`${classnameItem} `}>
+            Đăng xuất
+          </button>
+        </>
+      )}
     </div>
   );
 }
