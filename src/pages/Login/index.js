@@ -2,8 +2,25 @@ import React from "react";
 import BreadCrumb from "../../components/BreadCrumb";
 import TextField from "@mui/material/TextField";
 import Checkbox from "@mui/material/Checkbox";
+import { useState } from "react";
+import { auth } from "../../firebase";
+import { signInWithEmailAndPassword } from "firebase/auth";
 
 function Login() {
+  var [email, setEmai] = useState();
+  var [password, setPassword] = useState();
+  const login = async (e) => {
+    e.preventDefault();
+    try {
+      await signInWithEmailAndPassword(auth, email, password);
+      console.log("user logged in successfully");
+      window.location.href = "/";
+    } catch (error) {
+      console.log(error.message);
+      window.alert(error.message);
+    }
+  };
+
   return (
     <div className="w-full h-auto text-[16px] flex flex-col items-center">
       <BreadCrumb links={["Trang chủ", "Tài khoản"]} typography={"Đăng nhập"} />
@@ -18,22 +35,28 @@ function Login() {
           </div>
 
           <div className="md:w-8/12 lg:ms-6 lg:w-5/12">
-            <form>
-              <div className="relative mb-6 " data-twe-input-wrapper-init>
+            <form onSubmit={login}>
+              <div className="relative mb-6 ">
                 <TextField
                   id="outlined-basic"
-                  label="Username"
+                  label="Email"
                   variant="outlined"
                   sx={{ width: "100%" }}
+                  onChange={(e) => {
+                    setEmai(e.target.value);
+                  }}
                 />
               </div>
 
-              <div className="relative mb-6" data-twe-input-wrapper-init>
+              <div className="relative mb-6">
                 <TextField
                   id="outlined-basic"
                   label="Password"
                   variant="outlined"
                   sx={{ width: "100%" }}
+                  onChange={(e) => {
+                    setPassword(e.target.value);
+                  }}
                 />
               </div>
 
@@ -56,12 +79,7 @@ function Login() {
                 </a>
               </div>
 
-              <button
-                type="submit"
-                className="inline-block w-full rounded bg-primary px-7 pb-2.5 pt-3 text-sm font-medium uppercase leading-normal text-white shadow-primary-3 transition duration-150 ease-in-out hover:bg-primary-accent-300 hover:shadow-primary-2 focus:bg-primary-accent-300 focus:shadow-primary-2 focus:outline-none focus:ring-0 active:bg-primary-600 active:shadow-primary-2 dark:shadow-black/30 dark:hover:shadow-dark-strong dark:focus:shadow-dark-strong dark:active:shadow-dark-strong"
-                data-twe-ripple-init
-                data-twe-ripple-color="light"
-              >
+              <button type="submit" className="w-full bg-blue-400 text-white">
                 Sign in
               </button>
 
@@ -74,10 +92,7 @@ function Login() {
               <a
                 className="mb-3 flex w-full items-center justify-center rounded bg-primary px-7 pb-2.5 pt-3 text-center text-sm font-medium uppercase leading-normal text-white shadow-primary-3 transition duration-150 ease-in-out hover:bg-primary-accent-300 hover:shadow-primary-2 focus:bg-primary-accent-300 focus:shadow-primary-2 focus:outline-none focus:ring-0 active:bg-primary-600 active:shadow-primary-2 dark:shadow-black/30 dark:hover:shadow-dark-strong dark:focus:shadow-dark-strong dark:active:shadow-dark-strong"
                 style={{ backgroundColor: "#3b5998" }}
-                href="#!"
-                role="button"
-                data-twe-ripple-init
-                data-twe-ripple-color="light"
+                href="/"
               >
                 <span className="me-2 fill-white [&>svg]:mx-auto [&>svg]:h-3.5 [&>svg]:w-3.5">
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
@@ -89,10 +104,7 @@ function Login() {
               <a
                 className="mb-3 flex w-full items-center justify-center rounded bg-info px-7 pb-2.5 pt-3 text-center text-sm font-medium uppercase leading-normal text-white shadow-info-3 transition duration-150 ease-in-out hover:bg-info-accent-300 hover:shadow-info-2 focus:bg-info-accent-300 focus:shadow-info-2 focus:outline-none focus:ring-0 active:bg-info-600 active:shadow-info-2 dark:shadow-black/30 dark:hover:shadow-dark-strong dark:focus:shadow-dark-strong dark:active:shadow-dark-strong"
                 style={{ backgroundColor: "#55acee" }}
-                href="#!"
-                role="button"
-                data-twe-ripple-init
-                data-twe-ripple-color="light"
+                href="/"
               >
                 <span className="me-2 fill-white [&>svg]:h-3.5 [&>svg]:w-3.5">
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">

@@ -1,18 +1,19 @@
 import { useSelector, useDispatch } from "react-redux";
 import { setCurrentWidth } from "./redux/slices/ResponsiveSlice";
-import { Routes, Route } from "react-router-dom";
+import { setCurrentUser } from "./redux/slices/CurrentUserSlice";
+import { Routes, Route, Navigate } from "react-router-dom";
 import { publicRoutes } from "./routes";
-import { Fragment } from "react";
+import { Fragment, useState } from "react";
 import { useEffect } from "react";
 import DefaultLayout from "./components/DefaultLayout";
 import { DataCollection } from "./components/Data/DataCollection";
-import { getDatabase, ref, child, get, set } from "firebase/database";
-import { database } from "./firebase";
+import { getDatabase, ref } from "firebase/database";
 import { DataCart } from "./components/Data/DataCart";
 import { DataProduct } from "./components/Data/DataProduct";
+import { auth } from "./firebase";
 
 function App() {
-  const dbRef = ref(getDatabase());
+  // const dbRef = ref(getDatabase());
 
   const dispatch = useDispatch();
   var currrentW = useSelector((s) => s.responsive.currentWidth);
@@ -40,18 +41,6 @@ function App() {
     };
   }, []);
 
-  // get(child(dbRef, `user/`))
-  //   .then((snapshot) => {
-  //     if (snapshot.exists()) {
-  //       console.log(snapshot.val());
-  //     } else {
-  //       console.log("No data available");
-  //     }
-  //   })
-  //   .catch((error) => {
-  //     console.error(error);
-  //   });
-
   // useEffect(() => {
   //   DataCart.forEach((item) => {
   //     set(child(dbRef, `DataCart/${item.id}`), item);
@@ -61,9 +50,21 @@ function App() {
   //   });
   // }, []);
 
+  var [user, setUser] = useState(null);
+  useEffect(() => {
+    auth.onAuthStateChanged((user) => {
+      setUser(user);
+    });
+  });
+
   return (
     <div className="App xl:text-[10px] lg:text-[9px] md:text-[8px]  xs:text-[7px]">
       <Routes>
+        {/* <Route
+          path="/"
+          element={user ? <Navigate to="/afterlogin" /> : <Login />}
+        ></Route> */}
+
         {publicRoutes.map((route) => {
           let Layout = DefaultLayout;
           if (route.layout === null) {

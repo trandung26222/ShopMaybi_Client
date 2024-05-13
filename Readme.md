@@ -22,3 +22,4 @@ firebase login
 firebase init
 firebase deploy
 npm install firebaseui --save
+npm install --save react-toastify

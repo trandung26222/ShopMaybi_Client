@@ -1,89 +1,63 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import BreadCrumb from "../../components/BreadCrumb";
+import { useState } from "react";
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { auth, db } from "../../firebase";
+import { setDoc, doc } from "firebase/firestore";
+import { toast } from "react-toastify";
 
 function Signup(props) {
+  var [email, setEmail] = useState("");
+  var [password, setPassword] = useState("");
+  const signup = async (e) => {
+    e.preventDefault();
+    try {
+      await createUserWithEmailAndPassword(auth, email, password);
+      const user = auth.currentUser;
+      console.log(user);
+
+      if (user) {
+        await setDoc(doc(db, "Users", user.uid), {
+          email: user.email,
+        });
+        toast.success("user registered successfully!", {
+          position: "top-center",
+        });
+      }
+    } catch (err) {
+      console.log(err.message);
+      toast.success("user register fail !", {
+        position: "top-center",
+      });
+    }
+  };
+
   return (
-    <div className="w-full h-auto text-[16px] flex flex-col items-center">
-      <BreadCrumb links={["Trang chủ", "Tài khoản"]} typography={"Đăng ký"} />
-      <div class="max-w-4xl mx-auto font-[sans-serif] text-[#333] p-6">
-        <div class="text-center mb-16">
-          <h4 class="text-[1.4rem] font-semibold mt-3">THÔNG TIN CÁ NHÂN</h4>
-          <p class="text-[0.8rem]">
-            Bạn đã có tài khoản ? Đăng nhập{" "}
-            <Link className="text-blue-600 " to={"/account/login"}>
-              tại đây
-            </Link>
-          </p>
-        </div>
-        <form>
-          <div class="grid sm:grid-cols-2 gap-y-7 gap-x-12">
-            <div>
-              <label class="text-sm mb-2 block">First Name</label>
-              <input
-                name="name"
-                type="text"
-                class="bg-gray-100 w-full text-sm px-4 py-3.5 rounded-md outline-blue-500"
-                placeholder="Enter name"
-              />
-            </div>
-            <div>
-              <label class="text-sm mb-2 block">Last Name</label>
-              <input
-                name="lname"
-                type="text"
-                class="bg-gray-100 w-full text-sm px-4 py-3.5 rounded-md outline-blue-500"
-                placeholder="Enter last name"
-              />
-            </div>
-            <div>
-              <label class="text-sm mb-2 block">Email Id</label>
-              <input
-                name="email"
-                type="text"
-                class="bg-gray-100 w-full text-sm px-4 py-3.5 rounded-md outline-blue-500"
-                placeholder="Enter email"
-              />
-            </div>
-            <div>
-              <label class="text-sm mb-2 block">Mobile No.</label>
-              <input
-                name="number"
-                type="number"
-                class="bg-gray-100 w-full text-sm px-4 py-3.5 rounded-md outline-blue-500"
-                placeholder="Enter mobile number"
-              />
-            </div>
-            <div>
-              <label class="text-sm mb-2 block">Password</label>
-              <input
-                name="password"
-                type="password"
-                class="bg-gray-100 w-full text-sm px-4 py-3.5 rounded-md outline-blue-500"
-                placeholder="Enter password"
-              />
-            </div>
-            <div>
-              <label class="text-sm mb-2 block">Confirm Password</label>
-              <input
-                name="cpassword"
-                type="password"
-                class="bg-gray-100 w-full text-sm px-4 py-3.5 rounded-md outline-blue-500"
-                placeholder="Enter confirm password"
-              />
-            </div>
-          </div>
-          <div class="!mt-10">
-            <button
-              type="button"
-              class="min-w-[150px] py-3 px-4 text-sm font-semibold rounded text-white bg-blue-500 hover:bg-blue-600 focus:outline-none"
-            >
-              Sign up
-            </button>
-          </div>
-        </form>
-      </div>
-    </div>
+    <section className="flex flex-col w-[200px]">
+      <form onSubmit={signup}>
+        <input
+          type="text"
+          placeholder="email"
+          onChange={(e) => {
+            setEmail(e.target.value);
+          }}
+          className="w-[300px] h-[50px] border"
+        />
+
+        <input
+          type="text"
+          placeholder="password"
+          onChange={(e) => {
+            setPassword(e.target.value);
+          }}
+          className="w-[300px] h-[50px] border"
+        />
+        <button type="submit" className="w-[50px] h-[30px] bg-blue-300">
+          signup
+        </button>
+      </form>
+      <Link to={"/account/login"}>login tai day</Link>
+    </section>
   );
 }
 

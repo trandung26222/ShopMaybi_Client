@@ -17,7 +17,7 @@ var items = [
   },
   {
     icon: <FontAwesomeIcon icon={faUser} />,
-    p: "Đăng nhập",
+    p: "Tài khoản",
   },
   {
     icon: <ShoppingCartOutlinedIcon sx={{ fontSize: 17 }} />,

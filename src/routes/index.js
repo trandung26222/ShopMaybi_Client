@@ -6,6 +6,7 @@ import Signup from "../pages/Signup";
 import Checkout from "../pages/Checkout";
 import Product from "../pages/Product";
 import NotFound from "../pages/NotFound";
+import AfterLogin from "../pages/AfterLogin";
 import { RouteChildOfCollection } from "../components/Data/DataCollection";
 
 const publicRoutes = [
@@ -15,6 +16,7 @@ const publicRoutes = [
   { path: "/account/signup", component: Signup },
   { path: "/checkout", component: Checkout },
   { path: "/product/:id", component: Product },
+  { path: "/afterlogin", component: AfterLogin },
   {
     path: "/collections",
     component: Collection,

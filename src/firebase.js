@@ -1,8 +1,10 @@
 import { initializeApp } from "firebase/app";
 import { getDatabase } from "firebase/database";
+import { getAuth } from "firebase/auth";
+import { getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
-  apiKey: process.env.REDIRECT_API_KEY,
+  apiKey: process.env.REACT_APP_API_KEY,
   authDomain: "tailwindshop-4fdd1.firebaseapp.com",
   projectId: "tailwindshop-4fdd1",
   storageBucket: "tailwindshop-4fdd1.appspot.com",
@@ -13,3 +15,7 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 const database = getDatabase(app);
+
+export const auth = getAuth(app);
+export const db = getFirestore(app);
+export default app;
