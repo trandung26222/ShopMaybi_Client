@@ -7,8 +7,8 @@ import Tippy from "@tippyjs/react/headless";
 import "tippy.js/dist/tippy.css";
 import { Link } from "react-router-dom";
 import { Popover } from "antd";
-import TootipLoginSignup from "./RenderTooltip/TooltipLoginSignup";
-import TooltipCart from "./RenderTooltip/TooltipCart";
+import TootipLoginSignup from "../RenderTooltip/TooltipLoginSignup";
+import TooltipCart from "../RenderTooltip/TooltipCart";
 
 var items = [
   {
@@ -25,7 +25,7 @@ var items = [
   },
 ];
 
-function LeftMenu(props) {
+function RightMenu(props) {
   var classNamebtnaction = `flex flex-col text-black items-center 
   cursor-pointer gap-[5px] px-1 py-1 rounded transition-opacity 
   duration-[300ms] ease-in-out hover:opacity-[0.5] text-[16px]`;
@@ -66,4 +66,4 @@ function LeftMenu(props) {
   );
 }
 
-export default LeftMenu;
+export default RightMenu;

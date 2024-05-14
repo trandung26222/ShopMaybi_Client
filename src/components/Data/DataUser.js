@@ -1,17 +1,14 @@
 export const DataUser = [
   {
-    id: 0,
-    name: "manhlong",
-    email: "manhlong@gmail.com",
+    name: "trandung1",
+    email: "trandung1@gmail.com",
   },
   {
-    id: 1,
+    name: "trandung2",
+    email: "trandung2@gmail.com",
+  },
+  {
     name: "trandung",
     email: "trandung@gmail.com",
-  },
-  {
-    id: 2,
-    name: "phihung",
-    email: "phihung@gmail.com",
   },
 ];

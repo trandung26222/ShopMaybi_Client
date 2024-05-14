@@ -26,3 +26,6 @@ npm install --save react-toastify
 
 ============================================================
 https://www.tailwindtap.com/components?type=table
+
+=============================================
+REACT_APP_API_KEY = AIzaSyDXljeOK6aHIqoDXzwAysvjPFLVOcnZ7RY

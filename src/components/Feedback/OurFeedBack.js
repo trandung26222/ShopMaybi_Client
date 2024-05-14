@@ -1,12 +1,12 @@
 import React, { useState, useRef } from "react";
 import Container from "@mui/material/Container";
-import { DataOurFeedback } from "./DataOurFeedback";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import { IconButton } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import ItemOurFeedback from "./ItemOurFeedback";
 import { useEffect } from "react";
+import { DataOurFeedback } from "../Data/DataOurFeedback";
 
 const IconButtonCustom = styled(IconButton)(({ theme }) => ({
   backgroundColor: "rgba(0,0,0,0.03)",
