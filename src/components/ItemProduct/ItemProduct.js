@@ -4,8 +4,11 @@ import { useState } from "react";
 import { Tooltip } from "@mui/material";
 import Brightness1Icon from "@mui/icons-material/Brightness1";
 import { MappingColors } from "./MappingColor";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
+import { faEye } from "@fortawesome/free-regular-svg-icons";
 
-function ItemProduct({ props }) {
+function ItemProduct({ props, option }) {
   const [isHover, setIsHover] = useState(false);
   var lengthImg = props.srcimg.length;
   const [indexColorClick, setindexColorClick] = useState(0);
@@ -23,10 +26,12 @@ function ItemProduct({ props }) {
       {/* product img */}
       <Link
         to={`/product/${props.id}`}
-        className="w-full bg-white h-fit shadow-slate-200 shadow overflow-hidden "
+        className="w-full bg-white h-fit shadow-slate-200 shadow overflow-hidden relative"
       >
         <img
-          className="h-full object-contain transition-transform duration-[500ms] transform scale-100 hover:scale-95 "
+          className={`h-full object-contain transition-transform duration-[500ms] transform scale-100 ${
+            isHover && "scale-95"
+          }`}
           src={
             isHover
               ? props.srcimg[indexColorHover]
@@ -41,7 +46,35 @@ function ItemProduct({ props }) {
             setIsHover(false);
           }}
         />
+        {option && (
+          <span
+            className={`z-[1] absolute right-1/4 bottom-[15px] rounded-md w-1/2 h-[13%] bg-white flex text-[1rem]
+            translate-y-[100%] transition-transform duration-500 ease-in-out overflow-hidden
+            ${isHover ? " visible translate-y-[0]" : "invisible"}`}
+            onMouseEnter={() => {
+              setIsHover(true);
+            }}
+            onMouseLeave={() => {
+              setIsHover(false);
+            }}
+          >
+            <Tooltip title="Tùy chọn" arrow placement="top">
+              <button className="flex-1 hover:bg-[rgba(0,0,0,0.3)]">
+                <FontAwesomeIcon icon={faShoppingCart} />
+              </button>
+            </Tooltip>
+
+            <span className="w-[0.5px] h-full bg-gray-100"></span>
+
+            <Tooltip title="Xem nhanh" arrow placement="top">
+              <button className="flex-1 hover:bg-[rgba(0,0,0,0.3)]">
+                <FontAwesomeIcon icon={faEye} />
+              </button>
+            </Tooltip>
+          </span>
+        )}
       </Link>
+
       {/* product info */}
       <div className="product-info flex flex-col mt-[15px] items-start pl-[3px] w-full">
         <p className="cursor-auto text-[1.2em] inline-block text-[#9e7a7a] font-[600] tracking-[1.8px] mb-2 leading-3">
@@ -106,6 +139,8 @@ function ItemProduct({ props }) {
   );
 }
 
-ItemProduct.propTypes = {};
+const popoveraction = () => {
+  return <p className="px-1 py-2 bg-black">hêlo</p>;
+};
 
 export default ItemProduct;

@@ -90,7 +90,7 @@ function Collection({ props }) {
               {Data &&
                 Data.map((i, index) => (
                   <Grid item key={index} lg={3} md={3} sm={4} xs={4}>
-                    <ItemProduct props={i}></ItemProduct>
+                    <ItemProduct props={i} option></ItemProduct>
                   </Grid>
                 ))}
             </Grid>

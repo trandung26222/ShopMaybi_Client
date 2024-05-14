@@ -8,4 +8,6 @@ export const MappingColors = {
   Nâu: "brown",
   Đen: "black",
   Kem: "#ECDAC1",
+  Trắng: "white",
+  Vàng: "yellow",
 };
