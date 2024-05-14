@@ -31,7 +31,7 @@ function Section2(props) {
           <Grid xs={6} md={6} xl={3} key={index}>
             <div
               key={index}
-              className="flex  gap-3 xs:items-start min-[650px]:items-center py-5"
+              className="flex justify-center gap-3 xs:items-center min-[650px]:items-center py-5"
             >
               <div>
                 <img src={item.src} alt="" width="40" height="40" />

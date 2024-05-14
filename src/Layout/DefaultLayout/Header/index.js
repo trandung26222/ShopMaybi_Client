@@ -13,6 +13,7 @@ import LeftMenu from "./RightMenu";
 function Header() {
   var mainClassName = `bg-white  z-[2] sticky top-0 w-full h-[var(--height-header)]  flex items-center
   px-[var(--padding-header)] justify-between shadow-lg xl:text-[16px] xs:text-[13px]`;
+
   return (
     <header className={mainClassName}>
       <BtnMenuLeft />
@@ -35,14 +36,16 @@ const ImgLogo = () => (
 );
 const BtnMenuLeft = () => {
   var dispatch = useDispatch();
+  var animationBTN =
+    "hover:scale-[96%] transition-transform duration-300 ease-in-out";
   return (
     <button
-      className="cursor-pointer text-[24px] xl:hidden"
+      className="cursor-pointer text-[24px] xl:hidden "
       onClick={() => {
         dispatch(toggleSidebar());
       }}
     >
-      <FontAwesomeIcon icon={faBars}></FontAwesomeIcon>
+      <FontAwesomeIcon className={animationBTN} icon={faBars}></FontAwesomeIcon>
     </button>
   );
 };
