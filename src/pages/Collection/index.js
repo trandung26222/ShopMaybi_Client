@@ -5,11 +5,10 @@ import ItemProduct from "../../components/ItemProduct/ItemProduct";
 // import { ThemeProvider, createTheme } from "@mui/material/styles";
 import LeftContent from "./LeftContent";
 import TieuDeVaSapXep from "./TieuDeVaSapXep";
-import { getDatabase, ref, child, get } from "firebase/database";
-import { database } from "../../firebase";
+import { getDocs, collection } from "firebase/firestore";
+import { db } from "../../firebase";
 
 function Collection({ props }) {
-  const dbRef = ref(getDatabase());
   var [tuychon, settuychon] = useState("default");
   var [FirstData, setFirstData] = useState([]);
   var [Data, setData] = useState([]);
@@ -43,18 +42,20 @@ function Collection({ props }) {
   }, [tuychon]);
 
   useEffect(() => {
-    get(child(dbRef, `DataProduct`))
-      .then((snapshot) => {
-        if (snapshot.exists()) {
-          setData(snapshot.val());
-          setFirstData(snapshot.val());
-        } else {
-          console.log("No data available");
-        }
-      })
-      .catch((error) => {
-        console.error(error);
+    const findAll = async () => {
+      const doc_refs = await getDocs(collection(db, "DataProducts"));
+
+      const res = [];
+
+      doc_refs.forEach((item) => {
+        res.push({
+          ...item.data(),
+        });
       });
+      setData(res);
+      setFirstData(res);
+    };
+    findAll();
   }, []);
 
   return (

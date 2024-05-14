@@ -8,9 +8,11 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 import { toggleSidebar } from "../../../redux/slices/ElementDomSlice";
 import { Link } from "react-router-dom";
-import LeftActionHeader from "./LeftMenu";
-import TooltipLeftActionHeader from "./Responsive/TooltipLeftActionHeader";
 import { DataCollection } from "../../Data/DataCollection";
+
+// ----------------------------------------------------------------
+import TooltipMobile from "./RenderTooltip/TooltipMobile";
+import LeftMenu from "./LeftMenu";
 
 function Header(props) {
   const [MenuItemindex, setMenuItemindex] = useState([0, 1, 2, 3]);
@@ -112,9 +114,9 @@ function Header(props) {
         </div>
       </div>
 
-      <LeftActionHeader />
+      <LeftMenu />
 
-      <TooltipLeftActionHeader />
+      <TooltipMobile />
     </header>
   );
 }

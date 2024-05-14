@@ -1,19 +1,19 @@
 import { useSelector, useDispatch } from "react-redux";
 import { setCurrentWidth } from "./redux/slices/ResponsiveSlice";
 import { setCurrentUser } from "./redux/slices/CurrentUserSlice";
-import { Routes, Route, Navigate } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import { publicRoutes } from "./routes";
 import { Fragment } from "react";
 import { useEffect } from "react";
 import DefaultLayout from "./components/DefaultLayout";
 import { DataCollection } from "./components/Data/DataCollection";
-
-import { auth } from "./firebase";
+import { addDoc, collection } from "firebase/firestore";
+import { auth, db } from "./firebase";
+import { DataProduct } from "./components/Data/DataProduct";
 
 function App() {
   const dispatch = useDispatch();
   var currrentW = useSelector((s) => s.responsive.currentWidth);
-  var CurrentUser = useSelector((s) => s.CurrentUserSlice.CurrentUser);
 
   const setWidth = (e) => {
     dispatch(setCurrentWidth(e.target.innerWidth));
@@ -47,6 +47,24 @@ function App() {
       }
     });
   });
+
+  // up data to FireBase
+  localStorage.setItem("isadddoc", "true");
+  useEffect(() => {
+    const addDocument = async () => {
+      try {
+        DataProduct.forEach(async (item) => {
+          await addDoc(collection(db, "DataProducts"), item);
+        });
+        localStorage.setItem("isadddoc", "true");
+      } catch (error) {
+        console.error("Error adding document: ", error);
+      }
+    };
+    if (localStorage.getItem("isadddoc") === "false") {
+      addDocument();
+    }
+  }, []);
 
   return (
     <div className="App xl:text-[10px] lg:text-[9px] md:text-[8px]  xs:text-[7px]">

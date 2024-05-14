@@ -1,8 +1,8 @@
 import React from "react";
-import CartItem from "./CartItem";
 import { Link } from "react-router-dom";
+import CartItem from "./CartItem";
 
-function Cart() {
+function TooltipCart() {
   var DataCart = JSON.parse(localStorage.getItem("DataCart"));
   var tonggia = parseInt(localStorage.getItem("tonggia"));
   return (
@@ -36,4 +36,4 @@ function Cart() {
   );
 }
 
-export default Cart;
+export default TooltipCart;

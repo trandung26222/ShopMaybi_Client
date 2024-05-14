@@ -1,14 +1,14 @@
-import React, { useState, useMemo } from "react";
+import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser } from "@fortawesome/free-regular-svg-icons";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import Tippy from "@tippyjs/react/headless";
 import "tippy.js/dist/tippy.css";
-import LoginSignUp from "./RenderTippy/LoginSignup";
-import Cart from "./RenderTippy/Cart";
 import { Link } from "react-router-dom";
 import { Popover } from "antd";
+import TootipLoginSignup from "./RenderTooltip/TooltipLoginSignup";
+import TooltipCart from "./RenderTooltip/TooltipCart";
 
 var items = [
   {
@@ -25,7 +25,7 @@ var items = [
   },
 ];
 
-function LeftActionHeader(props) {
+function LeftMenu(props) {
   var classNamebtnaction = `flex flex-col text-black items-center 
   cursor-pointer gap-[5px] px-1 py-1 rounded transition-opacity 
   duration-[300ms] ease-in-out hover:opacity-[0.5] text-[16px]`;
@@ -39,7 +39,7 @@ function LeftActionHeader(props) {
       </button>
 
       <span>
-        <Popover content={LoginSignUp} arrow={false}>
+        <Popover content={TootipLoginSignup} arrow={false}>
           <button className={classNamebtnaction}>
             {items[1].icon}
             <p className={classNamePaction}>{items[1].p}</p>
@@ -51,7 +51,7 @@ function LeftActionHeader(props) {
         <Tippy
           interactive
           placement="bottom"
-          render={Cart}
+          render={TooltipCart}
           offset={[0, 0]}
           delay={[200, 0]}
           trigger="mouseenter "
@@ -66,15 +66,4 @@ function LeftActionHeader(props) {
   );
 }
 
-export default LeftActionHeader;
-
-/*
-{items.map((item, index) => {
-        return (
-          <ButtonLeftActionHeader
-            key={index}
-            item={item}
-          ></ButtonLeftActionHeader>
-        );
-      })}
-*/
+export default LeftMenu;
