@@ -1,18 +1,40 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { auth } from "~/firebase";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { Link } from "react-router-dom";
+import BreadCrumb from "~/components/BreadCrumb";
 
-const ImgRight = () => (
-  <div className="md:block hidden w-1/2">
-    <img
-      className="rounded-2xl"
-      src="https://wallpapers.com/images/high/red-fractal-flower-4k-hd-mobile-0x24v65jrr151dps.webp"
-      alt=""
-    />
-  </div>
-);
+var imgarray = [
+  "https://pubcdn.ivymoda.com/files/news/2024/05/03/df3852d98da6dc06910d437bcca0c423.jpg",
+  "https://pubcdn.ivymoda.com/files/news/2024/05/02/9828684ac902e49fc3901372aa81a81a.jpg",
+  "https://pubcdn.ivymoda.com/files/news/2024/05/02/6f84db0019f35d69b3ff99161a3a35b0.jpg",
+  "https://pubcdn.ivymoda.com/files/product/thumab/400/2023/09/16/28f3b3317c557d464734f5b8b017c255.JPG",
+  "https://pubcdn.ivymoda.com/files/product/thumab/400/2023/05/12/df29fc5f6111cc36e5a8138bd66f68ec.jpg",
+  "https://pubcdn.ivymoda.com/files/product/thumab/400/2020/12/24/71155df5f81157f11dda9be5b8f06da0.JPG",
+];
+const ImgRight = () => {
+  const [curimg, setcurimg] = useState(0);
+  useEffect(() => {
+    var intervalId = setInterval(() => {
+      setcurimg((pre) => (pre + 1) % imgarray.length);
+    }, 3000);
+    return () => {
+      clearInterval(intervalId);
+    };
+  }, []);
+
+  return (
+    <div className="md:block hidden w-[40%]">
+      <img
+        className="rounded-2xl object-contain cursor-pointer"
+        src={imgarray[curimg]}
+        alt=""
+      />
+    </div>
+  );
+};
+
 const LoginWithGoogle = () => (
   <button className="bg-white border py-2 w-full rounded-xl mt-5 flex justify-center items-center text-sm hover:scale-105 duration-300 text-[#002D74]">
     <svg
@@ -38,7 +60,7 @@ const LoginWithGoogle = () => (
         d="M43.611,20.083H42V20H24v8h11.303c-0.792,2.237-2.231,4.166-4.087,5.571c0.001-0.001,0.002-0.001,0.003-0.002l6.19,5.238C36.971,39.205,44,34,44,24C44,22.659,43.862,21.35,43.611,20.083z"
       />
     </svg>
-    Login with Google
+    Đăng nhập với Google
   </button>
 );
 const BtnAnHienPassWord = () => (
@@ -71,69 +93,72 @@ function Login() {
   };
 
   return (
-    <section className="bg-gray-50 min-h-screen flex items-center justify-center">
-      <div className="bg-gray-100 flex rounded-2xl shadow-xl max-w-[55rem] p-5 items-center ">
-        <div className="md:w-1/2 px-8 md:px-16">
-          <h2 className="font-bold text-2xl text-[#002D74]">Login</h2>
-          <p className="text-xs mt-4 text-[#002D74]">
-            If you are already a member, easily log in
-          </p>
+    <div className="w-full h-auto">
+      <BreadCrumb links={["Trang chủ"]} typography={"Tài khoản"} />
+      <section className=" m-[50px] flex items-center justify-center">
+        <div className="bg-gray-100 flex rounded-2xl shadow-xl max-w-[55rem] p-5 items-center ">
+          <div className="md:w-1/2 px-8 md:px-16">
+            <h2 className="font-bold text-2xl text-[black]">Đăng nhập</h2>
+            <p className="text-xs mt-4 text-[black]">
+              ĐĂNG NHẬP ĐỂ NHẬN ĐƯỢC GIÁ ƯU ĐÃI
+            </p>
 
-          <form onSubmit={login} className="flex flex-col gap-4">
-            <input
-              value={email}
-              className="p-2 mt-8 rounded-xl border"
-              type="email"
-              name="email"
-              placeholder="Email"
-              onChange={(e) => {
-                setEmail(e.target.value);
-              }}
-            />
-            <div className="relative">
+            <form onSubmit={login} className="flex flex-col gap-4">
               <input
-                value={password}
-                className="p-2 rounded-xl border w-full"
-                type="password"
-                name="current-password"
-                placeholder="Password"
+                value={email}
+                className="p-2 mt-8 rounded-xl border"
+                type="email"
+                name="email"
+                placeholder="Email"
                 onChange={(e) => {
-                  setPassword(e.target.value);
+                  setEmail(e.target.value);
                 }}
               />
-              <BtnAnHienPassWord />
+              <div className="relative">
+                <input
+                  value={password}
+                  className="p-2 rounded-xl border w-full"
+                  type="password"
+                  name="current-password"
+                  placeholder="Password"
+                  onChange={(e) => {
+                    setPassword(e.target.value);
+                  }}
+                />
+                <BtnAnHienPassWord />
+              </div>
+              <button className="bg-[#002D74] rounded-xl text-white py-2 hover:scale-105 duration-300">
+                Đăng nhập
+              </button>
+            </form>
+
+            <div className="mt-6 grid grid-cols-3 items-center text-gray-400">
+              <hr className="border-gray-400" />
+              <p className="text-center text-sm">hoặc</p>
+              <hr className="border-gray-400" />
             </div>
-            <button className="bg-[#002D74] rounded-xl text-white py-2 hover:scale-105 duration-300">
-              Login
-            </button>
-          </form>
 
-          <div className="mt-6 grid grid-cols-3 items-center text-gray-400">
-            <hr className="border-gray-400" />
-            <p className="text-center text-sm">OR</p>
-            <hr className="border-gray-400" />
+            <LoginWithGoogle />
+
+            <div className="mt-5 text-xs border-b border-[#002D74] py-4 text-[#002D74]">
+              <a href="#">Quên mật khẩu?</a>
+            </div>
+
+            <div className="mt-3 text-xs flex justify-between items-center text-[#002D74]">
+              <p>Bạn chưa có tài khoản?</p>
+              <Link
+                to={"/account/signup"}
+                className="py-2 px-5 bg-white border rounded-xl hover:scale-110 duration-300"
+              >
+                Đăng ký
+              </Link>
+            </div>
           </div>
 
-          <LoginWithGoogle />
-
-          <div className="mt-5 text-xs border-b border-[#002D74] py-4 text-[#002D74]">
-            <a href="#">Forgot your password?</a>
-          </div>
-
-          <div className="mt-3 text-xs flex justify-between items-center text-[#002D74]">
-            <p>Don't have an account?</p>
-            <Link
-              to={"/account/signup"}
-              className="py-2 px-5 bg-white border rounded-xl hover:scale-110 duration-300"
-            >
-              Register
-            </Link>
-          </div>
+          <ImgRight />
         </div>
-
-        <ImgRight />
-      </div>
-    </section>
+      </section>
+    </div>
   );
 }
 
