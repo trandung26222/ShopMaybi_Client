@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUserCircle } from "@fortawesome/free-solid-svg-icons";
-import { DataCollection } from "../../Data/DataCollection";
+import { DataCollection } from "~/Data/DataCollection";
 
 function SideBar(props) {
   const [isRendered, setIsRendered] = useState(false);

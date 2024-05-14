@@ -1,13 +1,14 @@
-import Home from "../pages/Home";
-import Collection from "../pages/Collection";
-import Cart from "../pages/Cart";
-import Login from "../pages/Login";
-import Signup from "../pages/Signup";
-import Checkout from "../pages/Checkout";
-import Product from "../pages/Product";
-import NotFound from "../pages/NotFound";
-import AfterLogin from "../pages/AfterLogin";
-import { RouteChildOfCollection } from "../components/Data/DataCollection";
+import Home from "~/pages/Home";
+import Collection from "~/pages/Collection";
+import Cart from "~/pages/Cart";
+import Login from "~/pages/Login";
+import Signup from "~/pages/Signup";
+import Checkout from "~/pages/Checkout";
+import Product from "~/pages/Product";
+import NotFound from "~/pages/NotFound";
+import AfterLogin from "~/pages/AfterLogin";
+
+import { RouteChildOfCollection } from "~/Data/DataCollection";
 
 const publicRoutes = [
   { path: "/", component: Home },

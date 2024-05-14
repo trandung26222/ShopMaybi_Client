@@ -1,8 +1,8 @@
 import React from "react";
-import { DataCollection } from "../../../Data/DataCollection";
 import { NavLink } from "react-router-dom";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
+import { DataCollection } from "~/Data/DataCollection";
 
 import { useState } from "react";
 

@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { styled } from "@mui/material/styles";
-import BreadCrumb from "../../components/BreadCrumb";
+import BreadCrumb from "~/components/BreadCrumb";
 import { LinearProgress } from "@mui/material";
 import { linearProgressClasses } from "@mui/material";
 import CardGiftcardIcon from "@mui/icons-material/CardGiftcard";

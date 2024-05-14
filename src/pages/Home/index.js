@@ -4,7 +4,7 @@ import Section2 from "./Section2";
 import Section3 from "./Section3";
 import Section4 from "./Section4";
 import Container from "@mui/material/Container";
-import OurFeedBack from "../../components/Feedback/OurFeedBack";
+import OurFeedBack from "~/components/Feedback/OurFeedBack";
 
 function Home(props) {
   return (

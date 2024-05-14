@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
-import BreadCrumb from "../../components/BreadCrumb";
+import BreadCrumb from "~/components/BreadCrumb";
 import { Grid } from "@mui/material";
-import ItemProduct from "../../components/ItemProduct/ItemProduct";
-// import { ThemeProvider, createTheme } from "@mui/material/styles";
+import ItemProduct from "~/components/ItemProduct/ItemProduct";
 import LeftContent from "./LeftContent";
 import TieuDeVaSapXep from "./TieuDeVaSapXep";
 import { getDocs, collection } from "firebase/firestore";
-import { db } from "../../firebase";
+import { db } from "~/firebase";
+// import { ThemeProvider, createTheme } from "@mui/material/styles";
 
 function Collection({ props }) {
   var [tuychon, settuychon] = useState("default");

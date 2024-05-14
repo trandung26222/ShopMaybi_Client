@@ -5,11 +5,11 @@ import { Routes, Route } from "react-router-dom";
 import { publicRoutes } from "./routes";
 import { Fragment } from "react";
 import { useEffect } from "react";
-import DefaultLayout from "./components/DefaultLayout";
-import { DataCollection } from "./components/Data/DataCollection";
+import { DataCollection } from "./Data/DataCollection";
 import { addDoc, collection } from "firebase/firestore";
 import { auth, db } from "./firebase";
-import { DataProduct } from "./components/Data/DataProduct";
+import { DataProduct } from "./Data/DataProduct";
+import DefaultLayout from "./Layout/DefaultLayout";
 
 function App() {
   const dispatch = useDispatch();
@@ -105,10 +105,6 @@ function App() {
                 ))}
             </Route>
           );
-
-          {
-            /* END */
-          }
         })}
       </Routes>
     </div>

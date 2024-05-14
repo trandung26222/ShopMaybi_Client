@@ -2,7 +2,7 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
-import { toggleSidebar } from "../../../redux/slices/ElementDomSlice";
+import { toggleSidebar } from "~/redux/slices/ElementDomSlice";
 import { Link } from "react-router-dom";
 
 //----------------------------------------------------------------

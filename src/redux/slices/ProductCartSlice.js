@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { DataCart } from "../../components/Data/DataCart";
+import { DataCart } from "~/Data/DataCart";
 
 const calculateTotalPrice = (cartItems) => {
   var tmp = cartItems.reduce((accumulator, currentItem) => {

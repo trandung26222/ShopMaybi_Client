@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowUp } from "@fortawesome/free-solid-svg-icons";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { toggleBackToTopButton } from "../../redux/slices/ElementDomSlice";
+import { toggleBackToTopButton } from "~/redux/slices/ElementDomSlice";
 
 function BackToTopButton({ getContainerRef }) {
   var visible = useSelector((s) => s.ElementDomSlice.BackToTopButton);

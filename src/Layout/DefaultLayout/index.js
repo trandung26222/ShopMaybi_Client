@@ -6,7 +6,7 @@ import Header from "./Header";
 import SideBar from "./Sidebar";
 import Coat from "./Coat";
 import Footer from "./Footer";
-import BackToTopButton from "../BackToTopButton/BackToTopButton";
+import BackToTopButton from "~/components/BackToTopButton";
 
 function DefaultLayout({ children }) {
   var Sidebar = useSelector((state) => state.ElementDomSlice.Sidebar);
@@ -24,7 +24,5 @@ function DefaultLayout({ children }) {
     </div>
   );
 }
-
-DefaultLayout.propTypes = {};
 
 export default DefaultLayout;

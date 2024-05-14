@@ -1,6 +1,6 @@
 import React from "react";
 import { doc, getDoc } from "firebase/firestore";
-import { auth, db } from "../../firebase";
+import { auth, db } from "~/firebase";
 import { useState, useEffect } from "react";
 
 function AfterLogin() {

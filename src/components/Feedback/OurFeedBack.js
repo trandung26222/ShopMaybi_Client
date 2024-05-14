@@ -6,7 +6,7 @@ import { IconButton } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import ItemOurFeedback from "./ItemOurFeedback";
 import { useEffect } from "react";
-import { DataOurFeedback } from "../Data/DataOurFeedback";
+import { DataOurFeedback } from "~/Data/DataOurFeedback";
 
 const IconButtonCustom = styled(IconButton)(({ theme }) => ({
   backgroundColor: "rgba(0,0,0,0.03)",

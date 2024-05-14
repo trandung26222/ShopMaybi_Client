@@ -1,0 +1,14 @@
+{
+  "plugins": [
+    [
+      "module-resolver",
+      {
+        "alias": {
+          "~": "./src",
+          "SrcComponent": "./src/components",
+          "getSlice": "./src/redux/slices/"
+        }
+      }
+    ]
+  ]
+}

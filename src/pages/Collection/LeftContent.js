@@ -1,6 +1,6 @@
 import React from "react";
 import { Checkbox } from "antd";
-import { mucgia, loai } from "../../components/Data/DataCollectionFilter";
+import { mucgia, loai } from "~/Data/DataCollectionFilter";
 import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronDown, faChevronUp } from "@fortawesome/free-solid-svg-icons";

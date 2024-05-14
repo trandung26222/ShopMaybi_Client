@@ -11,7 +11,7 @@ import { faEllipsisVertical } from "@fortawesome/free-solid-svg-icons";
 import { Popover } from "antd";
 import { useSelector } from "react-redux";
 import { signOut } from "firebase/auth";
-import { auth } from "../../../../firebase";
+import { auth } from "~/firebase";
 
 var dataCurentUserTrue = [
   {
