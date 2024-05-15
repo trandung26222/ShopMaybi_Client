@@ -34,3 +34,7 @@ REACT_APP_API_KEY = AIzaSyDXljeOK6aHIqoDXzwAysvjPFLVOcnZ7RY
 
 yarn add customize-cra react-app-rewired --dev
 npm install --save-dev babel-plugin-module-resolver
+
+npm install reactjs-popup --save
+
+npm uninstall reactjs-popup

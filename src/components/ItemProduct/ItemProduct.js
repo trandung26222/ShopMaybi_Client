@@ -1,20 +1,26 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { Tooltip } from "@mui/material";
 import Brightness1Icon from "@mui/icons-material/Brightness1";
 import { MappingColors } from "./MappingColor";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 import { faEye } from "@fortawesome/free-regular-svg-icons";
+import { Popover } from "antd";
 
 function ItemProduct({ props, option }) {
   const [isHover, setIsHover] = useState(false);
   var lengthImg = props.srcimg.length;
   const [indexColorClick, setindexColorClick] = useState(0);
   const [indexColorHover, setindexColorHover] = useState(null);
-
   const giagoc = parseInt((props.gia * 100) / (100 - props.giamgia));
+  const LinkRef = useRef();
+  useEffect(() => {
+    var tmp = LinkRef.current.clientHeight;
+    SpanRef.current.style.top = `${tmp * 0.8}px`;
+  }, []);
+  const SpanRef = useRef();
 
   return (
     <div className="ITEMPRODUCT w-full  h-[auto] flex flex-col relative items-end">
@@ -25,6 +31,7 @@ function ItemProduct({ props, option }) {
       )}
       {/* product img */}
       <Link
+        ref={LinkRef}
         to={`/product/${props.id}`}
         className="w-full bg-white h-fit shadow-slate-200 shadow overflow-hidden relative"
       >
@@ -46,34 +53,27 @@ function ItemProduct({ props, option }) {
             setIsHover(false);
           }}
         />
-        {option && (
-          <span
-            className={`z-[1] absolute right-1/4 bottom-[15px] rounded-md w-1/2 h-[13%] bg-white flex text-[1rem]
-            translate-y-[100%] transition-transform duration-500 ease-in-out overflow-hidden
-            ${isHover ? " visible translate-y-[0]" : "invisible"}`}
-            onMouseEnter={() => {
-              setIsHover(true);
-            }}
-            onMouseLeave={() => {
-              setIsHover(false);
-            }}
-          >
-            <Tooltip title="Tùy chọn" arrow placement="top">
-              <button className="flex-1 hover:bg-[rgba(0,0,0,0.3)]">
-                <FontAwesomeIcon icon={faShoppingCart} />
-              </button>
-            </Tooltip>
-
-            <span className="w-[0.5px] h-full bg-gray-100"></span>
-
-            <Tooltip title="Xem nhanh" arrow placement="top">
-              <button className="flex-1 hover:bg-[rgba(0,0,0,0.3)]">
-                <FontAwesomeIcon icon={faEye} />
-              </button>
-            </Tooltip>
-          </span>
-        )}
       </Link>
+      {option && (
+        <span
+          ref={SpanRef}
+          className={`absolute right-1/4  rounded-md w-1/2 h-[50px] bg-white flex text-[1rem]
+            translate-y-[100%] transition-transform duration-[400ms] ease-in-out overflow-hidden
+            ${isHover ? " visible translate-y-[0%]" : "invisible"}`}
+          onMouseEnter={() => {
+            setIsHover(true);
+          }}
+          onMouseLeave={() => {
+            setIsHover(false);
+          }}
+        >
+          <BtnAction1 />
+
+          <span className="w-[0.5px] h-full bg-gray-100"></span>
+
+          <BtnAction2 />
+        </span>
+      )}
 
       {/* product info */}
       <div className="product-info flex flex-col mt-[15px] items-start pl-[3px] w-full">
@@ -139,8 +139,56 @@ function ItemProduct({ props, option }) {
   );
 }
 
-const popoveraction = () => {
-  return <p className="px-1 py-2 bg-black">hêlo</p>;
+const BtnAction1 = () => {
+  const [open, setOpen] = useState(false);
+  const handleOpenChange = (newOpen) => {
+    setOpen(newOpen);
+  };
+  return (
+    <Tooltip title="Tùy chọn" arrow placement="top">
+      <button
+        onClick={() => setOpen(true)}
+        className="flex-1 hover:bg-[rgba(0,0,0,0.3)]"
+      >
+        <FontAwesomeIcon icon={faShoppingCart} />
+      </button>
+    </Tooltip>
+  );
+};
+
+const BtnAction2 = () => {
+  const [open, setOpen] = useState(false);
+  const handleOpenChange = (newOpen) => {
+    setOpen(newOpen);
+  };
+  return (
+    <Popover
+      content={<NoidungPopUp2 setOpen={setOpen} />}
+      trigger="click"
+      open={open}
+      onOpenChange={handleOpenChange}
+      arrow={false}
+    >
+      <Tooltip title="Xem nhanh" arrow placement="top">
+        <button className="flex-1 hover:bg-[rgba(0,0,0,0.3)]">
+          <FontAwesomeIcon icon={faEye} />
+        </button>
+      </Tooltip>
+    </Popover>
+  );
+};
+
+const NoidungPopUp2 = ({ setOpen }) => {
+  return (
+    <div className="fixed w-[100vw] h-[100vh] top-0 right-0  bg-[rgba(0,0,0,0.5)] z-[1000] flex justify-center items-center">
+      <button
+        className="w-[60%] h-[80%] bg-white rounded-2xl"
+        onClick={() => setOpen(false)}
+      >
+        Close
+      </button>
+    </div>
+  );
 };
 
 export default ItemProduct;
