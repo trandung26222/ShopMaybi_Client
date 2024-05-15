@@ -15,12 +15,15 @@ function ItemProduct({ props, option }) {
   const [indexColorClick, setindexColorClick] = useState(0);
   const [indexColorHover, setindexColorHover] = useState(null);
   const giagoc = parseInt((props.gia * 100) / (100 - props.giamgia));
-  const LinkRef = useRef();
+  const LinkRef = useRef(null);
+  const SpanRef = useRef(null);
+
   useEffect(() => {
     var tmp = LinkRef.current.clientHeight;
-    SpanRef.current.style.top = `${tmp * 0.8}px`;
+    if (SpanRef.current) {
+      SpanRef.current.style.top = `${tmp * 0.8}px`;
+    }
   }, []);
-  const SpanRef = useRef();
 
   return (
     <div className="ITEMPRODUCT w-full  h-[auto] flex flex-col relative items-end">
@@ -58,8 +61,15 @@ function ItemProduct({ props, option }) {
         <span
           ref={SpanRef}
           className={`absolute right-1/4  rounded-md w-1/2 h-[50px] bg-white flex text-[1rem]
-            translate-y-[100%] transition-transform duration-[400ms] ease-in-out overflow-hidden
-            ${isHover ? " visible translate-y-[0%]" : "invisible"}`}
+             transition-transform duration-[600ms] ease-in-out overflow-hidden
+            
+            ${
+              isHover
+                ? " visible translate-y-0"
+                : "translate-y-[100%] invisible"
+            }
+            
+            `}
           onMouseEnter={() => {
             setIsHover(true);
           }}
