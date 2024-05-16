@@ -11,17 +11,16 @@ function ItemProduct({ props, option }) {
   var lengthImg = props.srcimg.length;
   const [indexColorClick, setindexColorClick] = useState(0);
   const [indexColorHover, setindexColorHover] = useState(null);
-  const LinkRef = useRef(null);
-  const SpanRef = useRef(null);
+  const LinkRef = useRef();
+  const SpanRef = useRef();
   var classNameOptions = `
-            absolute right-1/4  rounded-md w-1/2 h-[50px] bg-white flex text-[1rem]
+            absolute right-1/4 top-0 rounded-md w-1/2 h-[50px] bg-white flex text-[1rem]
              transition-transform duration-[600ms] ease-in-out overflow-hidden`;
 
   useEffect(() => {
     var tmp = LinkRef.current.clientHeight;
-    // console.log("tmp=", tmp);
     if (SpanRef.current && option) {
-      // console.log(tmp);
+      console.log(SpanRef.current);
       SpanRef.current.style.top = `${tmp * 0.8}px`;
     }
   }, []);
@@ -61,11 +60,8 @@ function ItemProduct({ props, option }) {
           ref={SpanRef}
           className={`${classNameOptions}
             ${
-              isHover
-                ? " visible translate-y-0"
-                : "translate-y-[100%] invisible"
-            }
-            `}
+              isHover ? " visible translate-y-0" : "translate-y-[70%] invisible"
+            }`}
           onMouseEnter={() => {
             setIsHover(true);
           }}

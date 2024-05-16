@@ -56,7 +56,6 @@ export var handleRemoveItemCart = async (id) => {
   var q = query(CartRef, where("productid", "==", id), limit(1)); // Giới hạn kết quả trả về cho chỉ một tài liệu đầu tiên
   var querySnapshot = await getDocs(q);
 
-  // Kiểm tra xem có tài liệu nào được tìm thấy không
   if (!querySnapshot.empty) {
     const docToDelete = querySnapshot.docs[0]; // Lấy tài liệu đầu tiên từ kết quả truy vấn
     await deleteDoc(docToDelete.ref); // Xóa tài liệu từ Firestore
