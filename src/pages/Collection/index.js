@@ -6,12 +6,17 @@ import LeftContent from "./LeftContent";
 import TieuDeVaSapXep from "./TieuDeVaSapXep";
 import { getDocs, collection } from "firebase/firestore";
 import { db } from "~/firebase";
+import ImgBackground from "./ImgBackground";
+import { useSelector } from "react-redux";
+import ContentPreview from "~/components/ItemProduct/ContentPreview";
 // import { ThemeProvider, createTheme } from "@mui/material/styles";
 
 function Collection({ props }) {
   var [tuychon, settuychon] = useState("default");
   var [FirstData, setFirstData] = useState([]);
   var [Data, setData] = useState([]);
+  var CartPreview = useSelector((s) => s.ElementDomSlice.CartPreview);
+  var CurrentProduct = useSelector((s) => s.CurrentProductSlice.CurrentProduct);
 
   useEffect(() => {
     switch (tuychon) {
@@ -60,19 +65,15 @@ function Collection({ props }) {
 
   return (
     <div className="w-full h-auto">
+      {CartPreview && <ContentPreview props={CurrentProduct} />}
       <BreadCrumb
         links={["Trang chủ", "Danh mục"]}
         typography={props.nametypography}
       />
+
       <div className="w-full px-[var(--padding-header)] pt-5">
-        {props.imgbackground && (
-          <img
-            src={props.imgbackground}
-            alt=""
-            className="object-contain w-full cursor-pointer mb-5
-            hover:scale-[0.98] transition-transform duration-500 ease-in-out "
-          />
-        )}
+        {props.imgbackground && <ImgBackground props={props} />}
+
         <TieuDeVaSapXep
           settuychon={settuychon}
           nametypography={props.nametypography}

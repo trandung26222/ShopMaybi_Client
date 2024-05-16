@@ -9,6 +9,7 @@ import { DataCollection } from "./Data/DataCollection";
 import { addDoc, collection } from "firebase/firestore";
 import { auth, db } from "./firebase";
 import { DataProduct } from "./Data/DataProduct";
+import { DataCart } from "./Data/DataCart";
 import DefaultLayout from "./Layout/DefaultLayout";
 
 function App() {
@@ -55,6 +56,9 @@ function App() {
       try {
         DataProduct.forEach(async (item) => {
           await addDoc(collection(db, "DataProducts"), item);
+        });
+        DataCart.forEach(async (item) => {
+          await addDoc(collection(db, "DataCarts"), item);
         });
         localStorage.setItem("isadddoc", "true");
       } catch (error) {

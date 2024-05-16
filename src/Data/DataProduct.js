@@ -3,6 +3,8 @@ export const DataProduct = [
     srcimg: [
       "https://product.hstatic.net/1000341902/product/2404wo23_grey__12__18c1d3d090fd40bcbf0abd9a7e4804be_large.jpg",
       "https://product.hstatic.net/1000341902/product/2404wo23_red__5__4d1d063b96b840b9807e276c3927878e.jpg",
+      "https://product.hstatic.net/1000341902/product/2404wo23_grey__13__468a404ed1bf4b5b96b63bb85a5d16be_large.jpg",
+      "https://product.hstatic.net/1000341902/product/2404wo23_grey__3__b45370dcf136476cab46d06ff52ef661_large.jpg",
     ],
     title: "Áo khoác chống nắng chống UV làm mát",
     gia: 224100,
@@ -11,6 +13,7 @@ export const DataProduct = [
     giamgia: 40,
     newin: true,
     id: 0,
+    msp: "2404WO2313S",
   },
   {
     srcimg: [
@@ -24,6 +27,7 @@ export const DataProduct = [
     giamgia: 30,
     newin: false,
     id: 1,
+    msp: "240O32122312S",
   },
   {
     srcimg: [
@@ -37,6 +41,7 @@ export const DataProduct = [
     giamgia: 10,
     newin: false,
     id: 2,
+    msp: "fdasd23132",
   },
   {
     srcimg: [
@@ -51,6 +56,7 @@ export const DataProduct = [
     giamgia: 45,
     newin: true,
     id: 3,
+    msp: "hhhhfddddd",
   },
   {
     srcimg: [
@@ -64,6 +70,7 @@ export const DataProduct = [
     giamgia: 10,
     newin: true,
     id: 4,
+    msp: "bbb23432ERQ",
   },
   {
     srcimg: [
@@ -77,6 +84,7 @@ export const DataProduct = [
     giamgia: 40,
     newin: true,
     id: 5,
+    msp: "23432fdsavvv",
   },
   {
     srcimg: [
@@ -90,6 +98,7 @@ export const DataProduct = [
     giamgia: 23,
     newin: true,
     id: 6,
+    msp: "bbb212reds",
   },
   {
     srcimg: [
@@ -102,6 +111,7 @@ export const DataProduct = [
     giamgia: 10,
     newin: false,
     id: 7,
+    msp: ".luioo8766",
   },
   {
     srcimg: [
@@ -115,6 +125,7 @@ export const DataProduct = [
     giamgia: 12,
     newin: false,
     id: 8,
+    msp: "fdsa23dfsafa",
   },
   {
     srcimg: [
@@ -128,6 +139,7 @@ export const DataProduct = [
     giamgia: 40,
     newin: false,
     id: 9,
+    msp: "dsfdsvs22ff",
   },
   {
     srcimg: [
@@ -141,6 +153,7 @@ export const DataProduct = [
     giamgia: 12,
     newin: true,
     id: 10,
+    msp: "fsds23dsfdfsa",
   },
   {
     srcimg: [
@@ -154,6 +167,7 @@ export const DataProduct = [
     giamgia: 12,
     newin: true,
     id: 11,
+    msp: "fdsaf23dfa",
   },
   {
     srcimg: [
@@ -167,6 +181,7 @@ export const DataProduct = [
     giamgia: 33,
     newin: true,
     id: 12,
+    msp: "f2edsfs2",
   },
   {
     srcimg: [
@@ -180,6 +195,7 @@ export const DataProduct = [
     giamgia: 15,
     newin: true,
     id: 13,
+    msp: "nnnfggf3321",
   },
   {
     srcimg: [
@@ -193,6 +209,7 @@ export const DataProduct = [
     giamgia: 12,
     newin: true,
     id: 14,
+    msp: "fs22edsadsa",
   },
   {
     srcimg: [
@@ -206,6 +223,7 @@ export const DataProduct = [
     giamgia: 8,
     newin: false,
     id: 15,
+    msp: "fa2edsfadsf",
   },
   {
     srcimg: [
@@ -219,6 +237,7 @@ export const DataProduct = [
     giamgia: 10,
     newin: true,
     id: 16,
+    msp: "fdsa23rdsfsa",
   },
   {
     srcimg: [
@@ -232,6 +251,7 @@ export const DataProduct = [
     giamgia: 0,
     newin: false,
     id: 17,
+    msp: "f2fdsaafg",
   },
   {
     srcimg: [
@@ -245,6 +265,7 @@ export const DataProduct = [
     giamgia: 0,
     newin: false,
     id: 18,
+    msp: "fadsbbnnnaa",
   },
 ];
 

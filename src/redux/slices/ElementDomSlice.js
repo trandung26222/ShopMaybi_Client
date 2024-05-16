@@ -4,6 +4,7 @@ const initState = {
   TippyCart: true,
   BackToTopButton: false,
   Sidebar: false,
+  CartPreview: false,
 };
 
 export const TippyCartSlice = createSlice({
@@ -19,9 +20,16 @@ export const TippyCartSlice = createSlice({
     toggleSidebar: (state) => {
       state.Sidebar = !state.Sidebar;
     },
+    toggleCartPreview: (state) => {
+      state.CartPreview = !state.CartPreview;
+    },
   },
 });
 
-export const { toggleTippyCart, toggleBackToTopButton, toggleSidebar } =
-  TippyCartSlice.actions;
+export const {
+  toggleTippyCart,
+  toggleBackToTopButton,
+  toggleSidebar,
+  toggleCartPreview,
+} = TippyCartSlice.actions;
 export default TippyCartSlice.reducer;
