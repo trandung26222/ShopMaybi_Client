@@ -14,6 +14,7 @@ export const DataProduct = [
     newin: true,
     id: 0,
     msp: "2404WO2313S",
+    size: ["S", "M", "L"],
   },
   {
     srcimg: [
@@ -28,6 +29,7 @@ export const DataProduct = [
     newin: false,
     id: 1,
     msp: "240O32122312S",
+    size: ["2XL", "L", "XL"],
   },
   {
     srcimg: [
@@ -42,6 +44,7 @@ export const DataProduct = [
     newin: false,
     id: 2,
     msp: "fdasd23132",
+    size: ["S", "L"],
   },
   {
     srcimg: [
@@ -57,6 +60,7 @@ export const DataProduct = [
     newin: true,
     id: 3,
     msp: "hhhhfddddd",
+    size: ["S", "M"],
   },
   {
     srcimg: [
@@ -71,6 +75,7 @@ export const DataProduct = [
     newin: true,
     id: 4,
     msp: "bbb23432ERQ",
+    size: ["L"],
   },
   {
     srcimg: [
@@ -85,6 +90,7 @@ export const DataProduct = [
     newin: true,
     id: 5,
     msp: "23432fdsavvv",
+    size: ["XL"],
   },
   {
     srcimg: [
@@ -99,6 +105,7 @@ export const DataProduct = [
     newin: true,
     id: 6,
     msp: "bbb212reds",
+    size: ["XXL"],
   },
   {
     srcimg: [
@@ -112,6 +119,7 @@ export const DataProduct = [
     newin: false,
     id: 7,
     msp: ".luioo8766",
+    size: ["L"],
   },
   {
     srcimg: [
@@ -126,6 +134,7 @@ export const DataProduct = [
     newin: false,
     id: 8,
     msp: "fdsa23dfsafa",
+    size: ["M"],
   },
   {
     srcimg: [
@@ -140,6 +149,7 @@ export const DataProduct = [
     newin: false,
     id: 9,
     msp: "dsfdsvs22ff",
+    size: ["S", "M"],
   },
   {
     srcimg: [
@@ -154,6 +164,7 @@ export const DataProduct = [
     newin: true,
     id: 10,
     msp: "fsds23dsfdfsa",
+    size: ["S", "XL"],
   },
   {
     srcimg: [
@@ -168,6 +179,7 @@ export const DataProduct = [
     newin: true,
     id: 11,
     msp: "fdsaf23dfa",
+    size: ["S", "XL"],
   },
   {
     srcimg: [
@@ -182,6 +194,7 @@ export const DataProduct = [
     newin: true,
     id: 12,
     msp: "f2edsfs2",
+    size: ["S", "XL"],
   },
   {
     srcimg: [
@@ -196,6 +209,7 @@ export const DataProduct = [
     newin: true,
     id: 13,
     msp: "nnnfggf3321",
+    size: ["S", "XL"],
   },
   {
     srcimg: [
@@ -210,6 +224,7 @@ export const DataProduct = [
     newin: true,
     id: 14,
     msp: "fs22edsadsa",
+    size: ["S", "XL"],
   },
   {
     srcimg: [
@@ -224,6 +239,7 @@ export const DataProduct = [
     newin: false,
     id: 15,
     msp: "fa2edsfadsf",
+    size: ["S", "XL"],
   },
   {
     srcimg: [
@@ -238,6 +254,7 @@ export const DataProduct = [
     newin: true,
     id: 16,
     msp: "fdsa23rdsfsa",
+    size: ["S", "XL"],
   },
   {
     srcimg: [
@@ -252,6 +269,7 @@ export const DataProduct = [
     newin: false,
     id: 17,
     msp: "f2fdsaafg",
+    size: ["S", "XL"],
   },
   {
     srcimg: [
@@ -266,6 +284,7 @@ export const DataProduct = [
     newin: false,
     id: 18,
     msp: "fadsbbnnnaa",
+    size: ["S", "XL"],
   },
 ];
 

@@ -1,10 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import CartItem from "./CartItem";
+import { useSelector } from "react-redux";
+import { tinhtonggia } from "~/help/tinhtonggia";
 
 function TooltipCart() {
-  var DataCart = JSON.parse(localStorage.getItem("DataCart"));
-  var tonggia = parseInt(localStorage.getItem("tonggia"));
+  var DataCart = useSelector((s) => s.CurrentCartSlice.CurrentCart);
+  var tonggia = tinhtonggia(DataCart);
+
   return (
     <div className="w-[398px] h-[392px] bg-white rounded-md shadow-xl border py-3 flex flex-col">
       {/* Danh sach */}

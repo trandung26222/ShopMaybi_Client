@@ -6,13 +6,14 @@ import { publicRoutes } from "./routes";
 import { Fragment } from "react";
 import { useEffect } from "react";
 import { DataCollection } from "./Data/DataCollection";
-import { addDoc, collection } from "firebase/firestore";
-import { auth, db } from "./firebase";
-import { DataProduct } from "./Data/DataProduct";
-import { DataCart } from "./Data/DataCart";
+import { auth } from "./firebase";
 import DefaultLayout from "./Layout/DefaultLayout";
+import { GetDataCart, ClearDataCart } from "./utils/GetClearDataCart";
+import { GetDataProduct } from "./utils/GetDataProduct";
 
 function App() {
+  var classNameApp =
+    "App xl:text-[10px] lg:text-[9px] md:text-[8px]  xs:text-[7px]";
   const dispatch = useDispatch();
   var currrentW = useSelector((s) => s.responsive.currentWidth);
 
@@ -40,38 +41,43 @@ function App() {
   }, []);
 
   useEffect(() => {
+    GetDataProduct(dispatch);
     auth.onAuthStateChanged((user) => {
       if (user) {
-        dispatch(setCurrentUser(true));
+        dispatch(
+          setCurrentUser({ has: true, uid: user.uid, email: user.email })
+        );
+        GetDataCart(dispatch, user.uid);
       } else {
-        dispatch(setCurrentUser(false));
+        dispatch(setCurrentUser({ has: false, uid: "", email: "" }));
+        ClearDataCart(dispatch);
       }
     });
   });
 
   // up data to FireBase
-  localStorage.setItem("isadddoc", "true");
-  useEffect(() => {
-    const addDocument = async () => {
-      try {
-        DataProduct.forEach(async (item) => {
-          await addDoc(collection(db, "DataProducts"), item);
-        });
-        DataCart.forEach(async (item) => {
-          await addDoc(collection(db, "DataCarts"), item);
-        });
-        localStorage.setItem("isadddoc", "true");
-      } catch (error) {
-        console.error("Error adding document: ", error);
-      }
-    };
-    if (localStorage.getItem("isadddoc") === "false") {
-      addDocument();
-    }
-  }, []);
+  // localStorage.setItem("isadddoc", "true");
+  // useEffect(() => {
+  //   const addDocument = async () => {
+  //     try {
+  //       DataProduct.forEach(async (item) => {
+  //         await addDoc(collection(db, "DataProducts"), item);
+  //       });
+  //       DataCart.forEach(async (item) => {
+  //         await addDoc(collection(db, "DataCarts"), item);
+  //       });
+  //       localStorage.setItem("isadddoc", "true");
+  //     } catch (error) {
+  //       console.error("Error adding document: ", error);
+  //     }
+  //   };
+  //   if (localStorage.getItem("isadddoc") === "false") {
+  //     addDocument();
+  //   }
+  // }, []);
 
   return (
-    <div className="App xl:text-[10px] lg:text-[9px] md:text-[8px]  xs:text-[7px]">
+    <div className={classNameApp}>
       <Routes>
         {publicRoutes.map((route) => {
           let Layout = DefaultLayout;

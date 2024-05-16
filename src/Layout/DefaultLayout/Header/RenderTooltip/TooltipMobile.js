@@ -61,19 +61,19 @@ var dataCurentUserFalse = [
 ];
 
 function TooltipMobile(props) {
-  const CurrentUser = useSelector((s) => s.CurrentUserSlice.CurrentUser);
+  const hascurrentuser = useSelector((s) => s.CurrentUserSlice.CurrentUser.has);
   var classNamecon1 = "w-[130px] h-[170px] bg-white shadow-xl rounded-xl";
   var classNamecon2 = "flex flex-col items-start w-full h-full justify-between";
   var classnameItem =
     "flex text-[16px] items-center py-[9px] rounded-md text-black bg-white hover:bg-[rgba(0,0,0,0.1)]  w-full pl-5 relative gap-2";
 
   var [dataPopOver, setDataPopOVer] = useState(
-    CurrentUser ? dataCurentUserTrue : dataCurentUserFalse
+    hascurrentuser ? dataCurentUserTrue : dataCurentUserFalse
   );
 
   useEffect(() => {
-    setDataPopOVer(CurrentUser ? dataCurentUserTrue : dataCurentUserFalse);
-  }, [CurrentUser]);
+    setDataPopOVer(hascurrentuser ? dataCurentUserTrue : dataCurentUserFalse);
+  }, [hascurrentuser]);
 
   const handleLogout = async () => {
     signOut(auth)

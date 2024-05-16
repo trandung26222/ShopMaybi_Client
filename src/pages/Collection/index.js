@@ -4,19 +4,18 @@ import { Grid } from "@mui/material";
 import ItemProduct from "~/components/ItemProduct/ItemProduct";
 import LeftContent from "./LeftContent";
 import TieuDeVaSapXep from "./TieuDeVaSapXep";
-import { getDocs, collection } from "firebase/firestore";
-import { db } from "~/firebase";
 import ImgBackground from "./ImgBackground";
 import { useSelector } from "react-redux";
-import ContentPreview from "~/components/ItemProduct/ContentPreview";
-// import { ThemeProvider, createTheme } from "@mui/material/styles";
+import ContentPreview from "~/components/ContentPreview";
 
 function Collection({ props }) {
-  var [tuychon, settuychon] = useState("default");
-  var [FirstData, setFirstData] = useState([]);
-  var [Data, setData] = useState([]);
   var CartPreview = useSelector((s) => s.ElementDomSlice.CartPreview);
   var CurrentProduct = useSelector((s) => s.CurrentProductSlice.CurrentProduct);
+  var ProductData = useSelector((s) => s.ProductDataSlice.ProductData);
+
+  var [tuychon, settuychon] = useState("default");
+  var [FirstData, setFirstData] = useState([...ProductData]);
+  var [Data, setData] = useState([...ProductData]);
 
   useEffect(() => {
     switch (tuychon) {
@@ -46,26 +45,9 @@ function Collection({ props }) {
     }
   }, [tuychon]);
 
-  useEffect(() => {
-    const findAll = async () => {
-      const doc_refs = await getDocs(collection(db, "DataProducts"));
-
-      const res = [];
-
-      doc_refs.forEach((item) => {
-        res.push({
-          ...item.data(),
-        });
-      });
-      setData(res);
-      setFirstData(res);
-    };
-    findAll();
-  }, []);
-
   return (
     <div className="w-full h-auto">
-      {CartPreview && <ContentPreview props={CurrentProduct} />}
+      {CartPreview && <ContentPreview CurrentProduct={CurrentProduct} />}
       <BreadCrumb
         links={["Trang chủ", "Danh mục"]}
         typography={props.nametypography}
@@ -88,8 +70,8 @@ function Collection({ props }) {
               columnSpacing={2}
               justifyContent={"flex-start"}
             >
-              {Data &&
-                Data.map((i, index) => (
+              {ProductData &&
+                ProductData.map((i, index) => (
                   <Grid item key={index} lg={3} md={3} sm={4} xs={4}>
                     <ItemProduct props={i} option></ItemProduct>
                   </Grid>

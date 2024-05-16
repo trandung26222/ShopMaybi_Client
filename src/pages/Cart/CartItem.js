@@ -2,29 +2,20 @@ import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
 import { InputNumber } from "antd";
-
+import { handleRemoveItemCart } from "~/utils/GetClearDataCart";
+import { GetDataCart } from "~/utils/GetClearDataCart";
+import { useDispatch } from "react-redux";
+import { deleteCurrentCart } from "~/redux/slices/CurrentCartSlice";
 function CartItem({ islast, item }) {
+  var dispatch = useDispatch();
   const onChange = (value) => {
     console.log("changed", value);
   };
-
-  const handleRemoveItemCart = (id) => {
-    var DataCart = JSON.parse(localStorage.getItem("DataCart"));
-    DataCart = DataCart.filter((c) => c.id !== id);
-    localStorage.setItem("DataCart", JSON.stringify(DataCart));
-
-    var tonggia = DataCart.reduce((accumulator, currentItem) => {
-      return accumulator + currentItem.price * currentItem.quantity;
-    }, 0);
-    localStorage.setItem("tonggia", tonggia);
-
-    var soluongsanpham = DataCart.reduce((accumulator, currentItem) => {
-      return accumulator + currentItem.quantity;
-    }, 0);
-    localStorage.setItem("soluongsanpham", soluongsanpham);
-
-    window.location.reload();
+  var handleRemoveItem = async (id) => {
+    await handleRemoveItemCart(id);
+    dispatch(deleteCurrentCart(id));
   };
+
   return (
     <div
       className={`w-full h-[135px] py-[10px] ${
@@ -36,7 +27,7 @@ function CartItem({ islast, item }) {
         <button
           className="text-[1.6em] text-gray-400 "
           onClick={() => {
-            handleRemoveItemCart(item.id);
+            handleRemoveItem(item.id);
           }}
         >
           <FontAwesomeIcon icon={faXmark} />
@@ -44,20 +35,20 @@ function CartItem({ islast, item }) {
         {/*  */}
         <img
           className="h-full object-contain ml-[20px] mr-[20px]"
-          src={item.img}
+          src={item.srcimg[0]}
           alt=""
         />
         {/* noi dung giua */}
         <div className="flex-1 flex flex-wrap gap-3 font-[600] justify-between">
           <div className="flex flex-col gap-1">
             <p className="text-[1.4em] whitespace-nowrap overflow-hidden overflow-ellipsis">
-              {item.name}
+              {item.title}
             </p>
             <p className="text-[1.3em] text-[gray]">{item.describe}</p>
           </div>
           <div className="flex flex-col gap-2 text-[1.4em] font-[600] items-start mr-4">
             <p className="cssMoney">
-              {(item.price * item.quantity).toLocaleString("vi-VN", {
+              {(item.gia * item.quantity).toLocaleString("vi-VN", {
                 style: "currency",
                 currency: "VND",
               })}
@@ -65,7 +56,7 @@ function CartItem({ islast, item }) {
             <div className="flex items-center gap-2">
               <p className="line-through">
                 {parseInt(
-                  ((item.price * item.quantity) / (100 - item.giamgia)) * 100
+                  ((item.gia * item.quantity) / (100 - item.giamgia)) * 100
                 ).toLocaleString("vi-VN", {
                   style: "currency",
                   currency: "VND",

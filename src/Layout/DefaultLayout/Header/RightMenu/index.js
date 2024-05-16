@@ -48,7 +48,21 @@ function RightMenu(props) {
       </span>
 
       <span>
-        <Tippy
+        <Popover content={TooltipCart} arrow={false}>
+          <Link to={"/cart"} className={classNamebtnaction}>
+            {items[2].icon}
+            <p className={classNamePaction}>{items[2].p}</p>
+          </Link>
+        </Popover>
+      </span>
+    </div>
+  );
+}
+
+export default RightMenu;
+
+/*
+<Tippy
           interactive
           placement="bottom"
           render={TooltipCart}
@@ -61,9 +75,5 @@ function RightMenu(props) {
             <p className={classNamePaction}>{items[2].p}</p>
           </Link>
         </Tippy>
-      </span>
-    </div>
-  );
-}
 
-export default RightMenu;
+*/

@@ -10,7 +10,7 @@ function TooltipLoginSignup() {
   var classnameContain =
     "w-[95px] h-fit bg-white rounded-md shadow-lg border flex flex-col justify-between items-start text-[14px] px-0";
 
-  const CurrentUser = useSelector((s) => s.CurrentUserSlice.CurrentUser);
+  const CurrentUser = useSelector((s) => s.CurrentUserSlice.CurrentUser.has);
 
   // =============================================================================
 

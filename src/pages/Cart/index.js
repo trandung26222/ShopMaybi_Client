@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { styled } from "@mui/material/styles";
 import BreadCrumb from "~/components/BreadCrumb";
 import { LinearProgress } from "@mui/material";
@@ -6,6 +6,9 @@ import { linearProgressClasses } from "@mui/material";
 import CardGiftcardIcon from "@mui/icons-material/CardGiftcard";
 import Grid from "@mui/material/Grid";
 import CartItem from "./CartItem";
+import { useSelector } from "react-redux";
+import { tinhtonggia } from "~/help/tinhtonggia";
+import { tinhtongquantity } from "~/help/tinhtongquantity";
 
 const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
   width: "90%",
@@ -22,10 +25,12 @@ const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
 }));
 
 function Cart() {
+  var DataCart = useSelector((s) => s.CurrentCartSlice.CurrentCart);
+
   var MoneyGift = 499000;
-  var DataCart = JSON.parse(localStorage.getItem("DataCart"));
-  var tonggia = parseInt(localStorage.getItem("tonggia"));
-  var soluongsanpham = parseInt(localStorage.getItem("soluongsanpham"));
+
+  var tonggia = tinhtonggia(DataCart);
+  var soluongsanpham = tinhtongquantity(DataCart);
 
   // tonggia = 300000;
   var tiencanmuathem = MoneyGift - tonggia;

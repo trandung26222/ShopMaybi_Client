@@ -19,8 +19,9 @@ function ItemProduct({ props, option }) {
 
   useEffect(() => {
     var tmp = LinkRef.current.clientHeight;
-    console.log("tmp=", tmp);
+    // console.log("tmp=", tmp);
     if (SpanRef.current && option) {
+      // console.log(tmp);
       SpanRef.current.style.top = `${tmp * 0.8}px`;
     }
   }, []);
