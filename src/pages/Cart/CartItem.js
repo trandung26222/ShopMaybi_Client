@@ -44,7 +44,9 @@ function CartItem({ islast, item }) {
             <p className="text-[1.4em] whitespace-nowrap overflow-hidden overflow-ellipsis">
               {item.title}
             </p>
-            <p className="text-[1.3em] text-[gray]">{item.describe}</p>
+            <p className="text-[1.3em] text-[gray]">
+              {item.mau}/{item.size}
+            </p>
           </div>
           <div className="flex flex-col gap-2 text-[1.4em] font-[600] items-start mr-4">
             <p className="cssMoney">

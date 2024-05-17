@@ -13,7 +13,7 @@ function CartItem({ item }) {
             {item.title}
           </a>
           <p className="text-[13px] font-[500] text-gray-400">
-            {item.describe}
+            {item.mau}/{item.size}
           </p>
           <div className=" text-[14px]  items-center flex gap-2">
             <p className="text-red-500 font-[500]">
