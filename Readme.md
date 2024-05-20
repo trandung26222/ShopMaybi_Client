@@ -38,3 +38,9 @@ npm install --save-dev babel-plugin-module-resolver
 npm install reactjs-popup --save
 
 npm uninstall reactjs-popup
+
+---
+
+Thư viện:
+antd: carousel ,Rate,Message
+jwt-decode

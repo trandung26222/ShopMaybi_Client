@@ -15,8 +15,12 @@ function DefaultLayout({ children }) {
     "relative w-[100vw] h-[100vh] overflow-y-auto scroll-setting";
   return (
     <div ref={conRef} className={mainClassName}>
-      {Sidebar && <SideBar />}
-      {Sidebar && <Coat />}
+      {Sidebar && (
+        <>
+          <SideBar />
+          <Coat />
+        </>
+      )}
       <Header />
       {children}
       <Footer />

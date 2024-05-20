@@ -18,7 +18,7 @@ function BtnXemNhanh({ props }) {
         onClick={handleClick}
         className="flex-1 hover:bg-[rgba(0,0,0,0.3)]"
       >
-        <FontAwesomeIcon icon={faEye} />
+        <FontAwesomeIcon icon={faEye} className="text-[1em]" />
       </button>
     </Tooltip>
   );

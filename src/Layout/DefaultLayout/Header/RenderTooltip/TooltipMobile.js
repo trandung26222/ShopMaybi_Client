@@ -12,6 +12,7 @@ import { Popover } from "antd";
 import { useSelector } from "react-redux";
 import { signOut } from "firebase/auth";
 import { auth } from "~/firebase";
+import { showMessage } from "~/utils/showMessage";
 
 var dataCurentUserTrue = [
   {
@@ -78,7 +79,8 @@ function TooltipMobile(props) {
   const handleLogout = async () => {
     signOut(auth)
       .then(() => {
-        window.alert("You have been logged out");
+        showMessage("success", "Đăng nhập thành công!");
+
         window.location.href = "/account/login";
       })
       .catch((error) => {

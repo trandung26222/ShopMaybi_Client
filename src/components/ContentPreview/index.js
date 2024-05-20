@@ -12,7 +12,6 @@ function ContentPreview({ CurrentProduct }) {
       <div className="w-[60%] h-[80%] bg-white rounded-2xl flex relative overflow-hidden">
         <ContentLeft CurrentProduct={CurrentProduct} />
         <BtnClose />
-
         <ContentRight CurrentProduct={CurrentProduct} />
       </div>
     </div>

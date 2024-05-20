@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { auth } from "~/firebase";
 import { useSelector } from "react-redux";
 import { signOut } from "firebase/auth";
+import { showMessage } from "~/utils/showMessage";
 
 function TooltipLoginSignup() {
   var classnameItem =
@@ -17,10 +18,11 @@ function TooltipLoginSignup() {
   const handleLogout = async () => {
     signOut(auth)
       .then(() => {
-        window.alert("You have been logged out");
+        showMessage("success", "Bạn đã đăng xuất!");
         window.location.href = "/account/login";
       })
       .catch((error) => {
+        showMessage("error", error.message);
         window.alert(error.message);
       });
   };

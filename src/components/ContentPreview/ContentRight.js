@@ -102,7 +102,7 @@ function ContentRight({ CurrentProduct }) {
       </div>
 
       <p className="my-3 text-[14px]">
-        <FontAwesomeIcon className="mr-2" icon={faGift} />
+        <FontAwesomeIcon className="mr-2 text-red-400" icon={faGift} />
         Ưu đãi
       </p>
       <ul className="list-disc list-outside text-[1.4em] ml-4">

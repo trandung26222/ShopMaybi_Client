@@ -3,7 +3,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
 import { InputNumber } from "antd";
 import { handleRemoveItemCart } from "~/utils/GetClearDataCart";
-import { GetDataCart } from "~/utils/GetClearDataCart";
 import { useDispatch } from "react-redux";
 import { deleteCurrentCart } from "~/redux/slices/CurrentCartSlice";
 function CartItem({ islast, item }) {

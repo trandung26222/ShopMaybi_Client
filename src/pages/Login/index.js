@@ -5,6 +5,7 @@ import { signInWithEmailAndPassword } from "firebase/auth";
 import { Link } from "react-router-dom";
 import BreadCrumb from "~/components/BreadCrumb";
 import { signInWithGoogle } from "~/firebase";
+import { showMessage } from "~/utils/showMessage";
 
 var imgarray = [
   "https://pubcdn.ivymoda.com/files/news/2024/05/03/df3852d98da6dc06910d437bcca0c423.jpg",
@@ -91,10 +92,11 @@ function Login() {
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         const user = userCredential.user;
+        showMessage("success", "Đăng nhập thành công!");
         window.location.href = "/";
       })
       .catch((error) => {
-        window.alert(error.message);
+        showMessage("error", "Tài khoản hoặc mật khẩu không đúng!");
       });
   };
 
