@@ -7,6 +7,8 @@ import ColorItem from "../ItemProduct/ColorItem";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Checkbox from "antd/es/checkbox/Checkbox";
 import { faGift } from "@fortawesome/free-solid-svg-icons";
+import { showMessage } from "~/utils/showMessage";
+import { typeMessage } from "~/utils/showMessage";
 
 const category = [
   { label: "S", value: "S" },
@@ -41,9 +43,16 @@ function ContentRight({ CurrentProduct }) {
     };
     if (CurrentUser.has) {
       await addDoc(collection(db, "Cart"), data);
+      showMessage(
+        typeMessage.success,
+        "Thêm sản phẩm vào giỏ hàng thành công!"
+      );
       window.location.reload();
     } else {
-      alert("Vui lòng đăng nhập để thêm sản phẩm vào giỏ hàng");
+      showMessage(
+        typeMessage.warning,
+        "Vui lòng đăng nhập để thêm sản phẩm vào giỏ hàng!"
+      );
     }
   };
 

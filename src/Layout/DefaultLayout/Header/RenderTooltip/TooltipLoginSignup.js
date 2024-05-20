@@ -41,7 +41,9 @@ function TooltipLoginSignup() {
         </>
       ) : (
         <>
-          <button className={classnameItem}>Tài khoản</button>
+          <Link to={"/account/profile"} className={classnameItem}>
+            Tài khoản
+          </Link>
           <button onClick={handleLogout} className={`${classnameItem} `}>
             Đăng xuất
           </button>

@@ -6,33 +6,30 @@ import { Link } from "react-router-dom";
 import BreadCrumb from "~/components/BreadCrumb";
 import { signInWithGoogle } from "~/firebase";
 import { showMessage } from "~/utils/showMessage";
+import { Carousel } from "antd";
 
-var imgarray = [
-  "https://pubcdn.ivymoda.com/files/news/2024/05/03/df3852d98da6dc06910d437bcca0c423.jpg",
-  "https://pubcdn.ivymoda.com/files/news/2024/05/02/9828684ac902e49fc3901372aa81a81a.jpg",
-  "https://pubcdn.ivymoda.com/files/news/2024/05/02/6f84db0019f35d69b3ff99161a3a35b0.jpg",
-  "https://pubcdn.ivymoda.com/files/product/thumab/400/2023/09/16/28f3b3317c557d464734f5b8b017c255.JPG",
-  "https://pubcdn.ivymoda.com/files/product/thumab/400/2023/05/12/df29fc5f6111cc36e5a8138bd66f68ec.jpg",
-  "https://pubcdn.ivymoda.com/files/product/thumab/400/2020/12/24/71155df5f81157f11dda9be5b8f06da0.JPG",
-];
 const ImgRight = () => {
-  const [curimg, setcurimg] = useState(0);
-  useEffect(() => {
-    var intervalId = setInterval(() => {
-      setcurimg((pre) => (pre + 1) % imgarray.length);
-    }, 3000);
-    return () => {
-      clearInterval(intervalId);
-    };
-  }, []);
-
+  var imgarray = [
+    "https://pubcdn.ivymoda.com/files/news/2024/05/03/df3852d98da6dc06910d437bcca0c423.jpg",
+    "https://pubcdn.ivymoda.com/files/news/2024/05/02/9828684ac902e49fc3901372aa81a81a.jpg",
+    "https://pubcdn.ivymoda.com/files/news/2024/05/02/6f84db0019f35d69b3ff99161a3a35b0.jpg",
+    "https://pubcdn.ivymoda.com/files/product/thumab/400/2023/09/16/28f3b3317c557d464734f5b8b017c255.JPG",
+    "https://pubcdn.ivymoda.com/files/product/thumab/400/2023/05/12/df29fc5f6111cc36e5a8138bd66f68ec.jpg",
+    "https://pubcdn.ivymoda.com/files/product/thumab/400/2020/12/24/71155df5f81157f11dda9be5b8f06da0.JPG",
+  ];
   return (
     <div className="md:block hidden w-[40%]">
-      <img
-        className="rounded-2xl object-contain cursor-pointer"
-        src={imgarray[curimg]}
-        alt=""
-      />
+      <Carousel autoplay effect="fade" autoplaySpeed={2000}>
+        {imgarray.map((item, index) => {
+          return (
+            <img
+              className="rounded-2xl object-contain cursor-pointer"
+              src={imgarray[index]}
+              alt=""
+            />
+          );
+        })}
+      </Carousel>
     </div>
   );
 };
@@ -102,7 +99,7 @@ function Login() {
 
   return (
     <div className="w-full h-auto">
-      <BreadCrumb links={["Trang chủ"]} typography={"Tài khoản"} />
+      <BreadCrumb links={["Trang chủ"]} typography={"Đăng nhập"} />
       <section className=" m-[50px] flex items-center justify-center">
         <div className="bg-gray-100 flex rounded-2xl shadow-xl max-w-[55rem] p-5 items-center ">
           <div className="md:w-1/2 px-8 md:px-16">
