@@ -52,12 +52,12 @@ export var ClearDataCart = async (dispatch) => {
 };
 
 export var handleRemoveItemCart = async (id) => {
-  var q = query(CartRef, where("productid", "==", id), limit(1)); // Giới hạn kết quả trả về cho chỉ một tài liệu đầu tiên
+  var q = query(CartRef, where("productid", "==", id), limit(1));
   var querySnapshot = await getDocs(q);
 
   if (!querySnapshot.empty) {
-    const docToDelete = querySnapshot.docs[0]; // Lấy tài liệu đầu tiên từ kết quả truy vấn
-    await deleteDoc(docToDelete.ref); // Xóa tài liệu từ Firestore
+    const docToDelete = querySnapshot.docs[0];
+    await deleteDoc(docToDelete.ref);
   } else {
     window.alert("Không tìm thấy tài liệu để xóa");
   }

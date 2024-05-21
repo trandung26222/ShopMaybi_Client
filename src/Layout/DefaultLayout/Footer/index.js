@@ -27,8 +27,8 @@ function Footer(props) {
 
   return (
     <footer
-      className="text-[#393939] block z-[1000]
-     w-full h-fit pb-[40px] bg-[#ffefd5] "
+      className="text-[#393939] sticky 
+     w-full h-fit pb-[40px] bg-[#F4ECDE] shadow-lg"
     >
       <Container className=" px-[15px] py-[80px]">
         <Grid columnSpacing={3} rowSpacing={3} container>

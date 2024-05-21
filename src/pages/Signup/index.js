@@ -1,10 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useState } from "react";
-import { createUserWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { auth, db } from "~/firebase";
 import { setDoc, doc } from "firebase/firestore";
 import BreadCrumb from "~/components/BreadCrumb";
+import { showMessage, typeMessage } from "~/utils/showMessage";
 
 function Signup(props) {
   var [email, setEmail] = useState("");
@@ -16,7 +17,16 @@ function Signup(props) {
       .then((userCredential) => {
         const user = userCredential.user;
         if (user) {
-          window.alert(user.email);
+          showMessage(typeMessage.success, "Bạn đã tạo tài khoản thành công!");
+          updateProfile(auth.currentUser, {
+            displayName: username,
+          })
+            .then(() => {
+              showMessage(typeMessage.success, "Updated");
+            })
+            .catch((error) => {
+              showMessage(typeMessage.error, "Error updating user");
+            });
         }
         return user;
       })
@@ -183,7 +193,5 @@ function Signup(props) {
     </div>
   );
 }
-
-Signup.propTypes = {};
 
 export default Signup;

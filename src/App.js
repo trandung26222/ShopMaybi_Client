@@ -45,7 +45,12 @@ function App() {
     auth.onAuthStateChanged((user) => {
       if (user) {
         dispatch(
-          setCurrentUser({ has: true, uid: user.uid, email: user.email })
+          setCurrentUser({
+            has: true,
+            username: user.displayName,
+            uid: user.uid,
+            email: user.email,
+          })
         );
         GetDataCart(dispatch, user.uid);
       } else {

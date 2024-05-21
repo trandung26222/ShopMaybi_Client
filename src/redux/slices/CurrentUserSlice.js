@@ -3,6 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const initState = {
   CurrentUser: {
     has: false,
+    username: "",
     uid: "",
     email: "",
   },
