@@ -5,8 +5,8 @@ import Link from "@mui/material/Link";
 
 function BreadCrumb({ links, typography }) {
   return (
-    <div className="h-[38px] w-full px-[var(--padding-header)] flex items-center bg-[#F6F6F6]">
-      <Breadcrumbs aria-label="breadcrumb">
+    <div className="  h-[38px] w-full px-[var(--padding-header)] flex items-center bg-[#F6F6F6] ">
+      <Breadcrumbs separator="›" aria-label="breadcrumb">
         {links.map((link, index) => {
           return (
             <Link
@@ -15,9 +15,8 @@ function BreadCrumb({ links, typography }) {
               href="/"
               sx={{
                 fontFamily: "Mulish",
-                fontSize: "14px",
+                fontSize: "0.8em",
                 color: "#2F80ED",
-                // letterSpacing: "0.02em",
               }}
             >
               {link}
@@ -26,9 +25,8 @@ function BreadCrumb({ links, typography }) {
         })}
 
         <Typography
-          color="gray"
-          // letterSpacing={"0.02em"}
-          fontSize={"14px"}
+          color="rgba(0,0,0,0.5)"
+          fontSize={"0.8em"}
           fontFamily={"Mulish"}
         >
           {typography}

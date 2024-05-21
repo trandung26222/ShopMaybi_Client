@@ -1,4 +1,5 @@
 import React from "react";
+import { Int2VND } from "~/utils/Int2VND";
 
 function CartItem({ item }) {
   return (
@@ -17,10 +18,7 @@ function CartItem({ item }) {
           </p>
           <div className=" text-[14px]  items-center flex gap-2">
             <p className="text-red-500 font-[500]">
-              {parseInt(item.gia).toLocaleString("vi-VN", {
-                style: "currency",
-                currency: "VND",
-              })}
+              {Int2VND(parseInt(item.gia))}
             </p>
             <p className="text-black">{`x ${item.quantity}`}</p>
           </div>

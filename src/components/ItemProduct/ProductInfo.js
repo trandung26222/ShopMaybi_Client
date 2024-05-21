@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import ColorItem from "./ColorItem";
 import { useDispatch } from "react-redux";
 import { setProduct } from "~/redux/slices/ProductDataSlice";
+import { Int2VND } from "~/utils/Int2VND";
 
 function ProductInfo({ props, indexColorClick, setindexColorClick }) {
   const giagoc = parseInt((props.gia * 100) / (100 - props.giamgia));
@@ -22,17 +23,11 @@ function ProductInfo({ props, indexColorClick, setindexColorClick }) {
         {props.title}
       </Link>
       <p className="cursor-auto block cssMoney text-[1.3em]  my-1">
-        {props.gia.toLocaleString("vi-VN", {
-          style: "currency",
-          currency: "VND",
-        })}
+        {Int2VND(props.gia)}
       </p>
       <div className="flex gap-2 items-center mb-2">
         <p className="text-[#666666] line-through inline-block text-[1.3em] font-[400] ">
-          {giagoc.toLocaleString("vi-VN", {
-            style: "currency",
-            currency: "VND",
-          })}
+          {Int2VND(giagoc)}
         </p>
         <p className=" text-[1.3em] text-white font-[400] bg-[#d84144] p-[1px] px-[8px] rounded-[10px] text-center tracking-wider">
           -{props.giamgia}%

@@ -11,8 +11,9 @@ import TooltipMobile from "./RenderTooltip/TooltipMobile";
 import LeftMenu from "./RightMenu";
 
 function Header() {
-  var mainClassName = `bg-white  z-[2] sticky top-0 w-full h-[var(--height-header)]  flex items-center
-  px-[var(--padding-header)] justify-between shadow-lg xl:text-[16px] xs:text-[13px]`;
+  var mainClassName = `bg-white  z-[2] sticky top-0 w-full
+   h-[var(--height-header)]  flex items-center
+  px-[var(--padding-header)] justify-between shadow-lg xl:text-[16px] xs:text-[13px] `;
 
   return (
     <header className={mainClassName}>

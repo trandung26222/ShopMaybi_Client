@@ -28,8 +28,8 @@ var items = [
 function RightMenu(props) {
   var classNamebtnaction = `flex flex-col text-black items-center 
   cursor-pointer gap-[5px] px-1 py-1 rounded transition-opacity 
-  duration-[300ms] ease-in-out hover:opacity-[0.5] text-[16px]`;
-  var classNamePaction = "whitespace-nowrap text-[14px] font-[400]";
+  duration-[300ms] ease-in-out hover:opacity-[0.5] text-[1em]`;
+  var classNamePaction = "whitespace-nowrap text-[0.85em] font-[400]";
 
   return (
     <div className=" items-center gap-4 xl:flex  xs:hidden ">

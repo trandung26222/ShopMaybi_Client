@@ -5,7 +5,6 @@ import {
   query,
   deleteDoc,
   limit,
-  getDoc,
 } from "firebase/firestore";
 import { db } from "~/firebase";
 import { setCurrentCart } from "~/redux/slices/CurrentCartSlice";

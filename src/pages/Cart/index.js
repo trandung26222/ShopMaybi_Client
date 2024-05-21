@@ -9,6 +9,7 @@ import CartItem from "./CartItem";
 import { useSelector } from "react-redux";
 import { tinhtonggia } from "~/help/tinhtonggia";
 import { tinhtongquantity } from "~/help/tinhtongquantity";
+import { Int2VND } from "~/utils/Int2VND";
 
 const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
   width: "90%",
@@ -26,13 +27,9 @@ const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
 
 function Cart() {
   var DataCart = useSelector((s) => s.CurrentCartSlice.CurrentCart);
-
   var MoneyGift = 499000;
-
   var tonggia = tinhtonggia(DataCart);
   var soluongsanpham = tinhtongquantity(DataCart);
-
-  // tonggia = 300000;
   var tiencanmuathem = MoneyGift - tonggia;
   var phantramsotien =
     (tonggia / MoneyGift) * 100 > 100 ? 100 : (tonggia / MoneyGift) * 100;
@@ -46,10 +43,7 @@ function Cart() {
       <div className="w-full px-[var(--padding-header)]">
         <h2 className="text-[2.7em] my-[30px] mb-[10px]">Giỏ hàng</h2>
         <span className="w-[92%] text-[1.4em] cssMoney flex justify-end my-[4px]">
-          {MoneyGift.toLocaleString("vi-VN", {
-            style: "currency",
-            currency: "VND",
-          })}
+          {Int2VND(MoneyGift)}
         </span>
 
         <div className="flex w-full items-center my-[20px] relative">
@@ -82,10 +76,7 @@ function Cart() {
           <div className="flex items-end mb-[20px] gap-[0.3em] w-[90%] justify-center">
             <p className="text-[1.3em]">Mua thêm</p>
             <span className="cssMoney text-[1.4em]">
-              {tiencanmuathem.toLocaleString("vi-VN", {
-                style: "currency",
-                currency: "VND",
-              })}
+              {Int2VND(tiencanmuathem)}
             </span>
             <p className="text-[1.3em]">để nhận quà!</p>
           </div>
@@ -110,12 +101,7 @@ function Cart() {
             <div className="bg-[rgba(0,0,0,0.1)] rounded-md h-[220px] w-full px-3 pt-6">
               <div className="w-full flex justify-between text-[1.6em]">
                 <p className="font-[700]">TỔNG CỘNG</p>
-                <p className="cssMoney">
-                  {tonggia.toLocaleString("vi-VN", {
-                    style: "currency",
-                    currency: "VND",
-                  })}
-                </p>
+                <p className="cssMoney">{Int2VND(tonggia)}</p>
               </div>
               <div className="my-5">
                 <button className="py-[10px] w-full bg-black text-white rounded-md text-[1.4em]">

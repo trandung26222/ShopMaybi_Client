@@ -14,13 +14,12 @@ function Collection({ props }) {
   var ProductData = useSelector((s) => s.ProductDataSlice.ProductData);
 
   var [tuychon, settuychon] = useState("default");
-  var [FirstData, setFirstData] = useState([...ProductData]);
-  var [Data, setData] = useState([...ProductData]);
+  var [Data, setData] = useState([]);
 
   useEffect(() => {
     switch (tuychon) {
       case "default":
-        setData((pre) => [...FirstData]);
+        setData((pre) => [...ProductData]);
         break;
       case "az":
         setData((prevData) =>
@@ -39,11 +38,14 @@ function Collection({ props }) {
         setData((prevData) => [...prevData].sort((a, b) => b.gia - a.gia));
         break;
       case "hangmoi":
-        setData((pre) => [...FirstData]);
+        setData((pre) => [...ProductData]);
         break;
       default:
     }
   }, [tuychon]);
+  useEffect(() => {
+    setData((pre) => [...ProductData]);
+  }, [ProductData]);
 
   return (
     <div className="w-full h-auto">
@@ -70,8 +72,8 @@ function Collection({ props }) {
               columnSpacing={2}
               justifyContent={"flex-start"}
             >
-              {ProductData &&
-                ProductData.map((i, index) => (
+              {Data &&
+                Data.map((i, index) => (
                   <Grid item key={index} lg={3} md={3} sm={4} xs={4}>
                     <ItemProduct props={i} option></ItemProduct>
                   </Grid>

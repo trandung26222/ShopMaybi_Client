@@ -9,6 +9,7 @@ import Checkbox from "antd/es/checkbox/Checkbox";
 import { faGift } from "@fortawesome/free-solid-svg-icons";
 import { showMessage } from "~/utils/showMessage";
 import { typeMessage } from "~/utils/showMessage";
+import { Int2VND } from "~/utils/Int2VND";
 
 const category = [
   { label: "S", value: "S" },
@@ -66,18 +67,8 @@ function ContentRight({ CurrentProduct }) {
         Thương hiệu: Maybi | Mã sản phẩm: {CurrentProduct.msp}
       </h3>
       <div className="flex items-center mt-2 gap-3">
-        <p className="cssMoney text-[1.5em]">
-          {CurrentProduct.gia.toLocaleString("vi-VN", {
-            style: "currency",
-            currency: "VND",
-          })}
-        </p>
-        <s className="text-[1.5em]">
-          {giagoc.toLocaleString("vi-VN", {
-            style: "currency",
-            currency: "VND",
-          })}
-        </s>
+        <p className="cssMoney text-[1.5em]">{Int2VND(CurrentProduct.gia)}</p>
+        <s className="text-[1.5em]">{Int2VND(giagoc)}</s>
         <p className="text-[1.5em]">-{CurrentProduct.giamgia}%</p>
 
         {CurrentProduct.newin && (

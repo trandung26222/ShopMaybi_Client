@@ -5,6 +5,7 @@ import { InputNumber } from "antd";
 import { handleRemoveItemCart } from "~/utils/GetClearDataCart";
 import { useDispatch } from "react-redux";
 import { deleteCurrentCart } from "~/redux/slices/CurrentCartSlice";
+import { Int2VND } from "~/utils/Int2VND";
 function CartItem({ islast, item }) {
   var dispatch = useDispatch();
   const onChange = (value) => {
@@ -48,20 +49,14 @@ function CartItem({ islast, item }) {
             </p>
           </div>
           <div className="flex flex-col gap-2 text-[1.4em] font-[600] items-start mr-4">
-            <p className="cssMoney">
-              {(item.gia * item.quantity).toLocaleString("vi-VN", {
-                style: "currency",
-                currency: "VND",
-              })}
-            </p>
+            <p className="cssMoney">{Int2VND(item.gia * item.quantity)}</p>
             <div className="flex items-center gap-2">
               <p className="line-through">
-                {parseInt(
-                  ((item.gia * item.quantity) / (100 - item.giamgia)) * 100
-                ).toLocaleString("vi-VN", {
-                  style: "currency",
-                  currency: "VND",
-                })}
+                {Int2VND(
+                  parseInt(
+                    ((item.gia * item.quantity) / (100 - item.giamgia)) * 100
+                  )
+                )}
               </p>
               <p className="px-[5px] py-[2px] bg-[#d84144] rounded-xl text-white text-[12px]">
                 -{item.giamgia}%
