@@ -107,7 +107,7 @@ var theme = {
       itemHeight: 37,
       itemColor: "#858585",
       itemHoverColor: "#6F6F6F",
-      itemSelectedColor: "#FA5430",
+      itemSelectedColor: "#4096FF",
       activeBarBorderWidth: "0",
       subMenuItemBg: "white",
     },
