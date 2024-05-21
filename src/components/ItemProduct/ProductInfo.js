@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import ColorItem from "./ColorItem";
 import { useDispatch } from "react-redux";
 import { setProduct } from "~/redux/slices/ProductDataSlice";
-import { Int2VND } from "~/utils/Int2VND";
+import { Int2VND } from "~/help/Int2VND";
 
 function ProductInfo({ props, indexColorClick, setindexColorClick }) {
   const giagoc = parseInt((props.gia * 100) / (100 - props.giamgia));

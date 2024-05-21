@@ -1,5 +1,5 @@
 import React from "react";
-import { Int2VND } from "~/utils/Int2VND";
+import { Int2VND } from "~/help/Int2VND";
 
 function CartItem({ item }) {
   return (

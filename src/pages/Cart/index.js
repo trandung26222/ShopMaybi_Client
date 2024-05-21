@@ -9,7 +9,7 @@ import CartItem from "./CartItem";
 import { useSelector } from "react-redux";
 import { tinhtonggia } from "~/help/tinhtonggia";
 import { tinhtongquantity } from "~/help/tinhtongquantity";
-import { Int2VND } from "~/utils/Int2VND";
+import { Int2VND } from "~/help/Int2VND";
 
 const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
   width: "90%",

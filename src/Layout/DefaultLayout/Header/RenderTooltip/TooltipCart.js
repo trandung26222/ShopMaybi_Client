@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import CartItem from "./CartItem";
 import { useSelector } from "react-redux";
 import { tinhtonggia } from "~/help/tinhtonggia";
-import { Int2VND } from "~/utils/Int2VND";
+import { Int2VND } from "~/help/Int2VND";
 
 function TooltipCart() {
   var DataCart = useSelector((s) => s.CurrentCartSlice.CurrentCart);
@@ -50,7 +50,10 @@ function TooltipCart() {
       {DataCart.length <= 0 && (
         <div className="m-[auto] flex flex-col items-center text-[16px] gap-3">
           Bạn chưa có sản phẩm nào trong giỏ hàng!
-          <Link to={"/"} className="text-[13px] text-blue-500">
+          <Link
+            to={"/collections/new-arrival-maybi-is-back"}
+            className="text-[13px] text-blue-500"
+          >
             Chọn hàng để mua!
           </Link>
         </div>

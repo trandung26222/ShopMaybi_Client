@@ -5,7 +5,8 @@ import { InputNumber } from "antd";
 import { handleRemoveItemCart } from "~/utils/GetClearDataCart";
 import { useDispatch } from "react-redux";
 import { deleteCurrentCart } from "~/redux/slices/CurrentCartSlice";
-import { Int2VND } from "~/utils/Int2VND";
+import { Int2VND } from "~/help/Int2VND";
+
 function CartItem({ islast, item }) {
   var dispatch = useDispatch();
   const onChange = (value) => {

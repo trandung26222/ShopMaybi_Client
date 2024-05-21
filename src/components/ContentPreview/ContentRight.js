@@ -9,7 +9,7 @@ import Checkbox from "antd/es/checkbox/Checkbox";
 import { faGift } from "@fortawesome/free-solid-svg-icons";
 import { showMessage } from "~/utils/showMessage";
 import { typeMessage } from "~/utils/showMessage";
-import { Int2VND } from "~/utils/Int2VND";
+import { Int2VND } from "~/help/Int2VND";
 
 const category = [
   { label: "S", value: "S" },
