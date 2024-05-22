@@ -8,8 +8,8 @@ import { useEffect } from "react";
 import { DataCollection } from "./Data/DataCollection";
 import { auth } from "./firebase";
 import DefaultLayout from "./Layout/DefaultLayout";
-import { fetchDataProducts } from "./redux/fetchData/fetchDataProducts";
-import { fetchCart } from "./redux/fetchData/fetchCart";
+import { fetchDataProducts } from "./redux/CallFireBase/fetchDataProducts";
+import { fetchCart } from "./redux/CallFireBase/fetchCart";
 import { clearCurrentCart } from "./redux/slices/CurrentCartSlice";
 
 function App() {

@@ -72,6 +72,4 @@ function SideBar(props) {
   );
 }
 
-SideBar.propTypes = {};
-
 export default SideBar;

@@ -93,6 +93,5 @@ function OurFeedBack(props) {
   );
 }
 
-OurFeedBack.propTypes = {};
 
 export default OurFeedBack;

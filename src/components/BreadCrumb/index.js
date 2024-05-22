@@ -36,6 +36,4 @@ function BreadCrumb({ links, typography }) {
   );
 }
 
-BreadCrumb.propTypes = {};
-
 export default BreadCrumb;

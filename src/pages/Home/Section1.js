@@ -22,6 +22,4 @@ function Section1(props) {
   );
 }
 
-Section1.propTypes = {};
-
 export default Section1;

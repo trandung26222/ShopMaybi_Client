@@ -4,8 +4,8 @@ import { faXmark } from "@fortawesome/free-solid-svg-icons";
 import { InputNumber } from "antd";
 import { useDispatch } from "react-redux";
 import { Int2VND } from "~/help/Int2VND";
-import { RemoveItemCart } from "~/redux/fetchData/RemoveItemCart";
-import { fetchCart } from "~/redux/fetchData/fetchCart";
+import { RemoveItemCart } from "~/redux/CallFireBase/RemoveItemCart";
+import { fetchCart } from "~/redux/CallFireBase/fetchCart";
 
 function CartItem({ islast, item }) {
   var dispatch = useDispatch();

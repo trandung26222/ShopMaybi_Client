@@ -48,6 +48,4 @@ function Section2(props) {
   );
 }
 
-Section2.propTypes = {};
-
 export default Section2;

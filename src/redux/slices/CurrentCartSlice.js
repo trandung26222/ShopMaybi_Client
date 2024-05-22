@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { fetchCart } from "../fetchData/fetchCart";
+import { fetchCart } from "../CallFireBase/fetchCart";
 import { statusFetch } from "~/utils/statusFetch";
-import { RemoveItemCart } from "../fetchData/RemoveItemCart";
+import { RemoveItemCart } from "../CallFireBase/RemoveItemCart";
 
 var initState = {
   status: statusFetch.IDLE,

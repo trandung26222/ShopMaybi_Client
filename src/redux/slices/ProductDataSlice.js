@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { statusFetch } from "~/utils/statusFetch";
-import { fetchDataProducts } from "../fetchData/fetchDataProducts";
+import { fetchDataProducts } from "../CallFireBase/fetchDataProducts";
 
 const initState = {
   ProductData: [],

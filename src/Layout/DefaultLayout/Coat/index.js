@@ -14,6 +14,4 @@ function Coat(props) {
   );
 }
 
-Coat.propTypes = {};
-
 export default Coat;

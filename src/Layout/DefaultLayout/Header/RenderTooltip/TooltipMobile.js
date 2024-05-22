@@ -126,6 +126,4 @@ function TooltipMobile(props) {
   );
 }
 
-TooltipMobile.propTypes = {};
-
 export default TooltipMobile;
