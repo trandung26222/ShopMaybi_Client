@@ -2,10 +2,10 @@ import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
 import { InputNumber } from "antd";
-import { handleRemoveItemCart } from "~/utils/GetClearDataCart";
 import { useDispatch } from "react-redux";
 import { Int2VND } from "~/help/Int2VND";
 import { RemoveItemCart } from "~/redux/fetchData/RemoveItemCart";
+import { fetchCart } from "~/redux/fetchData/fetchCart";
 
 function CartItem({ islast, item }) {
   var dispatch = useDispatch();
@@ -13,8 +13,9 @@ function CartItem({ islast, item }) {
     console.log("changed", value);
   };
   var handleRemoveItem = async (id) => {
-    await handleRemoveItemCart(id);
+    // await handleRemoveItemCart(id);
     dispatch(RemoveItemCart(id));
+    dispatch(fetchCart(localStorage.getItem("uid")));
   };
 
   return (

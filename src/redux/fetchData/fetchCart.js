@@ -1,11 +1,4 @@
-import {
-  getDocs,
-  collection,
-  where,
-  query,
-  deleteDoc,
-  limit,
-} from "firebase/firestore";
+import { getDocs, collection, where, query } from "firebase/firestore";
 import { db } from "~/firebase";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 

@@ -53,6 +53,7 @@ function App() {
             email: user.email,
           })
         );
+        localStorage.setItem("uid", user.uid);
         localStorage.setItem("username", user.displayName);
         localStorage.setItem("phonenumber", user.phoneNumber);
         dispatch(fetchCart(user.uid));
