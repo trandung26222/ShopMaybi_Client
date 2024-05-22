@@ -4,8 +4,8 @@ import { faXmark } from "@fortawesome/free-solid-svg-icons";
 import { InputNumber } from "antd";
 import { handleRemoveItemCart } from "~/utils/GetClearDataCart";
 import { useDispatch } from "react-redux";
-import { deleteCurrentCart } from "~/redux/slices/CurrentCartSlice";
 import { Int2VND } from "~/help/Int2VND";
+import { RemoveItemCart } from "~/redux/fetchData/RemoveItemCart";
 
 function CartItem({ islast, item }) {
   var dispatch = useDispatch();
@@ -14,7 +14,7 @@ function CartItem({ islast, item }) {
   };
   var handleRemoveItem = async (id) => {
     await handleRemoveItemCart(id);
-    dispatch(deleteCurrentCart(id));
+    dispatch(RemoveItemCart(id));
   };
 
   return (

@@ -7,6 +7,7 @@ import Checkout from "~/pages/Checkout";
 import Product from "~/pages/Product";
 import NotFound from "~/pages/NotFound";
 import Profile from "~/pages/Profile";
+import Test from "~/pages/Test";
 
 import { RouteChildOfCollection } from "~/Data/DataCollection";
 
@@ -23,6 +24,7 @@ const publicRoutes = [
     component: Collection,
     ChildRoute: RouteChildOfCollection,
   },
+  { path: "/test", component: Test },
   { path: "*", component: NotFound },
 ];
 

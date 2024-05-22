@@ -8,8 +8,9 @@ import { useEffect } from "react";
 import { DataCollection } from "./Data/DataCollection";
 import { auth } from "./firebase";
 import DefaultLayout from "./Layout/DefaultLayout";
-import { GetDataCart, ClearDataCart } from "./utils/GetClearDataCart";
-import { GetDataProduct } from "./utils/GetDataProduct";
+import { fetchDataProducts } from "./redux/fetchData/fetchDataProducts";
+import { fetchCart } from "./redux/fetchData/fetchCart";
+import { clearCurrentCart } from "./redux/slices/CurrentCartSlice";
 
 function App() {
   var classNameApp =
@@ -41,7 +42,7 @@ function App() {
   }, []);
 
   useEffect(() => {
-    GetDataProduct(dispatch);
+    dispatch(fetchDataProducts());
     auth.onAuthStateChanged((user) => {
       if (user) {
         dispatch(
@@ -54,10 +55,10 @@ function App() {
         );
         localStorage.setItem("username", user.displayName);
         localStorage.setItem("phonenumber", user.phoneNumber);
-        GetDataCart(dispatch, user.uid);
+        dispatch(fetchCart(user.uid));
       } else {
         dispatch(setCurrentUser({ has: false, uid: "", email: "" }));
-        ClearDataCart(dispatch);
+        dispatch(clearCurrentCart());
       }
     });
   });
