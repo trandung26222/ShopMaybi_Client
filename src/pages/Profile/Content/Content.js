@@ -1,5 +1,5 @@
 import React from "react";
-import FormUpdateUser from "./FormUpdateUser";
+import FormUpdateUser from "./FormUpdateUser/FormUpdateUser";
 
 function Content() {
   return (

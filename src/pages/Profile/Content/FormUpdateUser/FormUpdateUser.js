@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useLayoutEffect } from "react";
 import { Button, Form, Input, Select, DatePicker } from "antd";
 import {
   propsMainForm,
@@ -7,14 +7,8 @@ import {
   propNgaySinh,
   propSodienthoai,
   propUserName,
-} from "./PropForm";
-
-const handlechoosegioitinh = (checkedValues) => {
-  console.log("checked = ", checkedValues);
-};
-const handlechonngaysinh = (date, dateString) => {
-  console.log(date, dateString);
-};
+} from "../FormUpdateUser/PropForm";
+import { optionChonGioiTinh } from "../FormUpdateUser/PropForm";
 
 const FormUpdateUser = () => {
   return (
@@ -28,18 +22,14 @@ const FormUpdateUser = () => {
       <Form.Item {...propGioiTinh}>
         <Select
           style={{
-            width: 120,
+            width: 90,
           }}
-          options={options}
-          onChange={handlechoosegioitinh}
+          options={optionChonGioiTinh}
           placeholder="Chọn giới tính"
         />
       </Form.Item>
       <Form.Item {...propNgaySinh}>
-        <DatePicker
-          placeholder="Chọn ngày sinh của bạn"
-          onChange={handlechonngaysinh}
-        />
+        <DatePicker placeholder="Chọn ngày sinh của bạn" />
       </Form.Item>
       <Form.Item {...propLuu}>
         <Button type="primary" htmlType="submit">
@@ -50,18 +40,4 @@ const FormUpdateUser = () => {
   );
 };
 
-const options = [
-  {
-    label: "Nam",
-    value: "nam",
-  },
-  {
-    label: "Nữ",
-    value: "nu",
-  },
-  {
-    label: "Khác",
-    value: "other",
-  },
-];
 export default FormUpdateUser;

@@ -1,7 +1,15 @@
-import { usernameValidator, phoneNumberValidator } from "./ValidateForm";
+import {
+  usernameValidator,
+  phoneNumberValidator,
+  GioiTinhValidator,
+  NgaysinhValidator,
+} from "./ValidateForm";
+import { UpdateProfile } from "./UpdateProfile";
 
 const onFinish = (values) => {
+  values.ngaysinh = values.ngaysinh.$d;
   console.log("Success:", values);
+  UpdateProfile(values);
 };
 
 const onFinishFailed = (errorInfo) => {
@@ -9,7 +17,6 @@ const onFinishFailed = (errorInfo) => {
 };
 
 export var propsMainForm = {
-  name: "basic",
   labelCol: {
     span: 6,
   },
@@ -19,14 +26,12 @@ export var propsMainForm = {
   style: {
     maxWidth: 510,
   },
-  initialValues: {
-    remember: true,
-  },
   onFinish: onFinish,
   onFinishFailed: onFinishFailed,
   autoComplete: "off",
-  // onValuesChange: onValuesChange,
   labelAlign: "left",
+  scrollToFirstError: true,
+  initialValues: { username: localStorage.getItem("username") },
 };
 export var propUserName = {
   label: "Tên",
@@ -52,24 +57,20 @@ export var propSodienthoai = {
   hasFeedback: true,
 };
 export var propGioiTinh = {
-  name: "remember",
+  name: "gioitinh",
   label: "Giới tính",
-  valuePropName: "checked",
   rules: [
     {
-      required: true,
-      message: "Vui lòng chọn giới tính của bạn!",
+      validator: GioiTinhValidator,
     },
   ],
 };
 export var propNgaySinh = {
-  name: "remember",
+  name: "ngaysinh",
   label: "Ngày sinh",
-  valuePropName: "checked",
   rules: [
     {
-      required: true,
-      message: "Vui lòng chọn ngày sinh của bạn!",
+      validator: NgaysinhValidator,
     },
   ],
 };
@@ -78,3 +79,18 @@ export var propLuu = {
     offset: 10,
   },
 };
+
+export const optionChonGioiTinh = [
+  {
+    label: "Nam",
+    value: "nam",
+  },
+  {
+    label: "Nữ",
+    value: "nu",
+  },
+  {
+    label: "Khác",
+    value: "other",
+  },
+];

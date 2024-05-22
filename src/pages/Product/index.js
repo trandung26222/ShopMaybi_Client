@@ -1,14 +1,15 @@
 import React from "react";
-import { useSelector } from "react-redux";
 import BreadCrumb from "~/components/BreadCrumb";
 import { useState } from "react";
 
 function Product(props) {
   var Product = JSON.parse(localStorage.getItem("Product"));
+
   var [indeximgselect, setindeximgselect] = useState(0);
   return (
     <div className="w-full h-auto">
       <BreadCrumb links={["Trang chủ", "Áo"]} typography={Product.title} />
+
       <div className="w-full px-[var(--padding-header)] pt-6 flex ">
         <div className="h-auto flex-1 border flex">
           <div className="flex-col flex w-[92px] gap-2">
@@ -16,7 +17,7 @@ function Product(props) {
               return (
                 <button
                   key={index}
-                  className={` w-full rounded-md overflow-hidden px-[6px] py-[6px] 
+                  className={` w-full rounded-md overflow-hidden px-[6px] py-[6px]
                 ${indeximgselect === index ? "border-black border" : ""}
                 `}
                   onClick={() => {

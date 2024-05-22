@@ -44,6 +44,7 @@ function App() {
     GetDataProduct(dispatch);
     auth.onAuthStateChanged((user) => {
       if (user) {
+        console.log(user);
         dispatch(
           setCurrentUser({
             has: true,
@@ -52,6 +53,8 @@ function App() {
             email: user.email,
           })
         );
+        localStorage.setItem("username", user.displayName);
+        localStorage.setItem("phonenumber", user.phoneNumber);
         GetDataCart(dispatch, user.uid);
       } else {
         dispatch(setCurrentUser({ has: false, uid: "", email: "" }));
