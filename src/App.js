@@ -44,7 +44,6 @@ function App() {
     GetDataProduct(dispatch);
     auth.onAuthStateChanged((user) => {
       if (user) {
-        console.log(user);
         dispatch(
           setCurrentUser({
             has: true,
