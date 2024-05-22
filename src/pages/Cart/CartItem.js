@@ -13,7 +13,6 @@ function CartItem({ islast, item }) {
     console.log("changed", value);
   };
   var handleRemoveItem = async (id) => {
-    // await handleRemoveItemCart(id);
     dispatch(RemoveItemCart(id));
     dispatch(fetchCart(localStorage.getItem("uid")));
   };
