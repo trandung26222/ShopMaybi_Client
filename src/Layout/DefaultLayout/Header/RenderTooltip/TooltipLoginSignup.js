@@ -1,11 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { auth } from "~/firebase";
 import { useSelector } from "react-redux";
-import { signOut } from "firebase/auth";
-import { showMessage } from "~/utils/showMessage";
+import { useDispatch } from "react-redux";
+import { LogOut } from "~/redux/CallFireBase/LogOut";
 
 function TooltipLoginSignup() {
+  var dispatch = useDispatch();
   var classnameItem =
     "bg-white flex items-start px-2 w-full py-[8px] rounded-md hover:bg-[rgba(0,0,0,0.1)]";
   var classnameContain =
@@ -16,15 +16,7 @@ function TooltipLoginSignup() {
   // =============================================================================
 
   const handleLogout = async () => {
-    signOut(auth)
-      .then(() => {
-        showMessage("success", "Bạn đã đăng xuất!");
-        window.location.href = "/account/login";
-      })
-      .catch((error) => {
-        showMessage("error", error.message);
-        window.alert(error.message);
-      });
+    LogOut(dispatch);
   };
 
   // =============================================================================

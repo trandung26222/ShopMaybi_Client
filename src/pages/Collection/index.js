@@ -50,6 +50,7 @@ function Collection({ props }) {
   return (
     <div className="w-full h-auto">
       {CartPreview && <ContentPreview CurrentProduct={CurrentProduct} />}
+
       <BreadCrumb
         links={["Trang chủ", "Danh mục"]}
         typography={props.nametypography}

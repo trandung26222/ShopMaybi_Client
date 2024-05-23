@@ -1,4 +1,4 @@
-import React, { useEffect, useLayoutEffect } from "react";
+import React from "react";
 import { Button, Form, Input, Select, DatePicker } from "antd";
 import {
   propsMainForm,
@@ -9,10 +9,26 @@ import {
   propUserName,
 } from "../FormUpdateUser/PropForm";
 import { optionChonGioiTinh } from "../FormUpdateUser/PropForm";
+import { useSelector } from "react-redux";
+import moment from "moment";
+
+const dateFormat = "YYYY/MM/DD";
 
 const FormUpdateUser = () => {
+  var CurrentUser = useSelector((s) => s.CurrentUserSlice.CurrentUser);
+  let date = new Date(CurrentUser.ngaysinh);
+  const initngaysinh = moment(date.toString());
+
   return (
-    <Form {...propsMainForm}>
+    <Form
+      {...propsMainForm}
+      initialValues={{
+        username: CurrentUser.username,
+        phonenumber: CurrentUser.phonenumber,
+        gioitinh: CurrentUser.gioitinh,
+        ngaysinh: initngaysinh,
+      }}
+    >
       <Form.Item {...propUserName}>
         <Input placeholder="Nhập tên của bạn" />
       </Form.Item>
@@ -29,7 +45,7 @@ const FormUpdateUser = () => {
         />
       </Form.Item>
       <Form.Item {...propNgaySinh}>
-        <DatePicker placeholder="Chọn ngày sinh của bạn" />
+        <DatePicker format={dateFormat} placeholder="Chọn ngày sinh của bạn" />
       </Form.Item>
       <Form.Item {...propLuu}>
         <Button type="primary" htmlType="submit">

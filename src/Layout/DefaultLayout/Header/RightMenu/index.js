@@ -3,8 +3,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser } from "@fortawesome/free-regular-svg-icons";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
-import Tippy from "@tippyjs/react/headless";
-import "tippy.js/dist/tippy.css";
 import { Link } from "react-router-dom";
 import { Popover } from "antd";
 import TootipLoginSignup from "../RenderTooltip/TooltipLoginSignup";

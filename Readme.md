@@ -34,10 +34,9 @@ REACT_APP_API_KEY = AIzaSyDXljeOK6aHIqoDXzwAysvjPFLVOcnZ7RY
 
 yarn add customize-cra react-app-rewired --dev
 npm install --save-dev babel-plugin-module-resolver
-npm install react-phone-number-input --save
 
----
+## npm i redux-persist
 
 Thư viện:
-antd: carousel ,Rate,Message
+antd: carousel ,Rate,Message,Modal
 jwt-decode

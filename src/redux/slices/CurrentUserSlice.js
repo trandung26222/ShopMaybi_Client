@@ -1,11 +1,14 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { getCurrentUser } from "../CallFireBase/getCurrentUser";
 
 const initState = {
   CurrentUser: {
     has: false,
+    gioitinh: "",
+    phonenumber: "",
+    avatar: "",
+    ngaysinh: null,
     username: "",
-    uid: "",
-    email: "",
   },
 };
 
@@ -13,11 +16,20 @@ export const CurrentUserSlice = createSlice({
   name: "CurrentUserSlice",
   initialState: initState,
   reducers: {
-    setCurrentUser: (state, action) => {
-      state.CurrentUser = action.payload;
+    clearCurrentUser: (state) => {
+      state.CurrentUser = { ...initState.CurrentUser };
     },
+  },
+  extraReducers: (builder) => {
+    builder.addCase(getCurrentUser.fulfilled, (state, action) => {
+      state.CurrentUser = {
+        ...state.CurrentUser,
+        ...action.payload,
+        has: true,
+      };
+    });
   },
 });
 
-export const { setCurrentUser } = CurrentUserSlice.actions;
+export const { clearCurrentUser } = CurrentUserSlice.actions;
 export default CurrentUserSlice.reducer;

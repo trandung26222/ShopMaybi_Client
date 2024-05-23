@@ -10,9 +10,8 @@ import { Link } from "react-router-dom";
 import { faEllipsisVertical } from "@fortawesome/free-solid-svg-icons";
 import { Popover } from "antd";
 import { useSelector } from "react-redux";
-import { signOut } from "firebase/auth";
-import { auth } from "~/firebase";
-import { showMessage } from "~/utils/showMessage";
+import { useDispatch } from "react-redux";
+import { LogOut } from "~/redux/CallFireBase/LogOut";
 
 var dataCurentUserTrue = [
   {
@@ -67,7 +66,7 @@ function TooltipMobile(props) {
   var classNamecon2 = "flex flex-col items-start w-full h-full justify-between";
   var classnameItem =
     "flex text-[16px] items-center py-[9px] rounded-md text-black bg-white hover:bg-[rgba(0,0,0,0.1)]  w-full pl-5 relative gap-2";
-
+  var dispatch = useDispatch();
   var [dataPopOver, setDataPopOVer] = useState(
     hascurrentuser ? dataCurentUserTrue : dataCurentUserFalse
   );
@@ -77,15 +76,7 @@ function TooltipMobile(props) {
   }, [hascurrentuser]);
 
   const handleLogout = async () => {
-    signOut(auth)
-      .then(() => {
-        showMessage("success", "Đăng nhập thành công!");
-
-        window.location.href = "/account/login";
-      })
-      .catch((error) => {
-        window.alert(error.message);
-      });
+    LogOut(dispatch);
   };
 
   var contentPopOver = () => (

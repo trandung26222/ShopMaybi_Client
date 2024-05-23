@@ -8,7 +8,7 @@ const initState = {
   Product: {},
 };
 
-export const ProductCartSlice = createSlice({
+export const ProductDataSlice = createSlice({
   name: "ProductDataSlice",
   initialState: initState,
   reducers: {
@@ -33,5 +33,5 @@ export const ProductCartSlice = createSlice({
   },
 });
 
-export const { setProduct } = ProductCartSlice.actions;
-export default ProductCartSlice.reducer;
+export const { setProduct } = ProductDataSlice.actions;
+export default ProductDataSlice.reducer;

@@ -1,13 +1,15 @@
-import React from "react";
-import { useState, useEffect } from "react";
-import { auth } from "~/firebase";
-import { signInWithEmailAndPassword } from "firebase/auth";
+import React, { useEffect } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import BreadCrumb from "~/components/BreadCrumb";
 import { signInWithGoogle } from "~/firebase";
-import { showMessage } from "~/utils/showMessage";
 import { Carousel } from "antd";
 import { GoogleIcon, EyeIcon } from "~/components/Icon/Icon";
+import { LoadingOutlined } from "@ant-design/icons";
+import { Spin } from "antd";
+import { LoginEmailPassword } from "~/redux/CallFireBase/LoginEmailPassword";
+import { statusFetch } from "~/utils/statusFetch";
+import { useNavigate } from "react-router-dom";
 
 const ImgRight = () => {
   var imgarray = [
@@ -58,19 +60,14 @@ const BtnAnHienPassWord = () => (
 );
 
 function Login() {
+  var navigate = useNavigate();
   var [email, setEmail] = useState("");
   var [password, setPassword] = useState("");
-  const login = async (e) => {
+  var [stateLogin, setStateLogin] = useState(statusFetch.IDLE);
+
+  const handlelogin = (e) => {
     e.preventDefault();
-    signInWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {
-        const user = userCredential.user;
-        showMessage("success", "Đăng nhập thành công!");
-        window.location.href = "/";
-      })
-      .catch((error) => {
-        showMessage("error", "Tài khoản hoặc mật khẩu không đúng!");
-      });
+    LoginEmailPassword(email, password, setStateLogin, navigate);
   };
 
   return (
@@ -84,7 +81,7 @@ function Login() {
               Đăng nhập để nhận được giá ưu đãi!
             </p>
 
-            <form onSubmit={login} className="flex flex-col gap-4">
+            <form onSubmit={handlelogin} className="flex flex-col gap-4">
               <input
                 value={email}
                 className="p-2 mt-8 rounded-xl border"
@@ -108,8 +105,22 @@ function Login() {
                 />
                 <BtnAnHienPassWord />
               </div>
-              <button className="bg-[#002D74] rounded-xl text-white py-2 hover:scale-105 duration-300">
-                Đăng nhập
+              <button className="bg-[#002D74] items-center flex justify-center rounded-xl text-white py-2 hover:scale-105 duration-300">
+                {stateLogin === statusFetch.LOADING && (
+                  <Spin
+                    indicator={
+                      <LoadingOutlined
+                        style={{
+                          fontSize: 18,
+                          color: "white",
+                        }}
+                        spin
+                      />
+                    }
+                  />
+                )}
+
+                <p className="ml-3">Đăng nhập</p>
               </button>
             </form>
 

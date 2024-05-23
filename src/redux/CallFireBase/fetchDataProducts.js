@@ -12,6 +12,14 @@ export var fetchDataProducts = createAsyncThunk(
         ...item.data(),
       });
     });
+
+    const delayPromise = new Promise((resolve, reject) => {
+      setTimeout(() => {
+        resolve();
+      }, 1000);
+    });
+
+    await delayPromise;
     return res;
   }
 );

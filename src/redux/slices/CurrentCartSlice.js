@@ -29,7 +29,6 @@ export const CurrentCartSlice = createSlice({
         state.status = statusFetch.FAILED;
       })
       .addCase(RemoveItemCart.fulfilled, (state, action) => {
-        console.log(action.payload);
         const indexToDelete = state.CurrentCart.findIndex(
           (item) => item.id === action.payload
         );

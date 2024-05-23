@@ -8,7 +8,8 @@ import { UpdateProfile } from "./UpdateProfile";
 
 const onFinish = (values) => {
   values.ngaysinh = values.ngaysinh.$d;
-  console.log("Success:", values);
+  // console.log(values.ngaysinh);
+  // console.log("Success:", values);
   UpdateProfile(values);
 };
 
@@ -31,7 +32,6 @@ export var propsMainForm = {
   autoComplete: "off",
   labelAlign: "left",
   scrollToFirstError: true,
-  initialValues: { username: localStorage.getItem("username") },
 };
 export var propUserName = {
   label: "Tên",

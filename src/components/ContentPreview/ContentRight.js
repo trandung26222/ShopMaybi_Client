@@ -36,7 +36,7 @@ function ContentRight({ CurrentProduct }) {
   };
   var handlethemgiohang = async () => {
     var data = {
-      uid: CurrentUser.uid,
+      uid: localStorage.getItem("uid").toString(),
       productid: CurrentProduct.id,
       quantity: soluongsanpham,
       size: size,
