@@ -7,11 +7,14 @@ import TieuDeVaSapXep from "./TieuDeVaSapXep";
 import ImgBackground from "./ImgBackground";
 import { useSelector } from "react-redux";
 import ContentPreview from "~/components/ContentPreview";
+import { statusFetch } from "~/utils/statusFetch";
+import CircularProgress from "@mui/material/CircularProgress";
 
 function Collection({ props }) {
   var CartPreview = useSelector((s) => s.ElementDomSlice.CartPreview);
   var CurrentProduct = useSelector((s) => s.CurrentProductSlice.CurrentProduct);
   var ProductData = useSelector((s) => s.ProductDataSlice.ProductData);
+  var statusFetchProduct = useSelector((s) => s.ProductDataSlice.status);
 
   var [tuychon, settuychon] = useState("default");
   var [Data, setData] = useState([]);
@@ -73,6 +76,12 @@ function Collection({ props }) {
               columnSpacing={2}
               justifyContent={"flex-start"}
             >
+              {statusFetchProduct === statusFetch.LOADING && (
+                <div className="flex justify-center w-full mt-6 mb-6">
+                  <CircularProgress size={18} sx={{ color: "gray" }} />
+                  <p className="ml-4 text-[1.4em]">Đang tải dữ liệu...</p>
+                </div>
+              )}
               {Data &&
                 Data.map((i, index) => (
                   <Grid item key={index} lg={3} md={3} sm={4} xs={4}>

@@ -16,7 +16,7 @@ export var fetchDataProducts = createAsyncThunk(
     const delayPromise = new Promise((resolve, reject) => {
       setTimeout(() => {
         resolve();
-      }, 1000);
+      }, 3000);
     });
 
     await delayPromise;

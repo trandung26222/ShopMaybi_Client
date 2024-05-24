@@ -21,8 +21,8 @@ function Section4() {
         columnSpacing={2}
         justifyContent={"flex-center"}
       >
-        {ProductData.map((i, index) => (
-          <Grid item key={index} lg={2.4} md={3} sm={3} xs={4}>
+        {ProductData.map((i) => (
+          <Grid item key={i.id} lg={2.4} md={3} sm={3} xs={4}>
             <ItemProduct props={i}></ItemProduct>
           </Grid>
         ))}
