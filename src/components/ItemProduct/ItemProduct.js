@@ -1,4 +1,4 @@
-import React, { useLayoutEffect } from "react";
+import React, { useEffect, useLayoutEffect } from "react";
 import { Link } from "react-router-dom";
 import { useState, useRef } from "react";
 import Newin from "./Newin";
@@ -21,11 +21,15 @@ function ItemProduct({ props, option }) {
             absolute right-1/4 rounded-md w-1/2 h-[50px] bg-white flex text-[1rem]
              transition-transform duration-[600ms] ease-in-out overflow-hidden `;
 
-  useLayoutEffect(() => {
-    var tmp = LinkRef.current.clientHeight;
-    if (SpanRef.current && option) {
-      SpanRef.current.style.top = `${tmp * 0.8}px`;
-    }
+  useEffect(() => {
+    var afterRender = async () => {
+      await new Promise((resolve) => setTimeout(resolve, 100));
+      var tmp = LinkRef.current.clientHeight;
+      if (SpanRef.current && option) {
+        SpanRef.current.style.top = `${tmp * 0.8}px`;
+      }
+    };
+    afterRender();
   }, []);
 
   return (

@@ -40,3 +40,5 @@ npm install --save-dev babel-plugin-module-resolver
 Thư viện:
 antd: carousel ,Rate,Message,Modal
 jwt-decode
+
+npm install -D tailwindcss postcss autoprefixer
