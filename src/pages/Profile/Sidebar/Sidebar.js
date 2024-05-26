@@ -16,8 +16,6 @@ function Sidebar() {
   var [selectedKeys, setselectedKeys] = useState();
 
   var { key, setKey } = useContext(ProfileContext);
-  console.log(key);
-  console.log(setKey);
 
   const onClick = (e) => {
     setselectedKeys(e.key);

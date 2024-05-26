@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { getCurrentUser } from "../CallFireBase/getCurrentUser";
+// import { getCurrentUser } from "../CallFireBase/getCurrentUser";
+import { getCurrentUser, updateProfile } from "~/CallAPI/profile";
 
 const initState = {
   CurrentUser: {
@@ -21,13 +22,21 @@ export const CurrentUserSlice = createSlice({
     },
   },
   extraReducers: (builder) => {
-    builder.addCase(getCurrentUser.fulfilled, (state, action) => {
-      state.CurrentUser = {
-        ...state.CurrentUser,
-        ...action.payload,
-        has: true,
-      };
-    });
+    builder
+      .addCase(getCurrentUser.fulfilled, (state, action) => {
+        state.CurrentUser = {
+          ...state.CurrentUser,
+          ...action.payload,
+          has: true,
+        };
+      })
+      .addCase(updateProfile.fulfilled, (state, action) => {
+        state.CurrentUser = {
+          ...state.CurrentUser,
+          ...action.payload,
+          has: true,
+        };
+      });
   },
 });
 

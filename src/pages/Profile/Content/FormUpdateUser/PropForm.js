@@ -8,8 +8,6 @@ import { UpdateProfile } from "./UpdateProfile";
 
 const onFinish = (values) => {
   values.ngaysinh = values.ngaysinh.$d;
-  // console.log(values.ngaysinh);
-  // console.log("Success:", values);
   UpdateProfile(values);
 };
 

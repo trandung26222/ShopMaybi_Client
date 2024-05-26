@@ -1,7 +1,7 @@
 import { auth } from "~/firebase";
-import { getCurrentUser } from "~/redux/CallFireBase/getCurrentUser";
 import { fetchCart } from "~/redux/CallFireBase/fetchCart";
 import { clearCurrentCart } from "~/redux/slices/CurrentCartSlice";
+import { getCurrentUser } from "~/CallAPI/profile";
 
 export var handleAuthentication = async (dispatch) => {
   auth.onAuthStateChanged((user) => {
