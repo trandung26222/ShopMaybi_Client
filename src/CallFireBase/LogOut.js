@@ -5,7 +5,7 @@ import { signOut } from "firebase/auth";
 export const LogOut = async (dispatch) => {
   signOut(auth)
     .then(async () => {
-      await new Promise((resolve) => setTimeout(resolve, 1000));
+      await new Promise((resolve) => setTimeout(resolve, 500));
     })
     .then(() => {
       showMessage(typeMessage.success, "Đăng xuất thành công!");
@@ -15,6 +15,8 @@ export const LogOut = async (dispatch) => {
       dispatch({
         type: "CartSlice/clearCart",
       });
+      localStorage.setItem("uid", null);
+      localStorage.setItem("_id", null);
       window.location.href = "/account/login";
     })
     .catch(() => {

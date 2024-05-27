@@ -4,9 +4,6 @@ import axios from "axios";
 
 export const getCart = createAsyncThunk("getCart", async (userId) => {
   const res = await axios.get(apiConfig.cart.getCart + "/" + userId);
-
-  console.log(apiConfig.cart.getCart + "/" + userId);
-  console.log(res.data);
   return res.data;
 });
 
@@ -26,7 +23,6 @@ export const sub1OnCart = createAsyncThunk("sub1OnCart", async (body) => {
 });
 
 export const addToCart = createAsyncThunk("addToCart", async (body) => {
-  console.log(body);
-  await axios.post(apiConfig.cart.addToCart, { data: body });
-  return body;
+  var res = await axios.post(apiConfig.cart.addToCart, { data: body });
+  return res.data;
 });

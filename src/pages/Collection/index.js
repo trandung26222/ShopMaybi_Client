@@ -6,7 +6,7 @@ import LeftContent from "./LeftContent";
 import TieuDeVaSapXep from "./TieuDeVaSapXep";
 import ImgBackground from "./ImgBackground";
 import { useSelector } from "react-redux";
-import ContentPreview from "~/components/ContentPreview";
+import ContentPreview from "~/pages/Collection/ContentPreview";
 import { statusFetch } from "~/utils/statusFetch";
 import CircularProgress from "@mui/material/CircularProgress";
 

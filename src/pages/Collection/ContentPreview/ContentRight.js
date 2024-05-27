@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { InputNumber } from "antd";
 import { useSelector, useDispatch } from "react-redux";
-import ColorItem from "../ItemProduct/ColorItem";
+import ColorItem from "../../../components/ItemProduct/ColorItem";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Checkbox from "antd/es/checkbox/Checkbox";
 import { faGift } from "@fortawesome/free-solid-svg-icons";
@@ -9,6 +9,7 @@ import { showMessage } from "~/utils/showMessage";
 import { typeMessage } from "~/utils/showMessage";
 import { Int2VND } from "~/help/Int2VND";
 import { addToCart } from "~/CallAPI/cart";
+import { getCart } from "~/CallAPI/cart";
 
 const category = [
   { label: "S", value: "S" },
@@ -35,9 +36,8 @@ function ContentRight({ CurrentProduct }) {
     setsoluongsanpham((pre) => pre + 1);
   };
 
-  var handlethemgiohang = async () => {
-    console.log(CurrentProduct);
-
+  var handlethemgiohang = async (e) => {
+    e.preventDefault();
     var data = {
       userId: CurrentUser._id,
       productId: CurrentProduct._id,
@@ -46,13 +46,14 @@ function ContentRight({ CurrentProduct }) {
       mau: CurrentProduct.color[indexColorClick],
     };
     if (CurrentUser.has) {
-      console.log(data);
-      dispatch(addToCart(data));
+      dispatch(addToCart(data)).then(() => {
+        dispatch(getCart(localStorage.getItem("_id")));
+      });
+
       showMessage(
         typeMessage.success,
         "Thêm sản phẩm vào giỏ hàng thành công!"
       );
-      // window.location.reload();
     } else {
       showMessage(
         typeMessage.warning,

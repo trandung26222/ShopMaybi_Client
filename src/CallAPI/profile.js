@@ -5,6 +5,7 @@ import axios from "axios";
 export const getCurrentUser = createAsyncThunk(
   "getCurrentUser",
   async (uid) => {
+    console.log("getCurrentUser");
     const res = await axios.get(apiConfig.profile.getProfile + "/" + uid);
 
     var tmp = res.data;
@@ -20,7 +21,6 @@ export const getCurrentUser = createAsyncThunk(
 
 export const updateProfile = createAsyncThunk("updateProfile", async (data) => {
   const res = await axios.put(apiConfig.profile.updateProfile, data);
-  console.log(res.data);
   return data;
 });
 

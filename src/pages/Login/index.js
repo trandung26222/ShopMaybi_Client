@@ -9,14 +9,12 @@ import { LoadingOutlined } from "@ant-design/icons";
 import { Spin } from "antd";
 import { LoginEmailPassword } from "~/CallFireBase/LoginEmailPassword";
 import { statusFetch } from "~/utils/statusFetch";
-import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 
 const ImgRight = () => {
   var imgarray = [
     "https://pubcdn.ivymoda.com/files/news/2024/05/03/df3852d98da6dc06910d437bcca0c423.jpg",
     "https://pubcdn.ivymoda.com/files/news/2024/05/02/9828684ac902e49fc3901372aa81a81a.jpg",
-    "https://pubcdn.ivymoda.com/files/news/2024/05/02/6f84db0019f35d69b3ff99161a3a35b0.jpg",
     "https://pubcdn.ivymoda.com/files/product/thumab/400/2023/09/16/28f3b3317c557d464734f5b8b017c255.JPG",
     "https://pubcdn.ivymoda.com/files/product/thumab/400/2023/05/12/df29fc5f6111cc36e5a8138bd66f68ec.jpg",
     "https://pubcdn.ivymoda.com/files/product/thumab/400/2020/12/24/71155df5f81157f11dda9be5b8f06da0.JPG",
@@ -61,7 +59,6 @@ const BtnAnHienPassWord = () => (
 );
 
 function Login() {
-  var navigate = useNavigate();
   var [email, setEmail] = useState("");
   var [password, setPassword] = useState("");
   var [stateLogin, setStateLogin] = useState(statusFetch.IDLE);
@@ -69,7 +66,7 @@ function Login() {
 
   const handlelogin = (e) => {
     e.preventDefault();
-    LoginEmailPassword(email, password, setStateLogin, navigate, dispatch);
+    LoginEmailPassword(email, password, setStateLogin, dispatch);
   };
 
   return (

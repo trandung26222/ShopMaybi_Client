@@ -12,6 +12,7 @@ const initState = {
 export const ProductSlice = createSlice({
   name: "ProductSlice",
   initialState: initState,
+
   extraReducers: (builder) => {
     builder.addCase(getAllProducts.pending, (state) => {
       state.status = statusFetch.LOADING;

@@ -31,7 +31,6 @@ const CartSlice = createSlice({
       })
       .addCase(deleteProductonCart.fulfilled, (state, action) => {
         var { productId, mau, size } = action.payload;
-        console.log(action.payload);
         const indexToRemove = state.Cart.findIndex(
           (c) => c.productId === productId && c.mau === mau && c.size === size
         );
@@ -41,7 +40,6 @@ const CartSlice = createSlice({
       })
       .addCase(sub1OnCart.fulfilled, (state, action) => {
         var { productId, mau, size } = action.payload;
-        console.log(action.payload);
         const indexToRemove = state.Cart.findIndex(
           (c) => c.productId === productId && c.mau === mau && c.size === size
         );
@@ -49,7 +47,12 @@ const CartSlice = createSlice({
           state.Cart[indexToRemove].quantity -= 1;
         }
       })
-      .addCase(addToCart.fulfilled, (state, action) => {});
+      .addCase(addToCart.pending, (state) => {
+        state.status = statusFetch.LOADING;
+      })
+      .addCase(addToCart.fulfilled, (state, action) => {
+        state.status = statusFetch.IDLE;
+      });
   },
 });
 

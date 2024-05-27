@@ -5,7 +5,6 @@ import { Rate } from "antd";
 function RightContent({ Product }) {
   var RefTMP = useRef();
   useLayoutEffect(() => {
-    console.log(RefTMP.current);
     var alllinks = RefTMP.current.querySelectorAll("a");
     for (var i = 0; i < alllinks.length; i++) {
       alllinks[i].style.textDecoration = "underline";

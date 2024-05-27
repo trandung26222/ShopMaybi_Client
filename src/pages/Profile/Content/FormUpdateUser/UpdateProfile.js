@@ -13,7 +13,6 @@ export const UpdateProfile = (dispatch, data) => {
     gioitinh: data.gioitinh,
     ngaysinh: data.ngaysinh,
   };
-  console.log(params);
   dispatch(updateProfile(params));
   showMessage(typeMessage.success, "Profile updated!");
 };

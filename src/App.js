@@ -6,7 +6,6 @@ import { Fragment } from "react";
 import { useEffect } from "react";
 import { DataCollection } from "./Data/DataCollection";
 import DefaultLayout from "./Layout/DefaultLayout";
-import { handleAuthentication } from "./utils/handleAuthentication";
 import { getAllProducts } from "./CallAPI/product";
 
 function App() {
@@ -39,7 +38,6 @@ function App() {
 
   useEffect(() => {
     dispatch(getAllProducts());
-    handleAuthentication(dispatch);
   });
 
   return (

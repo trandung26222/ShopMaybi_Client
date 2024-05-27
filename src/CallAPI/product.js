@@ -4,6 +4,7 @@ import axios from "axios";
 
 export const getAllProducts = createAsyncThunk("getAllProducts", async () => {
   var res = await axios.get(apiConfig.product.getAllProducts);
+  await new Promise((resolve) => setTimeout(resolve, 1000));
   return res.data;
 });
 
