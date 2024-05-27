@@ -6,8 +6,8 @@ import { Fragment } from "react";
 import { useEffect } from "react";
 import { DataCollection } from "./Data/DataCollection";
 import DefaultLayout from "./Layout/DefaultLayout";
-import { fetchDataProducts } from "./redux/CallFireBase/fetchDataProducts";
 import { handleAuthentication } from "./utils/handleAuthentication";
+import { getAllProducts } from "./CallAPI/product";
 
 function App() {
   var classNameApp =
@@ -38,7 +38,7 @@ function App() {
   }, []);
 
   useEffect(() => {
-    dispatch(fetchDataProducts());
+    dispatch(getAllProducts());
     handleAuthentication(dispatch);
   });
 

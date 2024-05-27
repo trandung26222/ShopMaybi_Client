@@ -1,17 +1,15 @@
-import React, { useEffect, useLayoutEffect } from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useState, useRef } from "react";
 import Newin from "./Newin";
 import ProductInfo from "./ProductInfo";
 import BtnTuyChon from "./BtnTuyChon";
 import BtnXemNhanh from "./BtnXemNhanh";
-import { setProduct } from "~/redux/slices/ProductDataSlice";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 
 function ItemProduct({ props, option }) {
   const [isHover, setIsHover] = useState(false);
   var lengthImg = props.srcimg.length;
-  var dispatch = useDispatch();
   var currrentW = useSelector((s) => s.responsive.currentWidth);
   const [indexColorClick, setindexColorClick] = useState(0);
   const [indexColorHover, setindexColorHover] = useState(null);
@@ -39,11 +37,8 @@ function ItemProduct({ props, option }) {
       {/* -----------------------------------------Product IMG-------------------------------------------- */}
       <Link
         ref={LinkRef}
-        to={`/product/${props.id}`}
+        to={`/product/${props._id}`}
         className="w-full bg-white h-fit shadow-slate-200 shadow overflow-hidden relative"
-        onClick={() => {
-          dispatch(setProduct(props.id));
-        }}
       >
         <img
           className={`h-full object-contain transition-transform duration-[500ms] transform scale-100 ${

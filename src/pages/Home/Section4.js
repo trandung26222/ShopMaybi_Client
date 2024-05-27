@@ -8,7 +8,7 @@ import ItemProduct from "~/components/ItemProduct/ItemProduct";
 import { useSelector } from "react-redux";
 
 function Section4() {
-  var ProductData = useSelector((s) => s.ProductDataSlice.ProductData);
+  var Products = useSelector((s) => s.ProductSlice.Products);
   return (
     <section>
       <h2 className="text-[var(--text-color)] text-[2.7em] m-0 line mb-10 ">
@@ -21,8 +21,8 @@ function Section4() {
         columnSpacing={2}
         justifyContent={"flex-center"}
       >
-        {ProductData.map((i) => (
-          <Grid item key={i.id} lg={2.4} md={3} sm={3} xs={4}>
+        {Products.map((i) => (
+          <Grid item key={i._id} lg={2.4} md={3} sm={3} xs={4}>
             <ItemProduct props={i}></ItemProduct>
           </Grid>
         ))}

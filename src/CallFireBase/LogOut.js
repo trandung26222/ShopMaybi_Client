@@ -12,6 +12,9 @@ export const LogOut = async (dispatch) => {
       dispatch({
         type: "CurrentUserSlice/clearCurrentUser",
       });
+      dispatch({
+        type: "CartSlice/clearCart",
+      });
       window.location.href = "/account/login";
     })
     .catch(() => {

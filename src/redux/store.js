@@ -3,9 +3,9 @@ import ResponsiveSlice from "./slices/ResponsiveSlice";
 import ElementDomSlice from "./slices/ElementDomSlice";
 import CurrentUserSlice from "./slices/CurrentUserSlice";
 import CurrentProductSlice from "./slices/CurrentProductSlice";
-import CurrentCartSlice from "./slices/CurrentCartSlice";
-import ProductDataSlice from "./slices/ProductDataSlice";
 import testSlice from "./slices/testSlice";
+import CartSlice from "./slices/CartSlice";
+import ProductSlice from "./slices/ProductSlice";
 
 import { persistStore, persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage";
@@ -13,7 +13,7 @@ import storage from "redux-persist/lib/storage";
 const persistConfig = {
   key: "root",
   storage,
-  whitelist: ["testSlice", "CurrentUserSlice"],
+  whitelist: ["testSlice", "CurrentUserSlice", "CartSlice"],
 };
 
 const reducer = combineReducers({
@@ -21,9 +21,9 @@ const reducer = combineReducers({
   ElementDomSlice: ElementDomSlice,
   CurrentUserSlice: CurrentUserSlice,
   CurrentProductSlice: CurrentProductSlice,
-  CurrentCartSlice: CurrentCartSlice,
-  ProductDataSlice: ProductDataSlice,
   testSlice: testSlice,
+  CartSlice: CartSlice,
+  ProductSlice: ProductSlice,
 });
 
 const persistedReducer = persistReducer(persistConfig, reducer);

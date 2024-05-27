@@ -1,20 +1,33 @@
-import React from "react";
+import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
 import { InputNumber } from "antd";
-import { useDispatch } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { Int2VND } from "~/help/Int2VND";
-import { RemoveItemCart } from "~/redux/CallFireBase/RemoveItemCart";
-import { fetchCart } from "~/redux/CallFireBase/fetchCart";
+import { deleteProductonCart, sub1OnCart } from "~/CallAPI/cart";
 
 function CartItem({ islast, item }) {
   var dispatch = useDispatch();
-  const onChange = (value) => {
-    console.log("changed", value);
+  var CurrentUser = useSelector((s) => s.CurrentUserSlice.CurrentUser);
+  var [value, setvalue] = useState(item.quantity);
+  var body = {
+    userId: CurrentUser._id,
+    productId: item.productId,
+    mau: item.mau,
+    size: item.size,
   };
-  var handleRemoveItem = async (id) => {
-    dispatch(RemoveItemCart(id));
-    dispatch(fetchCart(localStorage.getItem("uid")));
+
+  const onChange = async (giatri) => {
+    if (giatri === 0) {
+      handleRemoveItem();
+      setvalue(0);
+    } else if (giatri > value) {
+      dispatch(sub1OnCart(body));
+    }
+  };
+
+  var handleRemoveItem = async () => {
+    dispatch(deleteProductonCart(body));
   };
 
   return (
@@ -28,7 +41,7 @@ function CartItem({ islast, item }) {
         <button
           className="text-[1.6em] text-gray-400 "
           onClick={() => {
-            handleRemoveItem(item.id);
+            handleRemoveItem();
           }}
         >
           <FontAwesomeIcon icon={faXmark} />
@@ -71,9 +84,9 @@ function CartItem({ islast, item }) {
         <InputNumber
           style={{ minWidth: "88px" }}
           size="medium"
-          min={1}
+          min={0}
           max={20}
-          defaultValue={item.quantity}
+          defaultValue={value}
           onChange={onChange}
         />
       </div>

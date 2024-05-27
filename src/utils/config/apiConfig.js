@@ -20,6 +20,7 @@ export const apiConfig = {
   },
   product: {
     getAllProducts: cfchild.product + "getAllProducts",
+    getProductByID: cfchild.product + "getProductByID",
     findProductByTitle: cfchild.product + "findProductByTitle",
     findProductNewIn: cfchild.product + "findProductNewIn",
   },

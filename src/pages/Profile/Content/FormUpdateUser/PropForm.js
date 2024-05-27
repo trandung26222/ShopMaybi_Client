@@ -4,12 +4,6 @@ import {
   GioiTinhValidator,
   NgaysinhValidator,
 } from "./ValidateForm";
-import { UpdateProfile } from "./UpdateProfile";
-
-const onFinish = (values) => {
-  values.ngaysinh = values.ngaysinh.$d;
-  UpdateProfile(values);
-};
 
 const onFinishFailed = (errorInfo) => {
   console.log("Failed:", errorInfo);
@@ -25,7 +19,6 @@ export var propsMainForm = {
   style: {
     maxWidth: 510,
   },
-  onFinish: onFinish,
   onFinishFailed: onFinishFailed,
   autoComplete: "off",
   labelAlign: "left",

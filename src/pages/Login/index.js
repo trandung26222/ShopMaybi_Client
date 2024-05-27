@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import BreadCrumb from "~/components/BreadCrumb";
@@ -7,9 +7,10 @@ import { Carousel } from "antd";
 import { GoogleIcon, EyeIcon } from "~/components/Icon/Icon";
 import { LoadingOutlined } from "@ant-design/icons";
 import { Spin } from "antd";
-import { LoginEmailPassword } from "~/redux/CallFireBase/LoginEmailPassword";
+import { LoginEmailPassword } from "~/CallFireBase/LoginEmailPassword";
 import { statusFetch } from "~/utils/statusFetch";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
 
 const ImgRight = () => {
   var imgarray = [
@@ -64,10 +65,11 @@ function Login() {
   var [email, setEmail] = useState("");
   var [password, setPassword] = useState("");
   var [stateLogin, setStateLogin] = useState(statusFetch.IDLE);
+  var dispatch = useDispatch();
 
   const handlelogin = (e) => {
     e.preventDefault();
-    LoginEmailPassword(email, password, setStateLogin, navigate);
+    LoginEmailPassword(email, password, setStateLogin, navigate, dispatch);
   };
 
   return (

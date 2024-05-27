@@ -1,7 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
-
 const initState = {
-  count: 0,
+  data: {},
 };
 
 export const testSlice = createSlice({

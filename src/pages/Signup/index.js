@@ -1,44 +1,18 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useState } from "react";
-import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
-import { auth, db } from "~/firebase";
-import { setDoc, doc } from "firebase/firestore";
 import BreadCrumb from "~/components/BreadCrumb";
-import { showMessage, typeMessage } from "~/utils/showMessage";
+import { SignUpEmailPassWord } from "~/CallFireBase/SignUpEmailPassWord";
+import { useDispatch } from "react-redux";
 
 function Signup(props) {
   var [email, setEmail] = useState("");
   var [username, setUserName] = useState("");
   var [password, setPassword] = useState("");
+  var dispatch = useDispatch();
   const signup = async (e) => {
     e.preventDefault();
-    createUserWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {
-        const user = userCredential.user;
-        if (user) {
-          showMessage(typeMessage.success, "Bạn đã tạo tài khoản thành công!");
-          updateProfile(auth.currentUser, {
-            displayName: username,
-          })
-            .then(() => {
-              showMessage(typeMessage.success, "Updated");
-            })
-            .catch((error) => {
-              showMessage(typeMessage.error, "Error updating user");
-            });
-        }
-        return user;
-      })
-      .then((user) => {
-        setDoc(doc(db, "Users", user.uid), {
-          username: username,
-          email: email,
-        });
-      })
-      .catch((error) => {
-        showMessage(typeMessage.error, "Lỗi khi tạo tài khoản");
-      });
+    SignUpEmailPassWord(username, email, password, dispatch);
   };
 
   return (

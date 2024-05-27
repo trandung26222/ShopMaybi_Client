@@ -11,7 +11,7 @@ import { faEllipsisVertical } from "@fortawesome/free-solid-svg-icons";
 import { Popover } from "antd";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
-import { LogOut } from "~/redux/CallFireBase/LogOut";
+import { LogOut } from "~/CallFireBase/LogOut";
 
 var dataCurentUserTrue = [
   {

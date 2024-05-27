@@ -13,8 +13,8 @@ import CircularProgress from "@mui/material/CircularProgress";
 function Collection({ props }) {
   var CartPreview = useSelector((s) => s.ElementDomSlice.CartPreview);
   var CurrentProduct = useSelector((s) => s.CurrentProductSlice.CurrentProduct);
-  var ProductData = useSelector((s) => s.ProductDataSlice.ProductData);
-  var statusFetchProduct = useSelector((s) => s.ProductDataSlice.status);
+  var Products = useSelector((s) => s.ProductSlice.Products);
+  var statusFetchProduct = useSelector((s) => s.ProductSlice.status);
 
   var [tuychon, settuychon] = useState("default");
   var [Data, setData] = useState([]);
@@ -22,7 +22,7 @@ function Collection({ props }) {
   useEffect(() => {
     switch (tuychon) {
       case "default":
-        setData((pre) => [...ProductData]);
+        setData((pre) => [...Products]);
         break;
       case "az":
         setData((prevData) =>
@@ -41,14 +41,14 @@ function Collection({ props }) {
         setData((prevData) => [...prevData].sort((a, b) => b.gia - a.gia));
         break;
       case "hangmoi":
-        setData((pre) => [...ProductData]);
+        setData((pre) => [...Products]);
         break;
       default:
     }
   }, [tuychon]);
   useEffect(() => {
-    setData((pre) => [...ProductData]);
-  }, [ProductData]);
+    setData((pre) => [...Products]);
+  }, [Products]);
 
   return (
     <div className="w-full h-auto">

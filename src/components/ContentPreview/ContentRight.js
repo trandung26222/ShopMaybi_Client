@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import { InputNumber } from "antd";
-import { useSelector } from "react-redux";
-import { addDoc, collection } from "firebase/firestore";
-import { db } from "~/firebase";
+import { useSelector, useDispatch } from "react-redux";
 import ColorItem from "../ItemProduct/ColorItem";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Checkbox from "antd/es/checkbox/Checkbox";
@@ -10,6 +8,7 @@ import { faGift } from "@fortawesome/free-solid-svg-icons";
 import { showMessage } from "~/utils/showMessage";
 import { typeMessage } from "~/utils/showMessage";
 import { Int2VND } from "~/help/Int2VND";
+import { addToCart } from "~/CallAPI/cart";
 
 const category = [
   { label: "S", value: "S" },
@@ -20,6 +19,7 @@ const category = [
 ];
 
 function ContentRight({ CurrentProduct }) {
+  var dispatch = useDispatch();
   const [indexColorClick, setindexColorClick] = useState(0);
   const [size, setSize] = useState("");
 
@@ -34,21 +34,25 @@ function ContentRight({ CurrentProduct }) {
   var handleinputnumber = () => {
     setsoluongsanpham((pre) => pre + 1);
   };
+
   var handlethemgiohang = async () => {
+    console.log(CurrentProduct);
+
     var data = {
-      uid: localStorage.getItem("uid").toString(),
-      productid: CurrentProduct.id,
+      userId: CurrentUser._id,
+      productId: CurrentProduct._id,
       quantity: soluongsanpham,
       size: size,
       mau: CurrentProduct.color[indexColorClick],
     };
     if (CurrentUser.has) {
-      await addDoc(collection(db, "Cart"), data);
+      console.log(data);
+      dispatch(addToCart(data));
       showMessage(
         typeMessage.success,
         "Thêm sản phẩm vào giỏ hàng thành công!"
       );
-      window.location.reload();
+      // window.location.reload();
     } else {
       showMessage(
         typeMessage.warning,

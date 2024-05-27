@@ -6,7 +6,7 @@ import { useSelector } from "react-redux";
 import { statusFetch } from "~/utils/statusFetch";
 
 function Section1(props) {
-  var statusFetchDataProduct = useSelector((s) => s.ProductDataSlice.status);
+  var statusFetchDataProduct = useSelector((s) => s.ProductSlice.status);
   var backgroundimg = [
     "https://theme.hstatic.net/1000341902/1001140246/14/slider_3.jpg?v=754",
     "https://theme.hstatic.net/1000341902/1001140246/14/slider_1.jpg?v=763",

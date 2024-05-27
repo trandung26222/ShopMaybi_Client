@@ -12,6 +12,7 @@ export const getCurrentUser = createAsyncThunk(
     const milliseconds = dateObject.valueOf();
 
     tmp.ngaysinh = milliseconds;
+    localStorage.setItem("_id", tmp._id);
 
     return tmp;
   }
@@ -19,5 +20,11 @@ export const getCurrentUser = createAsyncThunk(
 
 export const updateProfile = createAsyncThunk("updateProfile", async (data) => {
   const res = await axios.put(apiConfig.profile.updateProfile, data);
+  console.log(res.data);
+  return data;
+});
+
+export const addProfile = createAsyncThunk("addProfile", async (data) => {
+  await axios.post(apiConfig.profile.addProfile, data);
   return data;
 });

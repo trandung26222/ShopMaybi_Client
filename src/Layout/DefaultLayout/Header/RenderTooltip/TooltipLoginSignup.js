@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
-import { LogOut } from "~/redux/CallFireBase/LogOut";
+import { LogOut } from "~/CallFireBase/LogOut";
 
 function TooltipLoginSignup() {
   var dispatch = useDispatch();

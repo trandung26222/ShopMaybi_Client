@@ -6,7 +6,7 @@ import { tinhtonggia } from "~/help/tinhtonggia";
 import { Int2VND } from "~/help/Int2VND";
 
 function TooltipCart() {
-  var DataCart = useSelector((s) => s.CurrentCartSlice.CurrentCart);
+  var DataCart = useSelector((s) => s.CartSlice.Cart);
   var CurrentUser = useSelector((s) => s.CurrentUserSlice.CurrentUser);
   var tonggia = tinhtonggia(DataCart);
 

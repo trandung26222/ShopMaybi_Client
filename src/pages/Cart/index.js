@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { styled } from "@mui/material/styles";
 import BreadCrumb from "~/components/BreadCrumb";
 import { LinearProgress } from "@mui/material";
@@ -6,7 +6,7 @@ import { linearProgressClasses } from "@mui/material";
 import CardGiftcardIcon from "@mui/icons-material/CardGiftcard";
 import Grid from "@mui/material/Grid";
 import CartItem from "./CartItem";
-import { useSelector } from "react-redux";
+import { useSelector, dispatch } from "react-redux";
 import { tinhtonggia } from "~/help/tinhtonggia";
 import { tinhtongquantity } from "~/help/tinhtongquantity";
 import { Int2VND } from "~/help/Int2VND";
@@ -26,7 +26,8 @@ const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
 }));
 
 function Cart() {
-  var DataCart = useSelector((s) => s.CurrentCartSlice.CurrentCart);
+  var DataCart = useSelector((s) => s.CartSlice.Cart);
+
   var MoneyGift = 499000;
   var tonggia = tinhtonggia(DataCart);
   var soluongsanpham = tinhtongquantity(DataCart);
@@ -86,10 +87,10 @@ function Cart() {
           <Grid item xl={9} xs={12}>
             <div className={`w-full`}>
               {DataCart &&
-                DataCart.map((c) => {
+                DataCart.map((c, index) => {
                   return (
                     <CartItem
-                      key={c.id}
+                      key={index}
                       islast={c.id === DataCart.length - 1 ? true : false}
                       item={c}
                     />

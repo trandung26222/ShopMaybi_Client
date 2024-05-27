@@ -9,8 +9,9 @@ import {
   propUserName,
 } from "../FormUpdateUser/PropForm";
 import { optionChonGioiTinh } from "../FormUpdateUser/PropForm";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import moment from "moment";
+import { UpdateProfile } from "./UpdateProfile";
 
 const dateFormat = "YYYY/MM/DD";
 
@@ -18,10 +19,14 @@ const FormUpdateUser = () => {
   var CurrentUser = useSelector((s) => s.CurrentUserSlice.CurrentUser);
   let date = new Date(CurrentUser.ngaysinh);
   const initngaysinh = moment(date.toString());
+  var dispatch = useDispatch();
 
   return (
     <Form
       {...propsMainForm}
+      onFinish={(data) => {
+        UpdateProfile(dispatch, data);
+      }}
       initialValues={{
         username: CurrentUser.username,
         phonenumber: CurrentUser.phonenumber,
