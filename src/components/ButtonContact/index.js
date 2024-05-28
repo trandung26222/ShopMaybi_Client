@@ -12,7 +12,7 @@ function ButtonContact() {
       },
       {
         ic: zalo,
-        p: "Chat với chúng tôi qua Zalo",
+        p: "Liên hệ qua Zalo",
       },
       {
         ic: vitri,
@@ -26,13 +26,17 @@ function ButtonContact() {
     return (
       <Flex
         vertical
-        className="absolute right-0 bottom-0 w-[271px] h-[237px] bg-white rounded-lg px-5"
+        className="absolute right-0 bottom-0 w-[271px] h-[237px] bg-white rounded-lg px-5 border shadow-lg"
       >
         {arr.map((item) => {
           return (
-            <Flex justify="space-between" align="center" className="flex-1">
+            <Flex
+              justify="space-between"
+              align="center"
+              className="flex-1 relative"
+            >
               <>{item.ic()}</>
-              <p className="text-[16px]">{item.p}</p>
+              <p className="text-[16px] absolute left-14 ">{item.p}</p>
             </Flex>
           );
         })}

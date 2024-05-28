@@ -47,7 +47,7 @@ function TooltipCart() {
           </Link>
         </div>
       )}
-      {DataCart.length <= 0 && (
+      {CurrentUser.has && DataCart.length <= 0 && (
         <div className="m-[auto] flex flex-col items-center text-[16px] gap-3">
           Bạn chưa có sản phẩm nào trong giỏ hàng!
           <Link
