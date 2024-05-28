@@ -1,10 +1,9 @@
 import React from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEye } from "@fortawesome/free-regular-svg-icons";
 import { useDispatch } from "react-redux";
 import { toggleCartPreview } from "~/redux/slices/ElementDomSlice";
 import { setCurrentProduct } from "~/redux/slices/CurrentProductSlice";
 import { Tooltip } from "antd";
+import { IoEyeOutline } from "react-icons/io5";
 
 function BtnXemNhanh({ props }) {
   var dispatch = useDispatch();
@@ -16,9 +15,9 @@ function BtnXemNhanh({ props }) {
     <Tooltip title="Xem nhanh" arrow placement="top">
       <button
         onClick={handleClick}
-        className="flex-1 hover:bg-[rgba(0,0,0,0.3)]"
+        className="flex-1 hover:bg-[rgba(0,0,0,0.1)] flex items-center justify-center "
       >
-        <FontAwesomeIcon icon={faEye} className="text-[1em]" />
+        <IoEyeOutline size={16} />
       </button>
     </Tooltip>
   );

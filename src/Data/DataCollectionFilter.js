@@ -5,6 +5,13 @@ export const mucgia = [
   "300,000₫ - 400,000₫",
   "Giá trên 500,000₫",
 ];
+export const valuefiletermucgia = [
+  [0, 100000],
+  [100000, 200000],
+  [200000, 300000],
+  [300000, 400000],
+  [500000, Infinity],
+];
 
 export const loai = [
   "Áo Gilet",

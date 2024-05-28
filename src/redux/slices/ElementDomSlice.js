@@ -4,6 +4,7 @@ const initState = {
   BackToTopButton: false,
   Sidebar: false,
   CartPreview: false,
+  Search: false,
 };
 
 export const TippyCartSlice = createSlice({
@@ -19,13 +20,16 @@ export const TippyCartSlice = createSlice({
     toggleCartPreview: (state) => {
       state.CartPreview = !state.CartPreview;
     },
+    toggleSearch: (state) => {
+      state.Search = !state.Search;
+    },
   },
 });
 
 export const {
-  toggleTippyCart,
   toggleBackToTopButton,
   toggleSidebar,
   toggleCartPreview,
+  toggleSearch,
 } = TippyCartSlice.actions;
 export default TippyCartSlice.reducer;

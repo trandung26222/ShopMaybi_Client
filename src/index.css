@@ -60,3 +60,52 @@ html {
   height: 100%;
   object-fit: contain;
 }
+
+.text-overflow-2-lines {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* Số lượng dòng tối đa */
+  -webkit-box-orient: vertical;
+  min-height: 3em; /* Tối thiểu chiều cao */
+  line-height: 1.5em; /* Chiều cao của mỗi dòng */
+}
+
+.css-dev-only-do-not-override-17seli4.ant-float-btn.ant-float-btn-primary.ant-float-btn-circle {
+  left: 80px;
+}
+.round-button {
+  width: 60px; /* Đặt kích thước chiều rộng */
+  height: 60px; /* Đặt kích thước chiều cao */
+  border-radius: 50%; /* Đặt hình dạng thành hình tròn */
+  background-color: #ff9736; /* Màu nền của nút */
+  border: none; /* Loại bỏ viền */
+  color: white; /* Màu chữ */
+  font-size: 16px; /* Kích thước chữ */
+  border: 1px solid white;
+}
+.icon-shake {
+  animation: combined-animation 2s ease infinite;
+}
+
+@keyframes combined-animation {
+  0% {
+    transform: rotate(0deg);
+    box-shadow: 0 0 0 0 rgba(0, 123, 255, 0.7);
+  }
+  25% {
+    transform: rotate(15deg);
+    box-shadow: 0 0 0 20px rgba(0, 123, 255, 0);
+  }
+  50% {
+    transform: rotate(-15deg);
+    box-shadow: 0 0 0 20px rgba(0, 123, 255, 0);
+  }
+  75% {
+    transform: rotate(10deg);
+    box-shadow: 0 0 0 20px rgba(0, 123, 255, 0);
+  }
+  100% {
+    transform: rotate(0deg);
+    box-shadow: 0 0 0 0 rgba(0, 123, 255, 0);
+  }
+}

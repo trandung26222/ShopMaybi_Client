@@ -1,16 +1,23 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Checkbox } from "antd";
 import { mucgia, loai } from "~/Data/DataCollectionFilter";
 import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronDown, faChevronUp } from "@fortawesome/free-solid-svg-icons";
 
-function LeftContent() {
-  const onChange = (e) => {
-    console.log(`checked = ${e.target.checked}`);
-  };
+function LeftContent({ settuychon, setarrCheck }) {
   var [soluongcheckbox, setsoluongcheckbox] = useState(5);
   var [expand, setExpand] = useState({ p: "Xem thêm", icon: faChevronDown });
+  const onChange = (e, index) => {
+    e.preventDefault();
+    var { checked } = e.target;
+    if (checked) {
+      setarrCheck((pre) => [...pre, index]);
+      settuychon("filterCost");
+    } else {
+      setarrCheck((pre) => pre.filter((item) => item !== index));
+    }
+  };
 
   return (
     <div className="left w-[250px] h-fit  hidden lg:block pl-3">
@@ -19,7 +26,13 @@ function LeftContent() {
         {mucgia.map((item, index) => {
           return (
             <span key={index} className="my-1">
-              <Checkbox onChange={onChange}>{item}</Checkbox>
+              <Checkbox
+                onChange={(e) => {
+                  onChange(e, index);
+                }}
+              >
+                {item}
+              </Checkbox>
             </span>
           );
         })}

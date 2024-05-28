@@ -17,8 +17,8 @@ function Section4() {
 
       <Grid
         container
-        rowSpacing={2}
-        columnSpacing={2}
+        rowSpacing={3}
+        columnSpacing={3}
         justifyContent={"flex-center"}
       >
         {Products.map((i) => (

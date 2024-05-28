@@ -8,25 +8,34 @@ import { Link } from "react-router-dom";
 //----------------------------------------------------------------
 import Menu from "./MiddleMenu";
 import TooltipMobile from "./RenderTooltip/TooltipMobile";
-import LeftMenu from "./RightMenu";
+import { useSelector } from "react-redux";
+import Search from "./Search";
+import RightMenu from "./RightMenu";
 
 function Header() {
   var mainClassName = `bg-white  z-[2] sticky top-0 w-full
    h-[var(--height-header)]  flex items-center
   px-[var(--padding-header)] justify-between shadow-lg xl:text-[16px] xs:text-[13px]`;
 
+  var search = useSelector((s) => s.ElementDomSlice.Search);
+
   return (
-    <header className={mainClassName}>
-      <BtnMenuLeft />
-      <ImgLogo />
-      <Menu />
-      <LeftMenu />
-      <TooltipMobile />
-    </header>
+    <>
+      {search && <Search />}
+      <header className={mainClassName}>
+        <BtnMenuLeft />
+        {/* responsive */}
+        <ImgLogo />
+        <Menu />
+        <RightMenu />
+        <TooltipMobile />
+        {/* responsive */}
+      </header>
+    </>
   );
 }
 
-const ImgLogo = () => (
+export const ImgLogo = () => (
   <Link className="xl:mr-14 h-full" to={"/"}>
     <img
       className={`xs:h-full xl:h-auto object-contain  `}

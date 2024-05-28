@@ -4,6 +4,7 @@ import { useState, useRef } from "react";
 import Newin from "./Newin";
 import ProductInfo from "./ProductInfo";
 import BtnTuyChon from "./BtnTuyChon";
+import BtnYeuThich from "./BtnYeuThich";
 import BtnXemNhanh from "./BtnXemNhanh";
 import { useSelector } from "react-redux";
 
@@ -16,7 +17,7 @@ function ItemProduct({ props, option }) {
   const LinkRef = useRef();
   const SpanRef = useRef();
   var classNameOptions = `
-            absolute right-1/4 rounded-md w-1/2 h-[50px] bg-white flex text-[1rem]
+            absolute right-[16%] rounded-md w-2/3 h-[40px] bg-white flex text-[1rem]
              transition-transform duration-[600ms] ease-in-out overflow-hidden `;
 
   useEffect(() => {
@@ -24,24 +25,24 @@ function ItemProduct({ props, option }) {
       await new Promise((resolve) => setTimeout(resolve, 100));
       var tmp = LinkRef.current.clientHeight;
       if (SpanRef.current && option) {
-        SpanRef.current.style.top = `${tmp * 0.8}px`;
+        SpanRef.current.style.top = `${tmp * 0.82}px`;
       }
     };
     afterRender();
   }, []);
 
   return (
-    <div className="ITEMPRODUCT w-full  h-[auto] flex flex-col relative items-end">
+    <div className="ITEMPRODUCT w-full  h-[auto] flex flex-col relative items-end ">
       <Newin props={props} />
 
       {/* -----------------------------------------Product IMG-------------------------------------------- */}
       <Link
         ref={LinkRef}
         to={`/product/${props._id}`}
-        className="w-full bg-white h-fit shadow-slate-200 shadow overflow-hidden relative"
+        className="w-full bg-white h-fit shadow-slate-200 shadow overflow-hidden relative rounded-xl "
       >
         <img
-          className={`h-full object-contain transition-transform duration-[500ms] transform scale-100 ${
+          className={`h-full object-contain transition-transform rounded-xl duration-[500ms] transform scale-100 ${
             isHover && "scale-95"
           }`}
           src={
@@ -77,7 +78,7 @@ function ItemProduct({ props, option }) {
           }}
         >
           <BtnTuyChon props={props} />
-          <span className="w-[0.5px] h-full bg-gray-100"></span>
+          <BtnYeuThich props={props} />
           <BtnXemNhanh props={props} />
         </span>
       )}

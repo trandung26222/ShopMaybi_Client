@@ -17,12 +17,15 @@ export const deleteProductonCart = createAsyncThunk(
   }
 );
 
-export const sub1OnCart = createAsyncThunk("sub1OnCart", async (body) => {
-  await axios.post(apiConfig.cart.sub1OnCart, { data: body });
-  return body;
-});
-
 export const addToCart = createAsyncThunk("addToCart", async (body) => {
   var res = await axios.post(apiConfig.cart.addToCart, { data: body });
   return res.data;
 });
+
+export const changequantity = createAsyncThunk(
+  "changequantity",
+  async (body) => {
+    await axios.post(apiConfig.cart.changequantity, { data: body });
+    return body;
+  }
+);

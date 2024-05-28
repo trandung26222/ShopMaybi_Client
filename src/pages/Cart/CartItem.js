@@ -4,7 +4,7 @@ import { faXmark } from "@fortawesome/free-solid-svg-icons";
 import { InputNumber } from "antd";
 import { useSelector, useDispatch } from "react-redux";
 import { Int2VND } from "~/help/Int2VND";
-import { deleteProductonCart, sub1OnCart } from "~/CallAPI/cart";
+import { deleteProductonCart } from "~/CallAPI/cart";
 
 function CartItem({ islast, item }) {
   var dispatch = useDispatch();
@@ -20,9 +20,9 @@ function CartItem({ islast, item }) {
   const onChange = async (giatri) => {
     if (giatri === 0) {
       handleRemoveItem();
-      setvalue(0);
+      setvalue(giatri);
     } else if (giatri > value) {
-      dispatch(sub1OnCart(body));
+      setvalue(giatri);
     }
   };
 

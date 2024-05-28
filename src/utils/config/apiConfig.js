@@ -14,7 +14,7 @@ export const apiConfig = {
   },
   cart: {
     addToCart: cfchild.cart + "addToCart",
-    sub1OnCart: cfchild.cart + "sub1OnCart",
+    changequantity: cfchild.cart + "changequantity",
     deleteProductonCart: cfchild.cart + "deleteProductonCart",
     getCart: cfchild.cart + "getCart",
   },

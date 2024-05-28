@@ -12,7 +12,7 @@ function ProductInfo({ props, indexColorClick, setindexColorClick }) {
       </p>
       <Link
         to={`/product/${props._id}`}
-        className="hover:text-[var(--link-color)] font-bold text-[1.5em] transition-color duration-400 ease-in-out"
+        className="text-overflow-2-lines hover:text-[var(--link-color)] font-bold text-[1.5em] transition-color duration-400 ease-in-out"
         onClick={() => {}}
       >
         {props.title}

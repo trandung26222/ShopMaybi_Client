@@ -24,11 +24,11 @@ function Footer(props) {
       });
     });
   }, []);
-
+  // F4ECDE
   return (
     <footer
       className="text-[#393939] sticky 
-     w-full h-fit pb-[40px] bg-[#F4ECDE] shadow-lg"
+     w-full h-fit pb-[40px] bg-[#fff1d9] shadow-lg"
     >
       <Container className=" px-[15px] py-[80px]">
         <Grid columnSpacing={3} rowSpacing={3} container>

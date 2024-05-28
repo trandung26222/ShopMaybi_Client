@@ -9,13 +9,15 @@ import { useSelector } from "react-redux";
 import ContentPreview from "~/pages/Collection/ContentPreview";
 import { statusFetch } from "~/utils/statusFetch";
 import CircularProgress from "@mui/material/CircularProgress";
+import { valuefiletermucgia } from "~/Data/DataCollectionFilter";
+import { filterProductsByPrice } from "~/help/filterbyCost";
 
 function Collection({ props }) {
   var CartPreview = useSelector((s) => s.ElementDomSlice.CartPreview);
   var CurrentProduct = useSelector((s) => s.CurrentProductSlice.CurrentProduct);
   var Products = useSelector((s) => s.ProductSlice.Products);
   var statusFetchProduct = useSelector((s) => s.ProductSlice.status);
-
+  var [arrCheck, setarrCheck] = useState([]);
   var [tuychon, settuychon] = useState("default");
   var [Data, setData] = useState([]);
 
@@ -43,12 +45,31 @@ function Collection({ props }) {
       case "hangmoi":
         setData((pre) => [...Products]);
         break;
+      case "filterCost":
+        setData(
+          Data.filter((product) => {
+            for (var check in arrCheck) {
+              var [minPrice, maxPrice] = check;
+              if (product.gia >= minPrice && product.gia <= maxPrice) {
+                return true;
+              }
+            }
+            return false;
+          })
+        );
+        break;
       default:
     }
   }, [tuychon]);
   useEffect(() => {
     setData((pre) => [...Products]);
   }, [Products]);
+
+  useEffect(() => {
+    arrCheck.forEach((index) => {
+      console.log(valuefiletermucgia[index]);
+    });
+  }, [arrCheck]);
 
   return (
     <div className="w-full h-auto">
@@ -68,12 +89,12 @@ function Collection({ props }) {
         />
 
         <div className="flex">
-          <LeftContent />
+          <LeftContent settuychon={settuychon} setarrCheck={setarrCheck} />
           <div className="flex-1">
             <Grid
               container
-              rowSpacing={2}
-              columnSpacing={2}
+              rowSpacing={3}
+              columnSpacing={3}
               justifyContent={"flex-start"}
             >
               {statusFetchProduct === statusFetch.LOADING && (

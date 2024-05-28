@@ -7,6 +7,8 @@ import SideBar from "./Sidebar";
 import Coat from "./Coat";
 import Footer from "./Footer";
 import BackToTopButton from "~/components/BackToTopButton";
+import ButtonContact from "~/components/ButtonContact";
+import ButtonNotification from "~/components/ButtonNotification";
 
 function DefaultLayout({ children }) {
   var Sidebar = useSelector((state) => state.ElementDomSlice.Sidebar);
@@ -21,6 +23,8 @@ function DefaultLayout({ children }) {
       {children}
       <Footer />
       <BackToTopButton getContainerRef={() => conRef.current} />
+      <ButtonNotification />
+      <ButtonContact />
     </div>
   );
 }

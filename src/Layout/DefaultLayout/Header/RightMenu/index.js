@@ -7,6 +7,8 @@ import { Link } from "react-router-dom";
 import { Popover } from "antd";
 import TootipLoginSignup from "../RenderTooltip/TooltipLoginSignup";
 import TooltipCart from "../RenderTooltip/TooltipCart";
+import { useDispatch } from "react-redux";
+import { toggleSearch } from "~/redux/slices/ElementDomSlice";
 
 var items = [
   {
@@ -28,10 +30,15 @@ function RightMenu(props) {
   cursor-pointer gap-[5px] px-1 py-1 rounded transition-opacity 
   duration-[300ms] ease-in-out hover:opacity-[0.5] text-[1em]`;
   var classNamePaction = "whitespace-nowrap text-[0.85em] font-[400]";
-
+  var dis = useDispatch();
   return (
     <div className=" items-center gap-4 xl:flex  xs:hidden ">
-      <button className={classNamebtnaction}>
+      <button
+        className={classNamebtnaction}
+        onClick={() => {
+          dis(toggleSearch());
+        }}
+      >
         {items[0].icon}
         <p className={classNamePaction}>{items[0].p}</p>
       </button>
