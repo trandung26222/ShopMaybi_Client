@@ -13,17 +13,17 @@ import storage from "redux-persist/lib/storage";
 const persistConfig = {
   key: "root",
   storage,
-  whitelist: ["testSlice", "CurrentUserSlice", "CartSlice"],
+  whitelist: ["CurrentUserSlice", "CartSlice"],
 };
 
 const reducer = combineReducers({
   responsive: ResponsiveSlice,
   ElementDomSlice: ElementDomSlice,
   CurrentUserSlice: CurrentUserSlice,
-  testSlice: testSlice,
   CartSlice: CartSlice,
   ProductSlice: ProductSlice,
   CurrentProductSlice: CurrentProductSlice,
+  testSlice: testSlice,
 });
 
 const persistedReducer = persistReducer(persistConfig, reducer);

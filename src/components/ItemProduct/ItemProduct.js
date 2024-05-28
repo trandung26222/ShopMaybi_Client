@@ -23,7 +23,9 @@ function ItemProduct({ props, option }) {
   useEffect(() => {
     var afterRender = async () => {
       await new Promise((resolve) => setTimeout(resolve, 100));
-      var tmp = LinkRef.current.clientHeight;
+      if (LinkRef.current) {
+        var tmp = LinkRef.current.clientHeight;
+      }
       if (SpanRef.current && option) {
         SpanRef.current.style.top = `${tmp * 0.82}px`;
       }
@@ -39,7 +41,7 @@ function ItemProduct({ props, option }) {
       <Link
         ref={LinkRef}
         to={`/product/${props._id}`}
-        className="w-full bg-white h-fit shadow-slate-200 shadow overflow-hidden relative rounded-xl "
+        className="w-full bg-white h-fit shadow-md  overflow-hidden relative rounded-xl "
       >
         <img
           className={`h-full object-contain transition-transform rounded-xl duration-[500ms] transform scale-100 ${

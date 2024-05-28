@@ -5,6 +5,7 @@ import { getProductByID } from "~/CallAPI/product";
 
 const initState = {
   Products: [],
+  totalProducts: 1,
   status: statusFetch.IDLE,
   ProductPage: {},
 };
@@ -19,7 +20,8 @@ export const ProductSlice = createSlice({
     });
     builder.addCase(getAllProducts.fulfilled, (state, action) => {
       state.status = statusFetch.IDLE;
-      state.Products = action.payload;
+      state.Products = action.payload.products;
+      state.totalProducts = action.payload.totalProducts;
     });
     builder.addCase(getAllProducts.rejected, (state, action) => {
       state.status = statusFetch.FAILED;

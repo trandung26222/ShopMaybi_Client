@@ -8,9 +8,8 @@ import ImgBackground from "./ImgBackground";
 import { useSelector } from "react-redux";
 import ContentPreview from "~/pages/Collection/ContentPreview";
 import { statusFetch } from "~/utils/statusFetch";
-import CircularProgress from "@mui/material/CircularProgress";
 import { valuefiletermucgia } from "~/Data/DataCollectionFilter";
-import { filterProductsByPrice } from "~/help/filterbyCost";
+import Loading from "~/components/Loading";
 
 function Collection({ props }) {
   var CartPreview = useSelector((s) => s.ElementDomSlice.CartPreview);
@@ -97,12 +96,7 @@ function Collection({ props }) {
               columnSpacing={3}
               justifyContent={"flex-start"}
             >
-              {statusFetchProduct === statusFetch.LOADING && (
-                <div className="flex justify-center w-full mt-6 mb-6">
-                  <CircularProgress size={18} sx={{ color: "gray" }} />
-                  <p className="ml-4 text-[1.4em]">Đang tải dữ liệu...</p>
-                </div>
-              )}
+              {statusFetchProduct === statusFetch.LOADING && <Loading />}
               {Data &&
                 Data.map((i, index) => (
                   <Grid item key={index} lg={3} md={3} sm={4} xs={4}>

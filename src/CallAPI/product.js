@@ -2,8 +2,8 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 import { apiConfig } from "~/utils/config/apiConfig";
 import axios from "axios";
 
-export const getAllProducts = createAsyncThunk("getAllProducts", async () => {
-  var res = await axios.get(apiConfig.product.getAllProducts);
+export const getAllProducts = createAsyncThunk("getAllpr", async (params) => {
+  var res = await axios.get(apiConfig.product.getAllProducts, { params });
   await new Promise((resolve) => setTimeout(resolve, 1000));
   return res.data;
 });

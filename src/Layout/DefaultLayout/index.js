@@ -9,6 +9,7 @@ import Footer from "./Footer";
 import BackToTopButton from "~/components/BackToTopButton";
 import ButtonContact from "~/components/ButtonContact";
 import ButtonNotification from "~/components/ButtonNotification";
+import { ConfigProvider } from "antd";
 
 function DefaultLayout({ children }) {
   var Sidebar = useSelector((state) => state.ElementDomSlice.Sidebar);
@@ -16,17 +17,25 @@ function DefaultLayout({ children }) {
   var mainClassName =
     "relative w-[100vw] h-[100vh] overflow-y-auto scroll-setting";
   return (
-    <div ref={conRef} className={mainClassName}>
-      {Sidebar && <SideBar />}
-      {Sidebar && <Coat />}
-      <Header />
-      {children}
-      <Footer />
-      <BackToTopButton getContainerRef={() => conRef.current} />
-      <ButtonNotification />
-      <ButtonContact />
-    </div>
+    <ConfigProvider theme={theme}>
+      <div ref={conRef} className={mainClassName}>
+        {Sidebar && <SideBar />}
+        {Sidebar && <Coat />}
+        <Header />
+        {children}
+        <Footer />
+        <BackToTopButton getContainerRef={() => conRef.current} />
+        <ButtonNotification />
+        <ButtonContact />
+      </div>
+    </ConfigProvider>
   );
 }
+
+var theme = {
+  token: {
+    colorPrimary: "#fd7a00",
+  },
+};
 
 export default DefaultLayout;
